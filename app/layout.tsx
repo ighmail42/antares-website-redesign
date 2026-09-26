@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     siteName: `Antares | FRC Team ${site.teamNumber}`,
     images: ["/team-photos/team-2026.webp"],
   },
+  // Preview deployments set SITE_NOINDEX so a draft never outranks the real
+  // site. See .github/workflows/nextjs.yml.
+  robots: process.env.SITE_NOINDEX ? { index: false, follow: false } : undefined,
   icons: {
     icon: "/brand/dark-icon.png",
     shortcut: "/brand/dark-icon.png",

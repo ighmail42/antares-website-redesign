@@ -74,6 +74,11 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        # Set the SITE_NOINDEX repository variable on any preview deployment so
+        # a draft copy of the site never competes with team6962.com in search
+        # results. Unset, as it is on the real site, the build indexes normally.
+        env:
+          SITE_NOINDEX: ${{ vars.SITE_NOINDEX }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
