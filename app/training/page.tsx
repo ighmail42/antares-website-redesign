@@ -1,312 +1,116 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+
+import { Accordion } from "@/components/accordion/accordion";
+import { CtaBand } from "@/components/cta-band/cta-band";
+import { PageHero } from "@/components/page-hero/page-hero";
+import { Reveal } from "@/components/reveal/reveal";
+import { trainingSections } from "@/content/training";
+import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Training",
+  description:
+    "The training materials Antares uses to teach new students design, build, electrical, code, fabrication, marketing, business and outreach. Free for other teams to use.",
+};
 
 export default function TrainingPage() {
   return (
-    <main className="site-page">
-
-      <h1 className="page-title">Training Materials</h1>
-
-      <p>
-        This offseason, Antares is publishing its training materials for teaching
-        new students robotics skills, so that other teams can benefit from our
-        resources. Note that these resources are primarily designed for our own
-        team, so some of the content may be less applicable to other teams.
-      </p>
-
-      <h2 id="design">Design</h2>
-      <p>These classes are taught alongside asynchronous work on <Link href="https://frcdesign.org" target="_blank">FRCDesign.org</Link>.</p>
-      <ul>
-        <li><Link href="https://docs.google.com/presentation/d/1y6CVohvNlVMuyJYbqoWGRwai65YSwGhYqb1wFwluY-w/present" target="_blank">Spot It Activity & Decluttering</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1BMZ41dnS_5UMpBF6OQEsHoPmNlZ0NUGqabzFeW-GXr4/present" target="_blank">COTS Parts & FRCDesign.org</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/16MaBvhZREUiw3Qs5XcEiccIjIAZkScC28zNIPyIwjVs/present" target="_blank">Rigidity</Link></li>
-      </ul>
-
-      <hr />
-
-      <h2 id="build">Build</h2>
-      <ul>
-        <li><Link href="https://docs.google.com/presentation/d/1POnJrlT_g4C0MVwWhFxP8AF2Q9TZvM2Sjyb5PpVmaWI/present" target="_blank">Fasteners</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1Hyami-yqCSAG2CkHcU7fwzItvZRnwQgRYa1GPpVV_7Q/present" target="_blank">Measuring and Cutting Pt. 1</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/182Aif_00ry8ug8o35t0KR2eTBJLRVltnG9Ha6ynkM4g/present" target="_blank">Measuring and Cutting Pt. 2</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1EVYVoFDf3Iqhb0v_Q-5tDpwHj3n2xXau_FlqAvpKuxo/present" target="_blank">Measuring and Cutting Final Project</Link></li>
-      </ul>
-      {/* <VideoCard
-        title="Introduction to Mechanics"
-        description={`Classical mechanics is at the heart of FRC, where forces move masses to score and win matches.  And,
-      when misapplied, those same forces can tip, flip, and break robots.  Here, we'll preview concepts covered
-      in this video series (motion, force, work, mass) and some useful relationships between them.`}
-        youtubeId="dQw4w9WgXcQ"
+    <main>
+      <PageHero
+        eyebrow="Training"
+        title="How we teach a sixth grader to build a robot"
+        lede="Antares publishes its training curriculum so other teams can use it. These materials were written for our own students, so some of it is specific to how we work."
       />
-      <VideoCard
-        title="Motion"
-        description={`Motion can be immensely complex.  We'll focus on two particularly useful special cases, linear and rotational motion.
-      In each case, we'll look at ways to describe position, veloccity, and acceleration and discuss how these three
-      characteristics of motion are related.`}
-        youtubeId="dQw4w9WgXcQ"
+
+      <section className="section">
+        <div className="shell">
+          <Reveal className={styles.jumpBar}>
+            <span className={styles.jumpLabel}>Jump to</span>
+            <ul className={styles.jumpList}>
+              {trainingSections.map((section) => (
+                <li key={section.id}>
+                  <a className={styles.jumpLink} href={`#${section.id}`}>
+                    {section.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <div className={styles.sections}>
+            {trainingSections.map((section, index) => (
+              <Reveal key={section.id} delay={index * 50}>
+                <Accordion
+                  id={section.id}
+                  title={section.title}
+                  summary={section.summary}
+                  meta={
+                    section.resources.length > 0
+                      ? `${section.resources.length} ${section.resources.length === 1 ? "lesson" : "lessons"}`
+                      : "In progress"
+                  }
+                  defaultOpen={section.defaultOpen}
+                >
+                  {section.intro && <p className={styles.intro}>{section.intro}</p>}
+
+                  {section.comingSoon ? (
+                    <p className={styles.comingSoon}>{section.comingSoon}</p>
+                  ) : (
+                    <ul className={styles.resourceList}>
+                      {section.resources.map((resource) => (
+                        <li key={resource.title}>
+                          {resource.youtubeId ? (
+                            <div className={styles.video}>
+                              <iframe
+                                src={`https://www.youtube-nocookie.com/embed/${resource.youtubeId}`}
+                                title={resource.title}
+                                loading="lazy"
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                              <div>
+                                <h3 className={styles.resourceTitle}>{resource.title}</h3>
+                                {resource.description && (
+                                  <p className={styles.resourceDescription}>{resource.description}</p>
+                                )}
+                              </div>
+                            </div>
+                          ) : (
+                            <a
+                              className={styles.resource}
+                              href={resource.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <span className={styles.resourceMain}>
+                                <span className={styles.resourceTitle}>{resource.title}</span>
+                                {resource.description && (
+                                  <span className={styles.resourceDescription}>{resource.description}</span>
+                                )}
+                              </span>
+                              <span className={styles.resourceArrow} aria-hidden="true">
+                                &rarr;
+                              </span>
+                            </a>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </Accordion>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBand
+        eyebrow="Other teams"
+        title="Use anything here"
+        body="These materials are published for the FRC community. If something is unclear or you want the editable version, email the team and we will send it over."
+        primary={{ href: "/about", label: "About Antares" }}
+        secondary={{ href: "/history", label: "Our robots" }}
       />
-      <VideoCard
-        title="Force"
-        description={`Intuitively, a force is a push, pull or twist.  We'll see how to quantify both linear and rotational forces in
-      terms of Newtons and Newton-meters.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Friction"
-        description={`Here, we'll zoom in on friction, a force that resists motion between contacting surfaces.  Friction comes up everywhere
-      in FRC, both wreaking havoc and holding robots together.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Work, Energy, and Power"
-        description={`Work measures the energy needed to move a force over a distance.  Many FRC mechanisms recast work, trading off force
-      and distance, to create motion with the right balance of speed and strength.  We'll also look at power, which measures
-      how fast work is done.  Power will later emerge as a bridge between the mechanical and electrical worlds, two essential
-      aspects of FRC robotics.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Mass"
-        description={`Mass measures the amount of matter in an object.  We'll look at how mass is quantified and how it relates to weight.
-      Then we'll consider two quantities that summarize the distribution of mass in an object:  center-of-mass and moment of inertia.
-      Center of mass says a lot about robot stability, while moment of inertia describes how much effort is required to get
-      an object (like a shooter or intake roller) spinning.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Newton's Second Law"
-        description={`The speed of robots and mechanisms are critical to competitive success FRC.  Newton's Second Law quantifies the 
-      relationship between force, mass, and acceleration, allow us to reason about how fast robots and mechanisms can move.`}
-        youtubeId="dQw4w9WgXcQ"
-      /> */}
-
-      <hr />
-
-      <h2 id="electrical">Electrical</h2>
-
-      <p>
-        We&apos;re working on a series of videos that teach electrical theory
-        and our wiring practices. These are still in progress and will be available
-        soon!
-      </p>
-
-      {/* <h3 id="electrical-theory">Electrical Theory</h3>
-      <p>Coming soon!</p> */}
-      {/* <VideoCard
-        title="Introduction to Electricity"
-        description={`We'll look at the many ways electricity is used on FRC robot:  to power motors, send information, enable computation,
-      and shine cool LEDS.
-      This introduction previews the topics we'll cover in this video series, including basic concepts (charge, current, voltage,
-      power, and resistance), a couple equations (Ohm's Law and the power equation), and some special topics (safety, CAN, and ESD).`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Electric Charge"
-        description={`Electricity refers to a collection of phenomena associated with electric charge.  We'll look at charge at the atomic level,
-      talk about quantification of charge, and discuss how charged particles interact.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Electric Current"
-        description={`FRC robots are powered by movement of electric charge, or current.  We'll look at how current is quantified, how batteries
-      produce current, and places where an understanding of current is paricularly important in FRC.  This includes the battery,
-      main breaker, circuit breakers, and motor torque.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Voltage"
-        description={`Voltage reflects how much energy we can extract from a unit of charge moving between two points.  To build intuition,
-      we'll look at how masses moving between two points can release energy sufficient to power a primitive robot.  Then we'll
-      consider some places voltage comes up in FRC:  battery voltage, voltage for low-power devices, voltage regulation,
-      and motor speed.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Power"
-        description={`We'll look at power, which is how fast energy is delivered to the robot or a subsystem.  As intuition might suggest,
-      power is the amount of charge flowing in per second (current) multiplied by the energy delivered per unit charge
-      (voltage).  Power is a great reasoning tool, because the concept spans the electrical and mechanical worlds.  So we
-      can compute electrical power requirements for an action based on the mechanical behavior.     
-      `}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Resistance"
-        description={`This video covers resistance, which inhibits the flow of electric current.  Minimizing resistance in the power network
-      of an FRC robot reduces the amount of potentially-useful electrical power squandered as waste heat.  Common sources of
-      resistance include thin wires, poor connections, and battery internals.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Ohm's Law"
-        description={`Three of the concepts we've covered, current, voltage, and resistance are linked by a simple equation called Ohm's Law,
-      often written V = I R.  A vivid demonstration of Ohm's Law in FRC is provided by brownout, a temporary robot shutdown
-      induced by drawing more current than the robot's power system can provide.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Power Revisited"
-        description={`We'll combine Ohm's Law and the power equation to get a new relationship, P = I^2 R which says, "If you pump a lot
-      of current through a thin wire, you're gonna make a lot of heat."  We'll see how this relates to FRC breaker sizing
-      rules and powering a mechanism with multiple motors.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Electrical Safety"
-        description={`FRC rules aim to keep electrical use in a relatively safe range, but there are some risks.  Drawing upon the
-      theory we've learned, we'll consider risks of touching battery terminals, unprotected shorts, dropping and
-      overheating batteries, and breaker sizing.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="CAN"
-        description={`Electricity is also used to send data around the robot, and a lot is sent over CAN in particular.  When electricity
-      is used for high-speed communication, sub-microsecond phenomena that we could ignore in the context of power distribution
-      now loom large.  We'll discuss why CAN wires are twisted, the importance of wire lengths, and the purpose of
-      termination-- one place on a robot where resistance is essential.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="ESD"
-        description={`When different materials contact (like a gamepiece and a roller), charge may move preferentially in one direction,
-      causing a buildup of "static" or non-moving charge.  This can produce thousands of volts and trigger a sudden flow of
-      current called an electrostatic discharge (ESD).  Beyond a painful shock, ESD can cause peculiar and permanent damage
-      to electrical devices.`}
-        youtubeId="dQw4w9WgXcQ"
-      /> */}
-
-      {/* <h3 id="wiring">Wiring</h3>
-      <p>Coming soon!</p> */}
-      {/* <VideoCard
-        title="Introduction to Wiring"
-        description={`We'll frame the problem of wiring an FRC robot.  The goal is to secure a few hundred wires, connections,
-      and devices in a cramped space full of moving parts to enable both efficient power transfer and data
-      communication with zero failures over prolonged operation in abusive environment.  To achieve this goal,
-      we'll counsel against fixating on a particular widget variety (Molex SL vs. soldering vs. WAGO, etc.) and
-      for rigorous procedures to identify and mitigate threats to electrical reliability.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Threats"
-        description={`In this video, we'll talk about threats to the integrity of the electrical system:  loose connections, undersized wiring,
-      improperly-assembled connectors, broken connectors, physical blows, G-forces, ingestion into mechanical components,
-      metal fatigue, and insulation damage from abrasion.  Defending against these factors will motivate our subsequent
-      discussion of wiring practices.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Wires"
-        description={`We'll review the basics of plain wire: conductive material, resistance, gauge, flexibility strands, insulation, and color.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Data Wires"
-        description={`We'll look at USB and Ethernet wire bundles, including versions, connectors, and shielding.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Zip Ties"
-        description={`Zip ties seem simple, but these humble fasterners are so critical to secure robot wiring that the nuances are worth
-      understanding.  We'll look at sizes, getting a secure grip, removal, and safety.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Ten Principles of Secure Wiring"
-        description={`Plan placement of electrical components and wire paths during design.  Minimize electrical connections.
-      Practice your connection technique.  Minimize widgets on
-      conductive paths.  Bundle wires and then secure bundles to structure at close intervals.  Put slack and strain relief
-      next to each connection.  Secure wires close to moving parts.  No airborne wires.  Treat corners as wire strippers.
-      Beware electromagnetic interference.  Use large, tight connections for power.  RTFDS.  Focus on wires crossing between
-      moving parts.  Keep a high bending radius.  No connectors in drag chains.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Debugging CAN"
-        description={`CAN problems are common and annoying.  We'll go over some quick tricks to identify and correct issues.`}
-        youtubeId="dQw4w9WgXcQ"
-      /> */}
-
-      <hr />
-
-      <h2 id="code">Code</h2>
-
-      <h3>Java</h3>
-      <p>These Java training resources cover the basics of programming in
-        Java, including variables, operators, conditionals, loops, arrays,
-        lists, methods, objects, and classes. These resources are loosely
-        based on those created by <a href="https://www.citruscircuits.org/" target="_blank">
-          Citrus Circuits</a>.</p>
-      <ul>
-        <li><Link href="https://docs.google.com/presentation/d/1k_kf-9iOFxXmpLMMt5FWCv0w4sOJPbmh_tx3w3tJiSE/present" target="_blank">Variables & Operators</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1tS_HS4XsYDFjdvDCLsgwLn6Q3XfEqpDqjpIBUwJOh_E/present" target="_blank">Conditionals</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1-gksGsewoghzCd6oX76BOtsPFx8VDclPKlZOj44-YsU/present" target="_blank">Loops, Arrays, & Lists</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1Rjr5_SOxQgW0otM5Cf1-mZwO8Jj2oNLfIt7PqAmhkWk/present" target="_blank">Methods, Objects, & Classes</Link></li>
-      </ul>
-
-      {/* <h3>Control</h3>
-      <p>Control training resources are coming soon!</p>
-      <h3 id="simulation">Simulation</h3>
-      <p>Simulation training resources are coming soon!</p> */}
-      {/* <VideoCard
-        title="Introduction to Simulation"
-        description={`This video series explains how to build a mathematical model of a robot subsystem.  A simulation can be
-      useful when weighing design tradeoffs and for offline testing of control algorithms.  And constructing a
-      simulation forces you to deeply understand the mechanical and electrical physics of your robot.
-      We'll use simple incarnations of a flywheel, elevator, arm, and drivetrain as examples.`}
-        youtubeId="dQw4w9WgXcQ"
-      />
-      <VideoCard
-        title="Modeling a Motor"
-        description={`We'll first model a brushed DC motor, by far the most common type in FRC.  This model will be a
-      common component across all subsystem models.`}
-        youtubeId="dQw4w9WgXcQ"
-      /> */}
-
-      <hr />
-
-      <h2 id="fabrication">Fabrication</h2>
-
-      <p>Fabrication resources cover CAM in Fusion 360 and general usage of a Shopbot
-        CNC router. These lessons often involve hands-on excercises which are
-        not included in the online resources.</p>
-
-      <ul>
-        <li><Link href="https://docs.google.com/presentation/d/1PTUouE3uY7gL6juVZ7fuQgodHCkVo1fzSGe26BV0Mbk/present" target="_blank">Intro to Fabrication</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1ue6U0qbWVBqzKY1o0BB2pzGrZDZE4gxdaau7invctW4/present" target="_blank">Installing Fusion</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1SsCAWcG5TfK9-5QJUr9jv7Nmcc3F7RmGav8rjp6blwI/present" target="_blank">Onshape Overview & Fusion Pt. 1</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1_TH4P5I2mXiwZZHhGjOlc9JmJbyk1ZJ4uWAinppQRGU/present" target="_blank">Fusion Pt. 2</Link></li>
-      </ul>
-
-      <hr />
-
-      <h2 id="marketing">Marketing</h2>
-
-      <ul>
-        <li><Link href="https://docs.google.com/presentation/d/1vaP-F9ibG8zuEGFyZ-phrIQ8FqE_gEM6v3DzffxSWgw/present" target="_blank">Social Media</Link></li>
-        <li><Link href="https://docs.google.com/presentation/d/1KB7zZA4sXRMLlEUUILjxqqnVhNnyNn5iYPl4aA4fb2Q/present" target="_blank">Merchandise</Link></li>
-      </ul>
-
-      <hr />
-
-      <h2 id="business">Business</h2>
-
-      <ul>
-        <li><Link href="https://docs.google.com/presentation/d/10XjlFP_QH2YX7bLPTbLg9Yz7iIp3s0cWFQWtfFquLbc/present" target="_blank">Sponsorships</Link></li>
-      </ul>
-
-      <hr />
-
-      <h2 id="outreach">Outreach</h2>
-
-      <ul>
-        <li><Link href="https://docs.google.com/presentation/d/14g1uzaReIegExKEqmGUNELmhmNxnPuIAIrwwK7TOZyw/present" target="_blank">Planning Outreach Events</Link></li>
-      </ul>
-
-      <hr />
-
-      {/* <h2 id="leadership">Leadership</h2>
-
-      <p>Leadership training resources are coming soon!</p> */}
-
     </main>
   );
 }

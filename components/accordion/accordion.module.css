@@ -1,0 +1,108 @@
+.item {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(20, 27, 48, 0.55);
+  overflow: clip;
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.item + .item {
+  margin-top: 12px;
+}
+
+.item:hover {
+  border-color: var(--line-strong);
+}
+
+.item[open] {
+  border-color: var(--line-strong);
+  background: rgba(22, 30, 52, 0.85);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px clamp(18px, 3vw, 28px);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.heading {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-display-stack);
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  flex: 1 1 320px;
+  min-width: 0;
+  color: var(--text-faint);
+  font-size: var(--step--1);
+}
+
+.meta {
+  flex: 0 0 auto;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-faint);
+  font-family: var(--font-display-stack);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chevron {
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item[open] .chevron {
+  transform: rotate(225deg) translate(-2px, -2px);
+}
+
+.panelInner {
+  padding: 0 clamp(18px, 3vw, 28px) 26px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  margin-inline: clamp(18px, 3vw, 28px);
+  padding-inline: 0;
+}
+
+/* Smooth open/close where the browser supports animating details content. */
+@supports selector(::details-content) {
+  .item {
+    interpolate-size: allow-keywords;
+  }
+
+  .item::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition: block-size 340ms cubic-bezier(0.22, 1, 0.36, 1), content-visibility 340ms allow-discrete;
+  }
+
+  .item[open]::details-content {
+    block-size: auto;
+  }
+}

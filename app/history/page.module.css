@@ -1,0 +1,57 @@
+.timeline {
+  border-top: 1px solid transparent;
+}
+
+.awardsTitle {
+  max-width: 22ch;
+}
+
+.awardList {
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.awardRow {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px 24px;
+  padding: 16px 8px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 220ms ease, padding-left 220ms ease;
+}
+
+.awardRow:hover {
+  background: rgba(242, 222, 139, 0.04);
+  padding-left: 16px;
+}
+
+.awardYear {
+  font-family: var(--font-display-stack);
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.awardName {
+  font-family: var(--font-display-stack);
+  font-size: var(--step-1);
+}
+
+.awardMeta {
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .awardRow {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  .awardMeta {
+    grid-column: 2;
+    text-align: left;
+  }
+}

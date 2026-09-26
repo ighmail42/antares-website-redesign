@@ -1,0 +1,257 @@
+.title {
+  max-width: 20ch;
+}
+
+/* ---- Leadership ladder --------------------------------------------------- */
+
+.ladder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: clamp(36px, 5vw, 56px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rung {
+  padding: clamp(24px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--gold);
+  border-radius: 4px 4px 18px 18px;
+  background: rgba(9, 13, 26, 0.7);
+  transition: transform 280ms ease, border-color 280ms ease;
+}
+
+.rung:hover {
+  transform: translateY(-6px);
+  border-color: var(--line-strong);
+  border-top-color: var(--ember);
+}
+
+.rungStep {
+  display: block;
+  margin-bottom: 16px;
+  font-family: var(--font-display-stack);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+.rungTitle {
+  margin-bottom: 0.4em;
+  font-size: var(--step-1);
+}
+
+.rungBody {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+/* ---- Subteams ------------------------------------------------------------ */
+
+.subteamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  margin-top: clamp(36px, 5vw, 56px);
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: clip;
+}
+
+.subteam {
+  padding: clamp(22px, 2.6vw, 30px);
+  background: rgba(9, 13, 26, 0.92);
+  transition: background-color 260ms ease;
+}
+
+.subteam:hover {
+  background: rgba(22, 30, 52, 0.95);
+}
+
+.subteamName {
+  margin-bottom: 0.45em;
+  font-size: var(--step-1);
+  color: var(--gold);
+}
+
+.subteamBody {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+}
+
+/* ---- School timeline ----------------------------------------------------- */
+
+.schoolLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 28px;
+  list-style: none;
+  border-left: 1px solid var(--line);
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.timelineItem::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(242, 222, 139, 0.12);
+}
+
+.timelineMarker {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-display-stack);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.timelineBody {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+/* ---- Match phases -------------------------------------------------------- */
+
+.phaseList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  margin: clamp(36px, 5vw, 56px) 0 0;
+  padding: 0;
+  list-style: none;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: clip;
+}
+
+.phase {
+  padding: clamp(24px, 3vw, 34px);
+  background: rgba(9, 13, 26, 0.92);
+}
+
+.phaseStep {
+  display: block;
+  margin-bottom: 16px;
+  font-family: var(--font-display-stack);
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  color: var(--ember);
+}
+
+.phaseTitle {
+  margin-bottom: 0.4em;
+  font-size: var(--step-1);
+}
+
+.phaseBody {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.frcNote {
+  margin-top: 28px;
+  color: var(--text-faint);
+}
+
+.frcNote p {
+  margin: 0;
+}
+
+/* ---- Awards -------------------------------------------------------------- */
+
+.awards {
+  margin: clamp(32px, 4vw, 48px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.award {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 16px 24px;
+  padding: 18px 8px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 220ms ease, padding-left 220ms ease;
+}
+
+.award:hover {
+  background: rgba(242, 222, 139, 0.04);
+  padding-left: 16px;
+}
+
+.awardYear {
+  font-family: var(--font-display-stack);
+  font-size: 1.05rem;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.awardName {
+  font-family: var(--font-display-stack);
+  font-size: var(--step-1);
+}
+
+.awardMeta {
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* ---- Closing photo ------------------------------------------------------- */
+
+.photoSection {
+  display: grid;
+  max-height: clamp(280px, 42vw, 560px);
+  overflow: clip;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+@media (max-width: 860px) {
+  .schoolLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .award {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  .awardMeta {
+    grid-column: 2;
+    text-align: left;
+  }
+}

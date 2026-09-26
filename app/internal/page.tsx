@@ -1,26 +1,124 @@
+import type { Metadata } from "next";
+
+import { PageHero } from "@/components/page-hero/page-hero";
+import { Reveal } from "@/components/reveal/reveal";
+import { announcementsDoc, calendarEmbedUrl, internalLinks } from "@/content/internal";
+import { site } from "@/content/site";
 import styles from "./page.module.css";
 
-export default async function InternalPage() {
-  return (
-    <main className="site-page">
-      <h2>Announcements</h2>
-      <a
-        className={styles.editLink}
-        href="https://docs.google.com/document/d/1s1DQv08JHRtf0XDBuVnLDS99uQducST5dk2CXAhKp3w/edit?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        edit
-      </a>
+export const metadata: Metadata = {
+  title: "Team internal",
+  description: "Announcements, the team calendar and internal tools for Antares members.",
+  robots: { index: false, follow: false },
+};
 
-      <div className={styles.document}>
-        <iframe
-          className={styles.documentFrame}
-          title="Announcements document"
-          src="https://docs.google.com/document/d/e/2PACX-1vS3PX3jIxeF1hY-T3JxPG6_2exwSkdSH7e4TQ-G8h_V4gqgLQgRaOyWM4IV-H2zh9IsfiWtmmXAroOT/pub?embedded=true"
-        />
-        <div className={styles.documentFade} aria-hidden="true" />
-      </div>
+export default function InternalPage() {
+  return (
+    <main>
+      <PageHero
+        eyebrow="Team internal"
+        title="Announcements and the calendar"
+        lede="Everything current members need in one place. Announcements are the source of truth; if it is not written down, it did not happen."
+      />
+
+      <section className="section" data-tight>
+        <div className="shell-wide">
+          <div className={styles.layout}>
+            {/* -------------------------------------------------------- */}
+            {/* Announcements                                             */}
+            {/* -------------------------------------------------------- */}
+            <Reveal as="section" className={styles.panel}>
+              <header className={styles.panelHead}>
+                <h2 className={styles.panelTitle}>Announcements</h2>
+                <a
+                  className={styles.panelAction}
+                  href={announcementsDoc.editUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Edit
+                </a>
+              </header>
+              <div className={styles.frameWrap}>
+                <iframe
+                  className={styles.frame}
+                  title="Antares announcements"
+                  src={announcementsDoc.embedUrl}
+                  loading="lazy"
+                />
+              </div>
+            </Reveal>
+
+            {/* -------------------------------------------------------- */}
+            {/* Calendar                                                  */}
+            {/* -------------------------------------------------------- */}
+            <Reveal as="section" delay={120} className={styles.panel}>
+              <header className={styles.panelHead}>
+                <h2 className={styles.panelTitle}>Calendar</h2>
+              </header>
+              {calendarEmbedUrl ? (
+                <div className={styles.frameWrap}>
+                  <iframe
+                    className={styles.frame}
+                    title="Antares team calendar"
+                    src={calendarEmbedUrl}
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <div className={styles.placeholder}>
+                  <p>
+                    The team calendar is not embedded yet. Paste the Google Calendar embed URL into{" "}
+                    <code>content/internal.ts</code> and it will appear here.
+                  </p>
+                </div>
+              )}
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------- */}
+      {/* Quick links                                                    */}
+      {/* ------------------------------------------------------------- */}
+      <section className="section" data-tone="raised">
+        <div className="shell-wide">
+          <Reveal>
+            <p className="eyebrow">Tools</p>
+            <h2 className={styles.sectionTitle}>Quick links</h2>
+          </Reveal>
+
+          <ul className={styles.linkGrid}>
+            {internalLinks.map((link, index) => {
+              const external = link.href.startsWith("http");
+              return (
+                <Reveal as="li" key={link.title} delay={index * 80}>
+                  <a
+                    className={styles.linkCard}
+                    href={link.href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                  >
+                    <h3 className={styles.linkTitle}>{link.title}</h3>
+                    <p className={styles.linkBody}>{link.description}</p>
+                    <span className={styles.linkArrow} aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </a>
+                </Reveal>
+              );
+            })}
+          </ul>
+
+          <Reveal className={styles.help}>
+            <p>
+              Something missing or out of date? Email{" "}
+              <a href={`mailto:${site.email.general}`}>{site.email.general}</a> or open an issue on
+              the website repository.
+            </p>
+          </Reveal>
+        </div>
+      </section>
     </main>
   );
 }

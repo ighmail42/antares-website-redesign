@@ -1,7 +1,7 @@
 # Antares Website
 
-Website for FIRST Robotics Competition Team 6962 Antares. It uses Next.js, React,
-TypeScript, and plain CSS, then deploys to GitHub Pages.
+Website for FIRST Robotics Competition Team 6962, Antares. Next.js, React,
+TypeScript and plain CSS, exported as a static site.
 
 ## Run It Locally
 
@@ -12,8 +12,8 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Stop the development server
-with `Control-C`.
+Open [http://localhost:3000](http://localhost:3000). Stop the development
+server with `Control-C`.
 
 Before submitting a change, run:
 
@@ -25,86 +25,127 @@ npm run build
 There is no automated test suite, so also click through the affected pages at
 desktop and phone widths.
 
+## Changing Words and Numbers
+
+**Most edits do not need a developer.** Everything the site says lives in
+`content/`, as plain TypeScript objects with comments explaining each field.
+
+| File | What it holds |
+| --- | --- |
+| `content/site.ts` | Team facts, email addresses, postal address, tax details, outbound links |
+| `content/team.ts` | Headline stats, awards, the "who we are" blocks, leadership ladder, subteams, student quotes |
+| `content/seasons.ts` | One entry per season: robot, summary, highlights, awards, blog links |
+| `content/sponsors.ts` | Sponsor logos by tier, partnership levels, budget split, FIRST statistics |
+| `content/training.ts` | Training curriculum, grouped into the collapsible sections on `/training` |
+| `content/media.ts` | Background photo or video for the home and season headers |
+| `content/internal.ts` | Announcements doc, calendar embed, internal quick links |
+
+`docs/content-todo.md` lists what still needs a human decision.
+
+### Add a sponsor
+
+Put the logo in `public/sponsor-logos/`, then add an entry to the right tier in
+`content/sponsors.ts`. Logos sit on light plates, so a logo drawn for a white
+page works as-is. A sponsor with no `logo` renders as a name card instead.
+
+### Add a season
+
+Add an object to the top of `seasons` in `content/seasons.ts`. Set `status` to
+`"current"` for the season in progress; the home page and `/season` read from
+whichever entry is current. Robot images go in `public/robot-images/`, local
+blog PDFs in `public/blog-PDFs/`.
+
+### Add a training lesson
+
+Add an entry to the right section's `resources` array in
+`content/training.ts`. A `youtubeId` renders an embedded player instead of a
+link.
+
 ## Where Things Live
 
-- `app/layout.tsx` defines metadata, loads the display font, and puts the header
-  around every page.
-- `app/page.tsx` is the home page. Each folder under `app/` is another route;
-  for example, `app/history/page.tsx` becomes `/history`.
-- `components/site-header.tsx` renders desktop and mobile navigation.
-- `lib/site-navigation.ts` is the single list of header links. Add a route here
-  when it should appear in the header.
-- `public/` contains images and PDFs. A file such as
-  `public/robot-images/2026-CAD.png` is referenced as
-  `/robot-images/2026-CAD.png` in code.
-- `.github/workflows/nextjs.yml` builds and publishes the site after a push to
-  `main`.
+- `app/layout.tsx` sets metadata, loads the fonts, and wraps every page in the
+  header and footer.
+- `app/page.tsx` is the home page. Each folder under `app/` is a route, so
+  `app/history/page.tsx` becomes `/history`.
+- `components/` holds the shared pieces. Each has its own folder with a
+  `.module.css` beside it.
+- `lib/site-navigation.ts` is the single list of header links.
+- `public/` holds images, PDFs and video. `public/robot-images/2026-CAD.png` is
+  referenced as `/robot-images/2026-CAD.png`.
+- `.github/workflows/nextjs.yml` builds and publishes after a push to `main`.
 
-`app/history/season-card.tsx` and `app/training/video-card.tsx` are reusable
-components for repeated content. Prefer adding data to their page files over
-copying their markup.
+### Components
+
+| Component | What it does |
+| --- | --- |
+| `site-header` | Transparent over the hero, solid once you scroll; mobile drawer |
+| `site-footer` | Contact details, navigation, school and FIRST links |
+| `page-hero` | Standard header for interior pages |
+| `hero-media` | Background photo or muted looping video with a dark scrim |
+| `constellation` | Scorpius, drawn from the real star positions, with Antares pulsing |
+| `starfield` | Twinkling canvas starfield behind headers |
+| `reveal` | Fades content in as it scrolls into view |
+| `counter` | Counts a number up when it first appears |
+| `stat-grid` | The bordered grid of big numbers |
+| `accordion` | Collapsible panel built on `<details>` |
+| `logo-marquee` | Slow sponsor logo strip |
+| `cta-band` | The closing call-to-action panel |
 
 ## CSS
 
-The site uses only built-in Next.js CSS support. There is no CSS framework or
+The site uses only built-in Next.js CSS support. No framework, no
 preprocessor.
 
-- `app/globals.css` contains brand colors, base element styles, responsive page
-  width, and the shared `.site-page` layout.
-- Files ending in `.module.css` belong to the component beside them. Import the
-  file as `styles` and use a class with `className={styles.className}`.
-- Colors used in several places are custom properties in `:root` in
-  `app/globals.css`. Reuse those properties instead of repeating color values.
-- The mobile breakpoints are close to the components they affect. Keep new
-  responsive rules in the same stylesheet as the base rule.
+- `app/globals.css` holds the design tokens (colour, type scale, spacing), base
+  element styles, and the layout primitives pages compose: `.shell`,
+  `.shell-wide`, `.shell-narrow`, `.section`, `.eyebrow`, `.lede`, `.prose`,
+  `.button`.
+- Sections are full-bleed. A `.section` spans the window and a `.shell` inside
+  it constrains the content, so backgrounds always reach both edges.
+- `data-tone="raised"` and `data-tone="deep"` on a `.section` switch its
+  background. `data-tight` reduces its vertical padding.
+- Files ending in `.module.css` belong to the component beside them.
+- Reuse the custom properties in `:root` instead of repeating colour values.
 
-Every remaining selector is used. When removing markup, search for its CSS
-module class and remove the class too if nothing else uses it.
+## Motion
+
+Animation is CSS plus two small client components, with no animation library.
+
+- `Reveal` adds `data-revealed` when an element scrolls into view. The hidden
+  starting state only applies under `html[data-js="on"]`, which an inline
+  script in `app/layout.tsx` sets before first paint, so content is never
+  hidden from a reader whose JavaScript failed.
+- Everything respects `prefers-reduced-motion`. The starfield does not render
+  at all, the marquee stops, and reveals show immediately.
 
 ## Next.js Notes
 
-Pages are Server Components unless their file starts with `"use client"`.
-Keep them as Server Components unless they need browser-only behavior or React
-state. The header is a Client Component because `usePathname()` marks the active
-navigation link.
+Pages are Server Components unless the file starts with `"use client"`. Keep
+them that way unless they need browser APIs or React state. The header,
+starfield, reveal and counter are the only Client Components.
 
-Use `next/image` for images. Local images can use normal `/...` paths. The YouTube
-thumbnails remain `unoptimized` because they come from a remote host that is not
-configured for the Next.js image optimizer.
+Use `next/image` for images. Local images can use normal `/...` paths.
 
-The internal page fetches open GitHub issues while the site builds. Because the
-production site is a static GitHub Pages export, that list is refreshed by the
-next deployment, not continuously in a running server.
+Do not delete `next.config.ts` just because it is nearly empty. The GitHub
+Pages workflow's `configure-pages` step rewrites that file during CI to enable
+static export and disable server-side image optimisation.
 
-Do not delete `next.config.ts` just because it is nearly empty. The GitHub Pages
-workflow's `configure-pages` step updates that file during CI to enable static
-export and disable server-side image optimization.
-
-`next-env.d.ts` and the `.next/` directory are generated by Next.js. Do not edit
-them by hand, and do not commit `.next/` or `out/`.
+`next-env.d.ts` and `.next/` are generated. Do not edit them, and do not commit
+`.next/` or `out/`.
 
 ## Common Changes
 
 ### Add a page
 
-1. Create `app/name/page.tsx` with a default component export.
-2. Wrap its content in `<main className="site-page">` for the shared layout.
-3. Add `{ href: "/name", label: "Name" }` to `lib/site-navigation.ts` if the
-   page belongs in the header.
-4. Add `app/name/page.module.css` only when the page needs styles that are not
-   already global.
-
-### Add a history season
-
-Add another `<SeasonCard>` in `app/history/page.tsx`. Put its robot image in
-`public/robot-images/` and any local blog PDFs in `public/blog-PDFs/`.
-
-### Add a training video
-
-Add a `<VideoCard>` in `app/training/page.tsx` with its title, description, and
-YouTube video ID.
+1. Create `app/name/page.tsx` with a default export and an exported `metadata`.
+2. Start it with `<PageHero>` and wrap sections in
+   `<section className="section"><div className="shell">…</div></section>`.
+3. Add `{ href: "/name", label: "Name" }` to `lib/site-navigation.ts` if it
+   belongs in the header.
+4. Add `app/name/page.module.css` only for styles the primitives do not cover.
+5. Add the route to `app/sitemap.ts` if it should be indexed.
 
 ### Change navigation or branding
 
-Edit `lib/site-navigation.ts` for links, `public/brand/` for image files, and the
-brand custom properties at the top of `app/globals.css` for colors.
+Edit `lib/site-navigation.ts` for links, `public/brand/` for image files, and
+the brand custom properties at the top of `app/globals.css` for colours.

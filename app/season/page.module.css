@@ -1,0 +1,166 @@
+.title {
+  max-width: 22ch;
+}
+
+/* ---- Highlights ---------------------------------------------------------- */
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlight {
+  position: relative;
+  padding: 24px 24px 24px 52px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(14, 20, 38, 0.6);
+  color: var(--text-soft);
+}
+
+.highlight::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 32px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 12px rgba(255, 122, 77, 0.7);
+}
+
+/* ---- Blog grid ----------------------------------------------------------- */
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: clamp(32px, 4vw, 48px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blogCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(9, 13, 26, 0.7);
+  color: var(--text);
+  font-family: var(--font-display-stack);
+  text-decoration: none;
+  transition: border-color 240ms ease, transform 240ms ease, background-color 240ms ease;
+}
+
+.blogCard:hover {
+  border-color: var(--line-strong);
+  background: rgba(22, 30, 52, 0.9);
+  transform: translateY(-4px);
+  color: var(--gold);
+}
+
+.blogArrow {
+  color: var(--gold);
+  transition: transform 240ms ease;
+}
+
+.blogCard:hover .blogArrow {
+  transform: translateX(4px);
+}
+
+/* ---- Season rhythm ------------------------------------------------------- */
+
+.rhythm {
+  margin: clamp(32px, 4vw, 48px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.phase {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 16px 32px;
+  padding: 28px 8px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 220ms ease;
+}
+
+.phase:hover {
+  background: rgba(242, 222, 139, 0.03);
+}
+
+.phaseWhen {
+  font-family: var(--font-display-stack);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 0.35em;
+}
+
+.phaseTitle {
+  margin-bottom: 0.35em;
+  font-size: var(--step-1);
+}
+
+.phaseBody {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--text-soft);
+}
+
+/* ---- Previous season ----------------------------------------------------- */
+
+.previousLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.previousList {
+  margin: 0 0 8px;
+  padding-left: 1.2em;
+  color: var(--text-soft);
+}
+
+.previousList li {
+  margin-bottom: 0.5em;
+}
+
+.previousList li::marker {
+  color: var(--gold);
+}
+
+.previousMedia {
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: radial-gradient(120% 120% at 30% 0%, rgba(57, 69, 106, 0.5), rgba(5, 7, 15, 0.9));
+}
+
+.previousMedia img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+}
+
+@media (max-width: 860px) {
+  .phase {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .previousLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,192 @@
+/**
+ * Training curriculum, grouped into the sections the training page renders as
+ * collapsible panels.
+ *
+ * To add a resource, add an entry to the right section's `resources` array.
+ * To add a whole subject, add another object to `trainingSections`.
+ */
+
+export type TrainingResource = {
+  title: string;
+  /** Link to a slide deck, document or video. */
+  href?: string;
+  /** One short line. Keep it under about 15 words. */
+  description?: string;
+  /** A YouTube video id renders an embedded player instead of a link. */
+  youtubeId?: string;
+};
+
+export type TrainingSection = {
+  id: string;
+  title: string;
+  /** One sentence describing the subject, shown in the collapsed state. */
+  summary: string;
+  intro?: string;
+  resources: TrainingResource[];
+  /** Shown instead of a resource list when the material is not published yet. */
+  comingSoon?: string;
+  /** Open this panel by default. */
+  defaultOpen?: boolean;
+};
+
+export const trainingSections: TrainingSection[] = [
+  {
+    id: "design",
+    title: "Design",
+    summary: "CAD fundamentals, COTS parts and designing for rigidity.",
+    intro:
+      "Taught alongside asynchronous work on FRCDesign.org.",
+    defaultOpen: true,
+    resources: [
+      {
+        title: "Spot It Activity & Decluttering",
+        href: "https://docs.google.com/presentation/d/1y6CVohvNlVMuyJYbqoWGRwai65YSwGhYqb1wFwluY-w/present",
+        description: "Reading a busy assembly and simplifying it.",
+      },
+      {
+        title: "COTS Parts & FRCDesign.org",
+        href: "https://docs.google.com/presentation/d/1BMZ41dnS_5UMpBF6OQEsHoPmNlZ0NUGqabzFeW-GXr4/present",
+        description: "What to buy off the shelf instead of designing.",
+      },
+      {
+        title: "Rigidity",
+        href: "https://docs.google.com/presentation/d/16MaBvhZREUiw3Qs5XcEiccIjIAZkScC28zNIPyIwjVs/present",
+        description: "Why structures flex, and how to stop them.",
+      },
+    ],
+  },
+  {
+    id: "build",
+    title: "Build",
+    summary: "Fasteners, measuring and cutting, and a hands-on final project.",
+    resources: [
+      {
+        title: "Fasteners",
+        href: "https://docs.google.com/presentation/d/1POnJrlT_g4C0MVwWhFxP8AF2Q9TZvM2Sjyb5PpVmaWI/present",
+        description: "Choosing and installing the right fastener.",
+      },
+      {
+        title: "Measuring and Cutting, Part 1",
+        href: "https://docs.google.com/presentation/d/1Hyami-yqCSAG2CkHcU7fwzItvZRnwQgRYa1GPpVV_7Q/present",
+        description: "Layout, tolerance and the first cuts.",
+      },
+      {
+        title: "Measuring and Cutting, Part 2",
+        href: "https://docs.google.com/presentation/d/182Aif_00ry8ug8o35t0KR2eTBJLRVltnG9Ha6ynkM4g/present",
+        description: "Tube cutting, deburring and repeatability.",
+      },
+      {
+        title: "Measuring and Cutting Final Project",
+        href: "https://docs.google.com/presentation/d/1EVYVoFDf3Iqhb0v_Q-5tDpwHj3n2xXau_FlqAvpKuxo/present",
+        description: "The build exercise that ends the unit.",
+      },
+    ],
+  },
+  {
+    id: "electrical",
+    title: "Electrical",
+    summary: "Electrical theory and the team's wiring practices.",
+    resources: [],
+    comingSoon:
+      "A video series on electrical theory and our wiring practices is in production and will be posted here.",
+  },
+  {
+    id: "code",
+    title: "Code",
+    summary: "Java fundamentals for new programmers, loosely based on Citrus Circuits' materials.",
+    intro:
+      "Variables, operators, conditionals, loops, arrays, lists, methods, objects and classes.",
+    resources: [
+      {
+        title: "Variables & Operators",
+        href: "https://docs.google.com/presentation/d/1k_kf-9iOFxXmpLMMt5FWCv0w4sOJPbmh_tx3w3tJiSE/present",
+        description: "Storing values and doing arithmetic.",
+      },
+      {
+        title: "Conditionals",
+        href: "https://docs.google.com/presentation/d/1tS_HS4XsYDFjdvDCLsgwLn6Q3XfEqpDqjpIBUwJOh_E/present",
+        description: "Branching logic and boolean expressions.",
+      },
+      {
+        title: "Loops, Arrays & Lists",
+        href: "https://docs.google.com/presentation/d/1-gksGsewoghzCd6oX76BOtsPFx8VDclPKlZOj44-YsU/present",
+        description: "Repeating work and holding collections of data.",
+      },
+      {
+        title: "Methods, Objects & Classes",
+        href: "https://docs.google.com/presentation/d/1Rjr5_SOxQgW0otM5Cf1-mZwO8Jj2oNLfIt7PqAmhkWk/present",
+        description: "Structuring a program the way robot code is structured.",
+      },
+    ],
+  },
+  {
+    id: "fabrication",
+    title: "Fabrication",
+    summary: "CAM in Fusion 360 and running the Shopbot CNC router.",
+    intro:
+      "These lessons usually include hands-on shop exercises that are not part of the online material.",
+    resources: [
+      {
+        title: "Intro to Fabrication",
+        href: "https://docs.google.com/presentation/d/1PTUouE3uY7gL6juVZ7fuQgodHCkVo1fzSGe26BV0Mbk/present",
+        description: "How parts get from CAD to the shop floor.",
+      },
+      {
+        title: "Installing Fusion",
+        href: "https://docs.google.com/presentation/d/1ue6U0qbWVBqzKY1o0BB2pzGrZDZE4gxdaau7invctW4/present",
+        description: "Getting set up with the student license.",
+      },
+      {
+        title: "Onshape Overview & Fusion, Part 1",
+        href: "https://docs.google.com/presentation/d/1SsCAWcG5TfK9-5QJUr9jv7Nmcc3F7RmGav8rjp6blwI/present",
+        description: "Moving a design between the two tools.",
+      },
+      {
+        title: "Fusion, Part 2",
+        href: "https://docs.google.com/presentation/d/1_TH4P5I2mXiwZZHhGjOlc9JmJbyk1ZJ4uWAinppQRGU/present",
+        description: "Toolpaths and generating G-code.",
+      },
+    ],
+  },
+  {
+    id: "marketing",
+    title: "Marketing",
+    summary: "Running the team's social media and merchandise.",
+    resources: [
+      {
+        title: "Social Media",
+        href: "https://docs.google.com/presentation/d/1vaP-F9ibG8zuEGFyZ-phrIQ8FqE_gEM6v3DzffxSWgw/present",
+        description: "Posting through a season without burning out.",
+      },
+      {
+        title: "Merchandise",
+        href: "https://docs.google.com/presentation/d/1KB7zZA4sXRMLlEUUILjxqqnVhNnyNn5iYPl4aA4fb2Q/present",
+        description: "Designing and ordering team apparel.",
+      },
+    ],
+  },
+  {
+    id: "business",
+    title: "Business",
+    summary: "How students find and keep sponsors.",
+    resources: [
+      {
+        title: "Sponsorships",
+        href: "https://docs.google.com/presentation/d/10XjlFP_QH2YX7bLPTbLg9Yz7iIp3s0cWFQWtfFquLbc/present",
+        description: "Researching, pitching and thanking a sponsor.",
+      },
+    ],
+  },
+  {
+    id: "outreach",
+    title: "Outreach",
+    summary: "Planning events that bring robotics to the wider community.",
+    resources: [
+      {
+        title: "Planning Outreach Events",
+        href: "https://docs.google.com/presentation/d/14g1uzaReIegExKEqmGUNELmhmNxnPuIAIrwwK7TOZyw/present",
+        description: "From first idea to the day of the event.",
+      },
+    ],
+  },
+];

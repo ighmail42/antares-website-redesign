@@ -1,146 +1,265 @@
 .header {
-  --star-glow: 0 0 0 1px rgba(242, 222, 139, 0.55), 0 0 16px 2px rgba(242, 222, 139, 0.45),
-    0 0 32px 6px rgba(242, 222, 139, 0.2);
-  --star-text-glow: 0 0 10px rgba(242, 222, 139, 0.72), 0 0 22px rgba(242, 222, 139, 0.35);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 20;
-  background: var(--brand-blue);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  user-select: none;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background-color 280ms ease, border-color 280ms ease, backdrop-filter 280ms ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.header[data-scrolled],
+.header[data-open] {
+  background: rgba(7, 10, 20, 0.82);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom-color: var(--line);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--space-900);
+  text-decoration: none;
+}
+
+.skip:focus {
+  left: 16px;
+  z-index: 1;
 }
 
 .inner {
-  width: min(1100px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 16px 0;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  row-gap: 8px;
-  gap: 20px;
+  gap: 24px;
+  width: min(var(--shell-wide), 100% - (var(--gutter) * 2));
+  margin-inline: auto;
+  height: var(--header-height);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo {
   width: auto;
-  height: 32px;
+  height: 30px;
+  transition: filter 240ms ease, transform 240ms ease;
+}
+
+.brand:hover .logo {
+  filter: drop-shadow(0 0 12px rgba(242, 222, 139, 0.6));
+  transform: translateY(-1px);
+}
+
+.brandText {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-display-stack);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.brandNumber {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--text-faint);
 }
 
 .desktopNav {
   display: flex;
-  flex: 1 1 auto;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 10px;
+  align-items: center;
+  gap: 4px;
 }
 
-.desktopLink,
-.mobileLink,
-.mobileToggle {
-  transition: color 160ms ease, text-shadow 200ms ease, box-shadow 200ms ease,
-    background-color 160ms ease, border-color 160ms ease;
-}
-
-.desktopLink {
+.link {
+  position: relative;
   padding: 10px 14px;
-  color: var(--brand-white);
-  font-family: var(--font-display), "Franklin Gothic Medium", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  color: var(--text-soft);
+  font-family: var(--font-display-stack);
+  font-size: 0.95rem;
+  font-weight: 500;
   text-decoration: none;
+  transition: color 180ms ease;
 }
 
-.desktopLink:hover,
-.desktopLink:focus-visible,
-.desktopLink.active,
-.mobileLink:hover,
-.mobileLink:focus-visible,
-.mobileLink.active {
-  color: var(--accent);
-  text-shadow: var(--star-text-glow);
+/* The underline grows out from the middle on hover, and stays put on the
+   page you are currently reading. */
+.link::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.desktopLink:focus-visible,
-.mobileLink:focus-visible {
-  outline: 1px dotted var(--accent);
-  outline-offset: 4px;
+.link:hover,
+.link[data-active] {
+  color: var(--gold);
 }
 
-.mobileNav {
+.link:hover::after,
+.link[data-active]::after {
+  transform: scaleX(1);
+}
+
+.cta {
+  margin-left: 12px;
+  padding: 0.6em 1.3em;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--space-900);
+  font-family: var(--font-display-stack);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  background: var(--gold-bright);
+  color: var(--space-900);
+  box-shadow: 0 12px 30px rgba(242, 222, 139, 0.25);
+}
+
+.toggle {
   display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(242, 222, 139, 0.06);
+  color: var(--text);
+  font-family: var(--font-display-stack);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggleBars,
+.toggleBars::before,
+.toggleBars::after {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  background: var(--gold);
+  transition: transform 240ms ease, opacity 200ms ease;
+}
+
+.toggleBars {
   position: relative;
 }
 
-.mobileToggle {
-  padding: 12px 16px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--background);
-  color: var(--brand-dark-blue);
-  font-family: var(--font-display), "Franklin Gothic Medium", sans-serif;
-  cursor: pointer;
-  list-style: none;
+.toggleBars::before,
+.toggleBars::after {
+  content: "";
+  position: absolute;
+  left: 0;
 }
 
-.mobileToggle::-webkit-details-marker {
+.toggleBars::before {
+  top: -5px;
+}
+
+.toggleBars::after {
+  top: 5px;
+}
+
+.header[data-open] .toggleBars {
+  background: transparent;
+}
+
+.header[data-open] .toggleBars::before {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.header[data-open] .toggleBars::after {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+.drawer {
+  display: grid;
+  padding: 8px var(--gutter) 28px;
+  border-top: 1px solid var(--line);
+  background: rgba(7, 10, 20, 0.97);
+  backdrop-filter: blur(14px);
+}
+
+.drawer[hidden] {
   display: none;
 }
 
-.brandText {
-  margin-left: 12px;
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--brand-yellow);
-  font-family: var(--font-display), "Franklin Gothic Medium", sans-serif;
-  margin-top: 5px;
-}
-
-.brand {
-  text-decoration: none;
-}
-
-.mobilePanel {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 12px);
+.drawer nav {
   display: grid;
-  min-width: 220px;
-  padding: 10px;
-  gap: 8px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--brand-dark-blue);
-  box-shadow: var(--shadow);
+  gap: 2px;
 }
 
-.mobileLink {
-  padding: 12px 14px;
-  color: var(--brand-white);
-  font-family: var(--font-display), "Franklin Gothic Medium", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+.drawerLink {
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font-display-stack);
+  font-size: 1.35rem;
+  font-weight: 500;
   text-decoration: none;
+  animation: drawer-in 380ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--drawer-index) * 45ms);
 }
 
-@media (max-width: 860px) {
+.drawerLink[data-active] {
+  color: var(--gold);
+}
+
+.drawerCta {
+  margin-top: 18px;
+  padding: 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--space-900);
+  text-align: center;
+  font-weight: 600;
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 960px) {
   .desktopNav {
     display: none;
   }
 
-  .mobileNav {
-    display: block;
+  .toggle {
+    display: inline-flex;
   }
 }
 
-@media (max-width: 640px) {
-  .inner {
-    width: min(100% - 20px, 1120px);
-    padding: 12px 0;
+@media (max-width: 420px) {
+  .toggleLabel {
+    display: none;
   }
 }

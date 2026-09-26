@@ -1,0 +1,15 @@
+import type { MetadataRoute } from "next";
+
+import { site } from "@/content/site";
+
+/** Public pages, for search engines. The internal page is deliberately absent. */
+const routes = ["", "/about", "/season", "/history", "/training", "/sponsors", "/sponsors/impact", "/donate"];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return routes.map((route) => ({
+    url: `${site.url}${route}`,
+    lastModified: new Date(),
+    changeFrequency: route === "" || route === "/season" ? "weekly" : "monthly",
+    priority: route === "" ? 1 : 0.7,
+  }));
+}

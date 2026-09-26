@@ -1,109 +1,161 @@
 .card {
-  background: var(--background);
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: clamp(20px, 3vw, 44px);
+  align-items: start;
+  padding: clamp(28px, 4vw, 48px) 0;
+  border-top: 1px solid var(--line);
 }
 
-.seasonOverview {
-  margin: 8px 0 16px;
-  font-size: 15px;
-  color: var(--text);
+.card:first-child {
+  border-top: 0;
 }
 
-.card:not(:last-child) {
-  margin-bottom: 56px;
-}
-
-.title {
-  margin: 0;
-  font-size: 24px;
+/* The year sits in its own rail so the timeline reads down the left edge. */
+.yearRail {
+  position: sticky;
+  top: calc(var(--header-height) + 32px);
 }
 
 .year {
-  color: var(--brand-dark-blue);
-  font-size: 26px;
+  font-family: var(--font-display-stack);
+  font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--gold);
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
 }
 
-.body {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  flex: 1;
-  padding-right: 32px;
+.header {
+  margin-bottom: 14px;
+}
+
+.game {
+  margin-bottom: 0.2em;
+  font-size: var(--step-2);
 }
 
 .robot {
+  margin: 0;
+  color: var(--ember);
+  font-family: var(--font-display-stack);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+.summary {
+  max-width: 58ch;
+  color: var(--text-soft);
+}
+
+.highlights {
+  max-width: 58ch;
+  margin: 0 0 18px;
+  padding-left: 1.1em;
+  color: var(--text-soft);
+}
+
+.highlights li {
+  margin-bottom: 0.45em;
+}
+
+.highlights li::marker {
+  color: var(--gold);
+}
+
+.awards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.image {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
-  display: grid;
-}
-
-.image img {
-  position: relative !important;
-  height: auto !important;
-  width: 100% !important;
-  object-fit: cover;
-  max-height: 450px;
-}
-
-.columns {
-  display: flex;
-  flex: 1 1 220px;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
 }
 
-.sectionTitle {
-  font-weight: bold;
-  margin: 0 0 0.5em;
-  color: var(--text);
-  font-size: 15px;
+.awardChip {
+  padding: 6px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(242, 222, 139, 0.07);
+  color: var(--gold);
+  font-family: var(--font-display-stack);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
 }
 
 .links {
   display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
 }
 
-.empty {
-  margin: 16px 0 0;
-  color: var(--text);
-  font-style: italic;
-}
-
-.techBinderButton {
-  background: var(--brand-blue);
-  color: white;
-  border: none;
-  padding: 16px 32px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-  text-align: center;
+.blogLink,
+.binder {
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-soft);
+  font-size: 0.85rem;
   text-decoration: none;
+  transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
+}
+
+.blogLink:hover,
+.binder:hover {
+  border-color: var(--gold);
+  background: rgba(242, 222, 139, 0.08);
+  color: var(--gold);
+}
+
+.binder {
+  border-color: var(--line-strong);
+  color: var(--gold);
+}
+
+.media {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: radial-gradient(130% 130% at 30% 0%, rgba(57, 69, 106, 0.4), rgba(5, 7, 15, 0.85));
+  transition: border-color 300ms ease, transform 300ms ease;
+}
+
+.media:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-4px);
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 12px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
 
-.techBinderButton:hover {
-  background-color: var(--brand-light-blue);
+@media (max-width: 1000px) {
+  .card {
+    grid-template-columns: 90px minmax(0, 1fr);
+  }
+
+  .yearRail {
+    position: static;
+  }
+
+  .media {
+    grid-column: 2;
+  }
 }
 
-.externalLink {
-  margin-left: 6px;
-  vertical-align: top;
+@media (max-width: 600px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .media {
+    grid-column: 1;
+  }
 }

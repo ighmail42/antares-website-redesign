@@ -1,81 +1,86 @@
 import Image from "next/image";
+
+import { Reveal } from "@/components/reveal/reveal";
+import type { Season } from "@/content/seasons";
 import styles from "./season-card.module.css";
-import { ExternalLink } from 'lucide-react';
 
-type SeasonLink = {
-  label: string;
-  href: string;
-};
-
-type SeasonCardProps = {
-  techBinder?: string;
-  year: string;
-  name: string;
-  overview?: string;
-  image?: {
-    src: string;
-    alt: string;
-  };
-  blogPosts?: SeasonLink[];
-  links?: SeasonLink[];
-};
-
-// One card per competition season, gracefully collapsing sections whose data isn't available yet.
-export function SeasonCard({ year, name, overview, image, blogPosts, links, techBinder }: SeasonCardProps) {
+/**
+ * One season in the history timeline. Sections collapse gracefully when a
+ * season has no robot image, no awards or no blog posts yet.
+ */
+export function SeasonCard({ season, index }: { season: Season; index: number }) {
   return (
-    <div className={styles.card}>
-      <div className={styles.body}>
-        <h2 className={styles.title}>
-          <span className={styles.year}>{year}</span> {name}
-        </h2>
-        {overview && <p className={styles.seasonOverview}>{overview}</p>}
-        {(blogPosts && blogPosts.length > 0) || (links && links.length > 0) ? <>
-          <span className={styles.sectionTitle}>Blog</span>
-          <div>
-            {blogPosts && blogPosts.length > 0 && (
-              <div>
-                <ul className={styles.links}>
-                  {blogPosts.map((post) => (
-                    <li key={post.href}>
-                      <a href={post.href} target="_blank" rel="noopener noreferrer">
-                        {post.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {links && links.length > 0 && (
-              <div>
-                <h3 className={styles.sectionTitle}>Links</h3>
-                <ul className={styles.links}>
-                  {links.map((link) => (
-                    <li key={link.href}>
-                      <a href={link.href} target="_blank" rel="noopener noreferrer">
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </> : null}
+    <Reveal as="article" className={styles.card} delay={60}>
+      <div className={styles.yearRail} aria-hidden="true">
+        <span className={styles.year}>{season.year}</span>
       </div>
 
-      {image && (
-        <div className={styles.robot}>
-          <div className={styles.image}>
-            <Image src={image.src} alt={image.alt} fill sizes="(min-width: 760px) 360px, 100vw" />
+      <div className={styles.body}>
+        <header className={styles.header}>
+          <h2 className={styles.game}>{season.game}</h2>
+          {season.robot && <p className={styles.robot}>Robot: {season.robot}</p>}
+        </header>
+
+        <p className={styles.summary}>{season.summary}</p>
+
+        {season.highlights && season.highlights.length > 0 && (
+          <ul className={styles.highlights}>
+            {season.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        )}
+
+        {season.awards && season.awards.length > 0 && (
+          <ul className={styles.awards}>
+            {season.awards.map((award) => (
+              <li key={award} className={styles.awardChip}>
+                {award}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {(season.blogPosts?.length || season.techBinder) && (
+          <div className={styles.links}>
+            {season.techBinder && (
+              <a
+                className={styles.binder}
+                href={season.techBinder}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tech binder
+              </a>
+            )}
+            {season.blogPosts?.map((post) => (
+              <a
+                key={post.href}
+                className={styles.blogLink}
+                href={post.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {post.label}
+              </a>
+            ))}
           </div>
-          {techBinder && (
-            <a href={techBinder} className={styles.techBinderButton} target="_blank" rel="noopener noreferrer">
-              Tech Binder <ExternalLink size={15} className={styles.externalLink} />
-            </a>
-          )}
+        )}
+      </div>
+
+      {season.image && (
+        <div className={styles.media}>
+          <Image
+            src={season.image.src}
+            alt={season.image.alt}
+            width={1200}
+            height={900}
+            sizes="(min-width: 1000px) 420px, 100vw"
+            /* The first two cards are usually above the fold. */
+            priority={index < 2}
+          />
         </div>
       )}
-    </div>
+    </Reveal>
   );
 }

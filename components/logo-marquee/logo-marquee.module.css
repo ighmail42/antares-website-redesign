@@ -1,0 +1,64 @@
+.viewport {
+  position: relative;
+  overflow: hidden;
+  /* Fade the logos out at both edges instead of cutting them off. */
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: antares-drift var(--marquee-duration, 46s) linear infinite;
+}
+
+.viewport:hover .track,
+.viewport:focus-within .track {
+  animation-play-state: paused;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  margin: 0;
+  padding: 0 clamp(7px, 1vw, 12px);
+  list-style: none;
+}
+
+/* Sponsor logos arrive in every colour, and most are drawn dark for a white
+   page. Each one gets its own light plate so every mark reads correctly
+   without touching the original file. */
+.item {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  min-width: clamp(150px, 16vw, 200px);
+  padding: 18px 26px;
+  border-radius: 16px;
+  background: #f2f2ef;
+  opacity: 0.82;
+  transition: opacity 240ms ease, transform 240ms ease, background-color 240ms ease;
+}
+
+.item:hover {
+  opacity: 1;
+  background: #ffffff;
+  transform: translateY(-3px);
+}
+
+.logo {
+  width: auto;
+  max-width: 100%;
+  height: clamp(24px, 2.6vw, 32px);
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+
+  .viewport {
+    overflow-x: auto;
+  }
+}
