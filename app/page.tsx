@@ -22,7 +22,7 @@ export default function HomePage() {
       {/* Hero                                                              */}
       {/* ---------------------------------------------------------------- */}
       <section className={styles.hero}>
-        <HeroMedia media={heroMedia} intensity={0.3} priority />
+        <HeroMedia media={heroMedia} intensity={0.62} priority />
         <Starfield density={110} />
 
         <div className="shell-wide">

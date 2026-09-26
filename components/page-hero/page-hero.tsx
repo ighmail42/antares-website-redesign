@@ -19,7 +19,7 @@ type PageHeroProps = {
 export function PageHero({ eyebrow, title, lede, media, children }: PageHeroProps) {
   return (
     <header className={styles.hero}>
-      {media ? <HeroMedia media={media} intensity={0.28} priority /> : <Starfield density={70} />}
+      {media ? <HeroMedia media={media} intensity={0.45} priority /> : <Starfield density={70} />}
       {!media && <Constellation className={styles.constellation} animated={false} />}
 
       <div className="shell">
