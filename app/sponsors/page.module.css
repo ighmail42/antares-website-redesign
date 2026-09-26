@@ -111,7 +111,7 @@
 
 .valueCard:hover {
   transform: translateY(-5px);
-  border-left-color: var(--ember);
+  border-left-color: var(--gold-bright);
 }
 
 .valueTitle {

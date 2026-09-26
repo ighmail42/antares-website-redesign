@@ -30,8 +30,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--ember);
-  box-shadow: 0 0 12px rgba(255, 122, 77, 0.7);
+  background: var(--gold);
+  box-shadow: 0 0 12px rgba(242, 222, 139, 0.6);
 }
 
 /* ---- Blog grid ----------------------------------------------------------- */

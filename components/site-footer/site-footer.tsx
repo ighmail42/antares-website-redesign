@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div className={styles.top}>
           <div className={styles.brandBlock}>
             <Link className={styles.brand} href="/">
-              <Image src="/brand/transparent-logo.png" alt="Antares 6962" width={1027} height={600} />
+              <Image src="/brand/logo-yellow.png" alt="Antares 6962" width={584} height={339} />
             </Link>
             <p className={styles.tagline}>
               FIRST Robotics Competition Team {site.teamNumber}, based at Khan Lab School in {site.city}.

@@ -25,7 +25,7 @@
 .rung:hover {
   transform: translateY(-6px);
   border-color: var(--line-strong);
-  border-top-color: var(--ember);
+  border-top-color: var(--gold-bright);
 }
 
 .rungStep {
@@ -162,7 +162,8 @@
   font-family: var(--font-display-stack);
   font-size: 0.8rem;
   letter-spacing: 0.24em;
-  color: var(--ember);
+  color: var(--gold);
+  opacity: 0.65;
 }
 
 .phaseTitle {

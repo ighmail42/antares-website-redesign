@@ -1,62 +1,85 @@
 /**
  * Scorpius, the constellation Antares sits in.
  *
- * Positions come from each star's real right ascension and declination,
- * projected flat and stretched horizontally to match the team logo's
- * composition. Antares (alpha Scorpii) is the bright one in the middle.
+ * These coordinates are traced from the official brand emblem
+ * (`public/brand/constellation-yellow.png`), so the drawn constellation
+ * matches the team's logo exactly rather than being an approximation. The
+ * viewBox is the emblem's own pixel space.
+ *
+ * Antares is the four-point sparkle in the middle, the same mark used in the
+ * team icon.
  */
 
-export const SCORPIUS_VIEWBOX = { width: 1000, height: 743 };
+export const SCORPIUS_VIEWBOX = { width: 2320, height: 1138 };
 
 export type ScorpiusStar = {
   id: string;
+  /** Shown as a tooltip on hover. */
   name: string;
   x: number;
   y: number;
-  /** Drawn radius, derived from apparent magnitude. */
   r: number;
 };
 
 export const scorpiusStars: ScorpiusStar[] = [
-  { id: "bet", name: "Graffias", x: 878.0, y: 70.0, r: 4.41 },
-  { id: "del", name: "Dschubba", x: 918.4, y: 142.5, r: 4.76 },
-  { id: "pi", name: "Pi Scorpii", x: 930.0, y: 232.3, r: 4.07 },
-  { id: "sig", name: "Alniyat", x: 753.3, y: 218.9, r: 4.07 },
-  { id: "alp", name: "Antares", x: 688.4, y: 240.5, r: 6.25 },
-  { id: "tau", name: "Paikauhale", x: 637.1, y: 286.4, r: 4.18 },
-  { id: "eps", name: "Larawag", x: 524.2, y: 442.8, r: 4.76 },
-  { id: "mu", name: "Xamidimura", x: 511.0, y: 539.4, r: 3.95 },
-  { id: "zet", name: "Zeta Scorpii", x: 491.0, y: 650.4, r: 3.26 },
-  { id: "eta", name: "Eta Scorpii", x: 350.2, y: 673.0, r: 3.61 },
-  { id: "the", name: "Sargas", x: 151.1, y: 666.8, r: 5.22 },
-  { id: "iot", name: "Iota Scorpii", x: 70.0, y: 592.9, r: 3.95 },
-  { id: "kap", name: "Girtab", x: 110.2, y: 564.7, r: 4.64 },
-  { id: "lam", name: "Shaula", x: 180.6, y: 515.1, r: 5.56 },
-  { id: "ups", name: "Lesath", x: 203.3, y: 520.0, r: 4.29 },
+  { id: "bet", name: "Graffias", x: 2277.1, y: 27.0, r: 28 },
+  { id: "del", name: "Dschubba", x: 2292.0, y: 383.6, r: 27.5 },
+  { id: "pi", name: "Pi Scorpii", x: 2077.1, y: 779.1, r: 28 },
+  { id: "sig", name: "Alniyat", x: 1782.3, y: 406.4, r: 40.5 },
+  { id: "tau", name: "Paikauhale", x: 1080.2, y: 628.8, r: 32 },
+  { id: "eps", name: "Larawag", x: 858.1, y: 875.6, r: 18.5 },
+  { id: "mu", name: "Xamidimura", x: 678.9, y: 1113.7, r: 23.5 },
+  { id: "zet", name: "Zeta Scorpii", x: 413.9, y: 1094.1, r: 27.5 },
+  { id: "the", name: "Sargas", x: 79.2, y: 955.1, r: 20.5 },
+  { id: "kap", name: "Girtab", x: 25.1, y: 665.5, r: 25.5 },
+  { id: "lam", name: "Shaula", x: 295.2, y: 454.8, r: 34 },
 ];
 
-/** The classic stick figure: claws, body, then the curl of the tail. */
+/** Antares itself, drawn as the brand's four-point star rather than a dot. */
+export const antares = { id: "alp", name: "Antares", x: 1438.0, y: 431.1, rx: 105.5, ry: 136.5 };
+
+/**
+ * The stick figure, in drawing order: the three claws fan off the junction
+ * beside Antares, then the body runs down and the tail curls back up.
+ */
 export const scorpiusLines: [string, string][] = [
-  ["bet", "del"],
-  ["del", "pi"],
+  ["bet", "sig"],
   ["del", "sig"],
+  ["pi", "sig"],
   ["sig", "alp"],
   ["alp", "tau"],
   ["tau", "eps"],
   ["eps", "mu"],
   ["mu", "zet"],
-  ["zet", "eta"],
-  ["eta", "the"],
-  ["the", "iot"],
-  ["iot", "kap"],
+  ["zet", "the"],
+  ["the", "kap"],
   ["kap", "lam"],
-  ["lam", "ups"],
 ];
 
-const byId = new Map(scorpiusStars.map((star) => [star.id, star]));
+const byId = new Map<string, { x: number; y: number }>([
+  ...scorpiusStars.map((star) => [star.id, { x: star.x, y: star.y }] as const),
+  [antares.id, { x: antares.x, y: antares.y }],
+]);
 
-export function starById(id: string): ScorpiusStar {
-  const star = byId.get(id);
-  if (!star) throw new Error(`Unknown Scorpius star: ${id}`);
-  return star;
+export function pointById(id: string): { x: number; y: number } {
+  const point = byId.get(id);
+  if (!point) throw new Error(`Unknown Scorpius star: ${id}`);
+  return point;
+}
+
+/**
+ * A four-point sparkle centred on (cx, cy). The control points give each arm
+ * the concave taper the brand mark uses.
+ */
+export function sparklePath(cx: number, cy: number, rx: number, ry: number): string {
+  const kx = rx * 0.3;
+  const ky = ry * 0.3;
+  return [
+    `M ${cx} ${cy - ry}`,
+    `C ${cx + kx * 0.4} ${cy - ky} ${cx + kx} ${cy - ky * 0.4} ${cx + rx} ${cy}`,
+    `C ${cx + kx} ${cy + ky * 0.4} ${cx + kx * 0.4} ${cy + ky} ${cx} ${cy + ry}`,
+    `C ${cx - kx * 0.4} ${cy + ky} ${cx - kx} ${cy + ky * 0.4} ${cx - rx} ${cy}`,
+    `C ${cx - kx} ${cy - ky * 0.4} ${cx - kx * 0.4} ${cy - ky} ${cx} ${cy - ry}`,
+    "Z",
+  ].join(" ");
 }

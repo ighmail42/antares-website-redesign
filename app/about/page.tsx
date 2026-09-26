@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Antares"
         title="Students make the decisions"
-        lede="Some robotics programs keep the important calls with adults to maximise competition results. Antares makes a different trade. Mentors provide safety, technical context and coaching. Students do the work, make the calls, and live with the outcome."
+        lede="Mentors bring safety, technical context and coaching. Students do the rest: they make the engineering calls, run the budget, find the sponsors, and teach the group coming up behind them."
       />
 
       <section className="section" data-tight>

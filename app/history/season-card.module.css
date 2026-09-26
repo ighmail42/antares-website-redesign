@@ -38,10 +38,11 @@
 
 .robot {
   margin: 0;
-  color: var(--ember);
+  color: var(--text-faint);
   font-family: var(--font-display-stack);
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .summary {

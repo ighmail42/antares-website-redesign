@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Josefin_Sans, Libre_Franklin } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer/site-footer";
 import { SiteHeader } from "@/components/site-header/site-header";
@@ -7,13 +7,16 @@ import { site } from "@/content/site";
 
 import "./globals.css";
 
-const displayFont = Space_Grotesk({
+/* Brand fonts. Josefin Sans is the title face from the brand reference guide.
+   Libre Franklin stands in for Franklin Gothic, which cannot be redistributed
+   on the web. See the font stacks in app/globals.css. */
+const displayFont = Josefin_Sans({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
-const bodyFont = Inter({
+const bodyFont = Libre_Franklin({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",

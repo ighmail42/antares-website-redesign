@@ -42,28 +42,20 @@ what broke. Look at what 2024, 2025 and 2026 do for the pattern.
 Also confirm whether Antares competed in the 2020 INFINITE RECHARGE season.
 It is missing from the list.
 
-## 4. Competition video — `content/media.ts`
-
-The home page hero is built to play a muted competition clip behind the
-headline. See `public/video/README.md` for the format, then set `src`.
-
-## 5. Team calendar — `content/internal.ts`
+## 4. Team calendar — `content/internal.ts`
 
 Paste the Google Calendar embed URL into `calendarEmbedUrl`. Instructions are
 in the comment at the top of that file.
 
-## 6. Sponsor list — `content/sponsors.ts`
+## 5. Sponsor list — `content/sponsors.ts`
 
 The sponsor deck lists Google among past supporters, and the website does not.
 Confirm whether Google belongs on the sponsors page and, if so, which tier and
 whether we have permission to use the logo.
 
-## 7. Brand kit
+## 6. A longer hero video
 
-The team's brand kit lives in a Google Drive folder that needs sign-in. The
-colours in `app/globals.css` were derived from the logo and the competition
-shirts. Check them against the official kit, especially:
-
-- `--brand-blue: #252e45`
-- `--brand-yellow: #f2de8b`
-- the display typeface (currently Space Grotesk) and body typeface (Inter)
+`public/video/hero.mp4` is a 16-second cut from the 2026 competition reel,
+starting at 0:10 of the original. If there is better footage, or a cut the team
+prefers, replace that file and its poster frame. `public/video/README.md` has
+the format requirements.

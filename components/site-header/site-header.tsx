@@ -50,10 +50,10 @@ export function SiteHeader() {
         <Link className={styles.brand} href="/" aria-label="Antares, Team 6962 home">
           <Image
             className={styles.logo}
-            src="/brand/transparent-icon.png"
+            src="/brand/icon-yellow.png"
             alt=""
-            width={164}
-            height={211}
+            width={302}
+            height={390}
             priority
           />
           <span className={styles.brandText}>

@@ -107,6 +107,26 @@ preprocessor.
 - Files ending in `.module.css` belong to the component beside them.
 - Reuse the custom properties in `:root` instead of repeating colour values.
 
+## Brand
+
+Colours and fonts come from the Antares Brand Reference Guide.
+
+| Token | Hex | Brand name |
+| --- | --- | --- |
+| `--brand-blue` | `#252E45` | Blue (Pantone 533 C) |
+| `--brand-yellow` | `#F2DE8B` | Yellow (Pantone 1205 C) |
+| `--brand-light-blue` | `#39456A` | Light Blue Accent |
+| `--brand-dark-blue` | `#1D2335` | Dark Blue Accent |
+
+Titles are Josefin Sans. Copy is Franklin Gothic in the guide; the web uses
+Libre Franklin, its open equivalent, because Franklin Gothic cannot be
+redistributed. Both load through `next/font/google` in `app/layout.tsx`.
+
+Official marks live in `public/brand/`: `logo-yellow.png`, `icon-yellow.png`
+and their blue counterparts, plus `constellation-yellow.png`. The constellation
+on the site is an SVG redraw of that emblem so it can animate; its coordinates
+are traced from the PNG and live in `components/constellation/scorpius.ts`.
+
 ## Motion
 
 Animation is CSS plus two small client components, with no animation library.

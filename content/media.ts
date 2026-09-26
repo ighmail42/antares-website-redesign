@@ -21,13 +21,13 @@ export type BackgroundMedia = {
 };
 
 export const heroMedia: BackgroundMedia = {
-  src: null,
-  poster: "/team-photos/6962-stands.jpg",
-  alt: "The Antares stands section cheering at a competition",
+  src: "/video/hero.mp4",
+  poster: "/video/hero-poster.jpg",
+  alt: "Robots on the field at an FRC competition",
 };
 
 export const seasonMedia: BackgroundMedia = {
   src: null,
-  poster: "/robot-images/2026-CAD.png",
-  alt: "Orion, the 2026 competition robot",
+  poster: "/video/season-poster.jpg",
+  alt: "A wide view of an FRC field mid-match",
 };
