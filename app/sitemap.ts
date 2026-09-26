@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 
 import { site } from "@/content/site";
 
+/* Same as app/robots.ts: evaluated at build time for the static export. */
+export const dynamic = "force-static";
+
 /** Public pages, for search engines. The internal page is deliberately absent. */
 const routes = ["", "/about", "/season", "/history", "/training", "/sponsors", "/sponsors/impact", "/donate"];
 
