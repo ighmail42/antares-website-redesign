@@ -1,5 +1,8 @@
 # Antares Website
 
+> **Reviewing the redesign?** Start with [HANDOFF.md](HANDOFF.md) — what changed,
+> how to run it, and what we would like feedback on.
+
 Website for FIRST Robotics Competition Team 6962, Antares. Next.js, React,
 TypeScript and plain CSS, exported as a static site.
 
