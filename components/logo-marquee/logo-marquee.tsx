@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import type { Sponsor } from "@/content/sponsors";
 import styles from "./logo-marquee.module.css";
+import { asset } from "@/lib/asset";
 
 type LogoMarqueeProps = {
   sponsors: Sponsor[];
@@ -28,7 +29,7 @@ export function LogoMarquee({ sponsors, speed = 46 }: LogoMarqueeProps) {
               <li className={styles.item} key={`${copy}-${sponsor.name}`}>
                 <Image
                   className={styles.logo}
-                  src={sponsor.logo as string}
+                  src={asset(sponsor.logo as string)}
                   alt={copy === 0 ? sponsor.name : ""}
                   width={sponsor.width ?? 200}
                   height={sponsor.height ?? 60}

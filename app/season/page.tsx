@@ -8,6 +8,7 @@ import { Reveal } from "@/components/reveal/reveal";
 import { seasonMedia } from "@/content/media";
 import { currentSeason, pastSeasons } from "@/content/seasons";
 import styles from "./page.module.css";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: `Season ${currentSeason.year}`,
@@ -86,7 +87,7 @@ export default function SeasonPage() {
             <ul className={styles.blogGrid}>
               {currentSeason.blogPosts.map((post, index) => (
                 <Reveal as="li" key={post.href} delay={index * 70}>
-                  <a className={styles.blogCard} href={post.href} target="_blank" rel="noopener noreferrer">
+                  <a className={styles.blogCard} href={asset(post.href)} target="_blank" rel="noopener noreferrer">
                     <span className={styles.blogLabel}>{post.label}</span>
                     <span className={styles.blogArrow} aria-hidden="true">
                       &rarr;
@@ -151,7 +152,7 @@ export default function SeasonPage() {
                   {previous.techBinder && (
                     <a
                       className="button button-ghost"
-                      href={previous.techBinder}
+                      href={asset(previous.techBinder)}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -164,7 +165,7 @@ export default function SeasonPage() {
               {previous.image && (
                 <Reveal delay={120} className={styles.previousMedia}>
                   <Image
-                    src={previous.image.src}
+                    src={asset(previous.image.src)}
                     alt={previous.image.alt}
                     width={1200}
                     height={900}

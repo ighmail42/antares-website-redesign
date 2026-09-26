@@ -5,6 +5,7 @@ import type { Route } from "next";
 import { site } from "@/content/site";
 import { internalNavigation, primaryAction, siteNavigation } from "@/lib/site-navigation";
 import styles from "./site-footer.module.css";
+import { asset } from "@/lib/asset";
 
 export function SiteFooter() {
   return (
@@ -13,7 +14,7 @@ export function SiteFooter() {
         <div className={styles.top}>
           <div className={styles.brandBlock}>
             <Link className={styles.brand} href="/">
-              <Image src="/brand/logo-yellow.png" alt="Antares 6962" width={584} height={339} />
+              <Image src={asset("/brand/logo-yellow.png")} alt="Antares 6962" width={584} height={339} />
             </Link>
             <p className={styles.tagline}>
               FIRST Robotics Competition Team {site.teamNumber}, based at Khan Lab School in {site.city}.

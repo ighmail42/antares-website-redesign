@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/reveal/reveal";
 import type { Season } from "@/content/seasons";
 import styles from "./season-card.module.css";
+import { asset } from "@/lib/asset";
 
 /**
  * One season in the history timeline. Sections collapse gracefully when a
@@ -46,7 +47,7 @@ export function SeasonCard({ season, index }: { season: Season; index: number })
             {season.techBinder && (
               <a
                 className={styles.binder}
-                href={season.techBinder}
+                href={asset(season.techBinder)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -57,7 +58,7 @@ export function SeasonCard({ season, index }: { season: Season; index: number })
               <a
                 key={post.href}
                 className={styles.blogLink}
-                href={post.href}
+                href={asset(post.href)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -71,7 +72,7 @@ export function SeasonCard({ season, index }: { season: Season; index: number })
       {season.image && (
         <div className={styles.media}>
           <Image
-            src={season.image.src}
+            src={asset(season.image.src)}
             alt={season.image.alt}
             width={1200}
             height={900}

@@ -147,7 +147,17 @@ Pages are Server Components unless the file starts with `"use client"`. Keep
 them that way unless they need browser APIs or React state. The header,
 starfield, reveal and counter are the only Client Components.
 
-Use `next/image` for images. Local images can use normal `/...` paths.
+Use `next/image` for images, and wrap any path into `public/` with `asset()`
+from `lib/asset.ts`:
+
+```tsx
+<Image src={asset("/team-photos/team-2026.webp")} alt="" width={800} height={600} />
+```
+
+Next rewrites its own `_next/*` URLs and `next/link` hrefs when the site is
+served under a sub-path, but it does not touch files you reference out of
+`public/`. Without `asset()` those 404 on any GitHub Pages project-site
+preview. On the real site the base path is empty and `asset()` does nothing.
 
 Do not delete `next.config.ts` just because it is nearly empty. The GitHub
 Pages workflow's `configure-pages` step rewrites that file during CI to enable

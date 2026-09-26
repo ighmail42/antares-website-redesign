@@ -10,6 +10,7 @@ import { site } from "@/content/site";
 import { firstImpactStats, partnershipLevels, sponsorTiers, sponsorValue } from "@/content/sponsors";
 import { studentQuotes } from "@/content/team";
 import styles from "./page.module.css";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Sponsors",
@@ -58,7 +59,7 @@ export default function SponsorsPage() {
                     {sponsor.logo ? (
                       <Image
                         className={styles.logo}
-                        src={sponsor.logo}
+                        src={asset(sponsor.logo)}
                         alt={sponsor.name}
                         width={sponsor.width ?? 200}
                         height={sponsor.height ?? 60}

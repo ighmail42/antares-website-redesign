@@ -8,6 +8,7 @@ import { Reveal } from "@/components/reveal/reveal";
 import { site } from "@/content/site";
 import { budgetBreakdown } from "@/content/sponsors";
 import styles from "./page.module.css";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Sponsor impact",
@@ -148,7 +149,7 @@ export default function SponsorImpactPage() {
 
             <Reveal delay={120} className={styles.offsiteMedia}>
               <Image
-                src="/team-photos/6962-stands.jpg"
+                src={asset("/team-photos/6962-stands.jpg")}
                 alt="Antares students cheering from the stands at a competition"
                 width={1817}
                 height={757}

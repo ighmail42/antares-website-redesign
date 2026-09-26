@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { primaryAction, siteNavigation } from "@/lib/site-navigation";
 import styles from "./site-header.module.css";
+import { asset } from "@/lib/asset";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -50,7 +51,7 @@ export function SiteHeader() {
         <Link className={styles.brand} href="/" aria-label="Antares, Team 6962 home">
           <Image
             className={styles.logo}
-            src="/brand/icon-yellow.png"
+            src={asset("/brand/icon-yellow.png")}
             alt=""
             width={302}
             height={390}

@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header/site-header";
 import { site } from "@/content/site";
 
 import "./globals.css";
+import { asset } from "@/lib/asset";
 
 /* Brand fonts. Josefin Sans is the title face from the brand reference guide.
    Libre Franklin stands in for Franklin Gothic, which cannot be redistributed
@@ -33,15 +34,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: `Antares | FRC Team ${site.teamNumber}`,
-    images: ["/team-photos/team-2026.webp"],
+    images: [asset("/team-photos/team-2026.webp")],
   },
   // Preview deployments set SITE_NOINDEX so a draft never outranks the real
   // site. See .github/workflows/nextjs.yml.
   robots: process.env.SITE_NOINDEX ? { index: false, follow: false } : undefined,
   icons: {
-    icon: "/brand/dark-icon.png",
-    shortcut: "/brand/dark-icon.png",
-    apple: "/brand/dark-icon.png",
+    icon: asset("/brand/dark-icon.png"),
+    shortcut: asset("/brand/dark-icon.png"),
+    apple: asset("/brand/dark-icon.png"),
   },
 };
 

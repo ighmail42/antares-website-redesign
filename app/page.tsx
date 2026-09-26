@@ -13,6 +13,7 @@ import { currentSeason } from "@/content/seasons";
 import { featuredSponsors } from "@/content/sponsors";
 import { communities, headlineStats, leadershipLadder, matchPhases } from "@/content/team";
 import styles from "./page.module.css";
+import { asset } from "@/lib/asset";
 
 export default function HomePage() {
   return (
@@ -134,7 +135,7 @@ export default function HomePage() {
       <section className={styles.photoSection}>
         <Image
           className={styles.photo}
-          src="/team-photos/antares-stands.jpg"
+          src={asset("/team-photos/antares-stands.jpg")}
           alt="Antares students in the stands at a competition, sponsor logos on the backs of their shirts"
           width={2560}
           height={1700}
@@ -241,7 +242,7 @@ export default function HomePage() {
             {currentSeason.image && (
               <Reveal delay={140} className={styles.seasonMedia}>
                 <Image
-                  src={currentSeason.image.src}
+                  src={asset(currentSeason.image.src)}
                   alt={currentSeason.image.alt}
                   width={1200}
                   height={900}

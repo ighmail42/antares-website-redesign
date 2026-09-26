@@ -15,6 +15,7 @@ import {
   subteams,
 } from "@/content/team";
 import styles from "./page.module.css";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "About the team",
@@ -192,7 +193,7 @@ export default function AboutPage() {
       <section className={styles.photoSection}>
         <Image
           className={styles.photo}
-          src="/team-photos/team-2026.webp"
+          src={asset("/team-photos/team-2026.webp")}
           alt="The full Antares team, students and mentors, in team shirts"
           width={2432}
           height={1536}

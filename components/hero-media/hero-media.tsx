@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import type { BackgroundMedia } from "@/content/media";
 import styles from "./hero-media.module.css";
+import { asset } from "@/lib/asset";
 
 type HeroMediaProps = {
   media: BackgroundMedia;
@@ -23,8 +24,8 @@ export function HeroMedia({ media, intensity = 0.4, priority = false }: HeroMedi
       {media.src ? (
         <video
           className={styles.media}
-          src={media.src}
-          poster={media.poster}
+          src={asset(media.src)}
+          poster={asset(media.poster)}
           autoPlay
           muted
           loop
@@ -34,7 +35,7 @@ export function HeroMedia({ media, intensity = 0.4, priority = false }: HeroMedi
       ) : (
         <Image
           className={styles.media}
-          src={media.poster}
+          src={asset(media.poster)}
           alt=""
           fill
           priority={priority}
