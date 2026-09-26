@@ -50,9 +50,12 @@
   color: inherit;
 }
 
+/* The plain star, without the 69/62 numerals, which are illegible at this
+   size. The star now fills the full height of the mark, so it sits a little
+   smaller than the numbered icon did. */
 .logo {
   width: auto;
-  height: 30px;
+  height: 26px;
   transition: filter 240ms ease, transform 240ms ease;
 }
 

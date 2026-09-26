@@ -39,10 +39,12 @@ export const metadata: Metadata = {
   // Preview deployments set SITE_NOINDEX so a draft never outranks the real
   // site. See .github/workflows/nextjs.yml.
   robots: process.env.SITE_NOINDEX ? { index: false, follow: false } : undefined,
+  // The plain star on the brand navy. The 69/62 numerals in the full icon are
+  // unreadable at favicon sizes and just muddy the mark.
   icons: {
-    icon: asset("/brand/dark-icon.png"),
-    shortcut: asset("/brand/dark-icon.png"),
-    apple: asset("/brand/dark-icon.png"),
+    icon: asset("/brand/favicon.png"),
+    shortcut: asset("/brand/favicon.png"),
+    apple: asset("/brand/favicon.png"),
   },
 };
 
