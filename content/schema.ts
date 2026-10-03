@@ -118,6 +118,19 @@ export const contentFiles: ContentFile[] = [
             ],
           },
           {
+            name: "social", label: "Social media", kind: "object",
+            help: "Full profile addresses. Leave one empty and it is not shown in the footer.",
+            fields: [
+              { name: "instagram", label: "Instagram", kind: "url" },
+              { name: "youtube", label: "YouTube", kind: "url" },
+              { name: "tiktok", label: "TikTok", kind: "url" },
+              { name: "linkedin", label: "LinkedIn", kind: "url" },
+              { name: "facebook", label: "Facebook", kind: "url" },
+              { name: "x", label: "X", kind: "url" },
+              { name: "github", label: "GitHub", kind: "url" },
+            ],
+          },
+          {
             name: "links", label: "Outbound links", kind: "object",
             fields: [
               { name: "school", label: "Khan Lab School", kind: "url", required: true },
@@ -194,6 +207,9 @@ export const contentFiles: ContentFile[] = [
               { name: "width", label: "Logo width", kind: "number", help: "Only sets the shape. Copy the real pixel size of the file." },
               { name: "height", label: "Logo height", kind: "number" },
               { name: "href", label: "Website", kind: "url" },
+              { name: "description", label: "About the company", kind: "textarea", help: "One or two sentences on what they do. Shown when someone clicks the logo." },
+              { name: "relationship", label: "Their relationship with Antares", kind: "textarea", help: "What they give us and what it pays for, in our own words." },
+              { name: "since", label: "Supporting since", kind: "text", placeholder: "2023" },
             ],
           },
         ],

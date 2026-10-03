@@ -4,6 +4,7 @@ import type { Route } from "next";
 
 import { site } from "@/content/site";
 import { internalNavigation, primaryAction, siteNavigation } from "@/lib/site-navigation";
+import { socialIcons, socialLabels, socialOrder } from "./social-icons";
 import styles from "./site-footer.module.css";
 import { asset } from "@/lib/asset";
 
@@ -19,6 +20,27 @@ export function SiteFooter() {
             <p className={styles.tagline}>
               FIRST Robotics Competition Team {site.teamNumber}, based at Khan Lab School in {site.city}.
             </p>
+
+            <ul className={styles.social}>
+              {socialOrder
+                .filter((key) => site.social[key as keyof typeof site.social])
+                .map((key) => {
+                  const Icon = socialIcons[key];
+                  return (
+                    <li key={key}>
+                      <a
+                        href={site.social[key as keyof typeof site.social]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={socialLabels[key]}
+                        title={socialLabels[key]}
+                      >
+                        <Icon />
+                      </a>
+                    </li>
+                  );
+                })}
+            </ul>
           </div>
 
           <nav className={styles.column} aria-label="Footer">
@@ -28,6 +50,7 @@ export function SiteFooter() {
                 {item.label}
               </Link>
             ))}
+            <Link href="/blog">Build blog</Link>
             <Link href={primaryAction.href}>{primaryAction.label}</Link>
           </nav>
 

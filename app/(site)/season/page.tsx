@@ -9,6 +9,7 @@ import { seasonMedia } from "@/content/media";
 import { currentSeason, pastSeasons } from "@/content/seasons";
 import styles from "./page.module.css";
 import { asset } from "@/lib/asset";
+import { slugFor } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: `Season ${currentSeason.year}`,
@@ -87,12 +88,15 @@ export default function SeasonPage() {
             <ul className={styles.blogGrid}>
               {currentSeason.blogPosts.map((post, index) => (
                 <Reveal as="li" key={post.href} delay={index * 70}>
-                  <a className={styles.blogCard} href={asset(post.href)} target="_blank" rel="noopener noreferrer">
+                  <Link
+                    className={styles.blogCard}
+                    href={`/blog/${slugFor(currentSeason.year, post.label)}`}
+                  >
                     <span className={styles.blogLabel}>{post.label}</span>
                     <span className={styles.blogArrow} aria-hidden="true">
                       &rarr;
                     </span>
-                  </a>
+                  </Link>
                 </Reveal>
               ))}
             </ul>

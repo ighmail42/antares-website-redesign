@@ -23,7 +23,14 @@ export function StatGrid({ items, tone = "loud" }: StatGridProps) {
         <Reveal as="div" key={item.label} delay={index * 90} className={styles.cell}>
           <dt className={styles.value}>
             {item.numeric !== undefined ? (
-              <Counter to={item.numeric} fallback={item.value} suffix={item.suffix ?? ""} />
+              <Counter
+                to={item.numeric}
+                fallback={item.value}
+                suffix={item.suffix ?? ""}
+                /* Start just after this cell's own reveal, so the number does
+                   not race the card it is sitting in. */
+                delayMs={index * 90 + 200}
+              />
             ) : (
               item.value
             )}

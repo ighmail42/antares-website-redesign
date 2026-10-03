@@ -31,6 +31,32 @@
   color: var(--text-faint);
 }
 
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--text-soft);
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.social a:hover {
+  color: var(--accent-mark);
+  border-color: var(--accent-mark);
+  transform: translateY(-2px);
+}
+
 .column {
   display: flex;
   flex-direction: column;

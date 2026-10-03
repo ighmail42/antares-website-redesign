@@ -34,6 +34,16 @@ export type Site = {
     ein: string;
     memo: string;
   };
+  /** Empty entries are simply not shown in the footer. */
+  social: {
+    instagram: string;
+    youtube: string;
+    tiktok: string;
+    linkedin: string;
+    facebook: string;
+    x: string;
+    github: string;
+  };
   links: {
     school: string;
     schoolGiving: string;

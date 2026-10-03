@@ -166,10 +166,22 @@ accent tokens for everything inside it, so a component does not need to know
 which kind of section it has been dropped into. A card reads `var(--card)` and
 gets white on the light page and a translucent panel on a dark one.
 
-Official marks live in `public/brand/`: `logo-yellow.png`, `icon-yellow.png`
-and their blue counterparts, plus `constellation-yellow.png`. The constellation
-on the site is an SVG redraw of that emblem so it can animate; its coordinates
-are traced from the PNG and live in `components/constellation/scorpius.ts`.
+Official marks live in `public/brand/`: `logo-yellow.png`, `icon-yellow.png`,
+`star-yellow.png` and their blue counterparts, plus `constellation-yellow.png`.
+
+The constellation drawn on the site is the official emblem, not a redrawing of
+it: `components/constellation/scorpius.ts` is generated straight from the brand
+kit's `Antares_Constellation_Final.ai`, which keeps the tapered segments, the
+star sizes and the four-point Antares exactly as drawn. It is SVG so it can
+animate and take its colour from the section it sits in. To regenerate after a
+brand update:
+
+```bash
+python3 scripts/constellation-from-ai.py path/to/Antares_Constellation_Final.ai
+```
+
+That writes `scorpius.generated.ts`; copy it over
+`components/constellation/scorpius.ts`. It needs `pypdf`.
 
 ## Motion
 

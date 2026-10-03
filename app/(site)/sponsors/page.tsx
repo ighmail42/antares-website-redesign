@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 import { CtaBand } from "@/components/cta-band/cta-band";
 import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { StatGrid } from "@/components/stat-grid/stat-grid";
+import { SponsorWall } from "./sponsor-wall";
 import { site } from "@/content/site";
 import { firstImpactStats, partnershipLevels, sponsorTiers, sponsorValue } from "@/content/sponsors";
 import { studentQuotes } from "@/content/team";
 import styles from "./page.module.css";
-import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Sponsors",
@@ -46,32 +45,7 @@ export default function SponsorsPage() {
             <h2 className={styles.title}>Every sponsor, by tier</h2>
           </Reveal>
 
-          {sponsorTiers.map((tier, tierIndex) => (
-            <Reveal key={tier.id} delay={tierIndex * 80} className={styles.tier}>
-              <div className={styles.tierHead}>
-                <h3 className={styles.tierName}>{tier.name}</h3>
-                <p className={styles.tierBlurb}>{tier.blurb}</p>
-              </div>
-
-              <ul className={styles.logoGrid} data-tier={tier.id}>
-                {tier.sponsors.map((sponsor) => (
-                  <li key={sponsor.name} className={styles.logoCell}>
-                    {sponsor.logo ? (
-                      <Image
-                        className={styles.logo}
-                        src={asset(sponsor.logo)}
-                        alt={sponsor.name}
-                        width={sponsor.width ?? 200}
-                        height={sponsor.height ?? 60}
-                      />
-                    ) : (
-                      <span className={styles.textSponsor}>{sponsor.name}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
+          <SponsorWall tiers={sponsorTiers} />
         </div>
       </section>
 

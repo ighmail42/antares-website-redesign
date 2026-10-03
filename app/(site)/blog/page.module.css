@@ -1,0 +1,74 @@
+.season {
+  padding-bottom: clamp(28px, 4vw, 44px);
+  margin-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--line);
+}
+
+.season:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.seasonHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-bottom: 20px;
+}
+
+.seasonTitle {
+  margin: 0;
+  font-size: var(--step-2);
+}
+
+.seasonYear {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.seasonLink {
+  font-size: 0.9rem;
+}
+
+.postList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--text);
+  font-family: var(--font-display-stack);
+  text-decoration: none;
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.post:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+  color: var(--text);
+}
+
+.postArrow {
+  color: var(--accent-mark);
+  transition: transform 220ms ease;
+}
+
+.post:hover .postArrow {
+  transform: translateX(4px);
+}

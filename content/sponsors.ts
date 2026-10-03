@@ -17,6 +17,12 @@ export type Sponsor = {
   width?: number;
   height?: number;
   href?: string;
+  /** One or two sentences on what the company does. */
+  description?: string;
+  /** How they support Antares, in the team's own words. */
+  relationship?: string;
+  /** The year they first supported the team. */
+  since?: string;
 };
 
 export type SponsorTier = {

@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Reveal } from "@/components/reveal/reveal";
 import type { Season } from "@/content/seasons";
 import styles from "./season-card.module.css";
 import { asset } from "@/lib/asset";
+import { slugFor } from "@/lib/blog";
 
 /**
  * One season in the history timeline. Sections collapse gracefully when a
@@ -55,15 +57,13 @@ export function SeasonCard({ season, index }: { season: Season; index: number })
               </a>
             )}
             {season.blogPosts?.map((post) => (
-              <a
+              <Link
                 key={post.href}
                 className={styles.blogLink}
-                href={asset(post.href)}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/blog/${slugFor(season.year, post.label)}`}
               >
                 {post.label}
-              </a>
+              </Link>
             ))}
           </div>
         )}

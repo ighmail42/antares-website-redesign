@@ -42,18 +42,39 @@ what broke. Look at what 2024, 2025 and 2026 do for the pattern.
 Also confirm whether Antares competed in the 2020 INFINITE RECHARGE season.
 It is missing from the list.
 
-## 4. Team calendar — `content/internal.ts`
+## 4. Blog posts that nobody outside the team can read
+
+Every build blog that lives in a Google Doc currently returns a sign-in wall:
+all of 2022, 2023 and 2027, eleven posts in total. They have always been like
+this; the blog reader at `/blog` just makes it visible, because the document
+refuses to embed.
+
+In each document: **Share > General access > Anyone with the link > Viewer**.
+The 2024 and 2025 posts are PDFs in `public/blog-PDFs/` and are fine.
+
+## 5. Sponsor descriptions
+
+Clicking a sponsor logo opens a panel. It shows the tier and a link, and will
+show two more things once someone writes them, in `content/data/sponsors.json`
+or through /admin:
+
+- **About the company** — one or two sentences on what they do.
+- **Their relationship with Antares** — what they give and what it pays for.
+
+Sponsor websites are also empty. Those need checking rather than guessing.
+
+## 6. Team calendar — `content/internal.ts`
 
 Paste the Google Calendar embed URL into `calendarEmbedUrl`. Instructions are
 in the comment at the top of that file.
 
-## 5. Sponsor list — `content/sponsors.ts`
+## 7. Sponsor list — `content/sponsors.ts`
 
 The sponsor deck lists Google among past supporters, and the website does not.
 Confirm whether Google belongs on the sponsors page and, if so, which tier and
 whether we have permission to use the logo.
 
-## 6. A longer hero video
+## 8. A longer hero video
 
 `public/video/hero.mp4` is a 16-second cut from the 2026 competition reel,
 starting at 0:10 of the original. If there is better footage, or a cut the team
