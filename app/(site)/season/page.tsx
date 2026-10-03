@@ -49,7 +49,9 @@ const seasonRhythm = [
 export default function SeasonPage() {
   const copy = page("season");
   const previous = pastSeasons[0];
-  const entries = entriesForSeason(currentSeason.year);
+  /* The season page carries posts written on the site. Older seasons kept
+     their Google Docs and PDFs, and those stay on the history page. */
+  const entries = entriesForSeason(currentSeason.year).filter((entry) => entry.kind === "post");
 
   return (
     <main>

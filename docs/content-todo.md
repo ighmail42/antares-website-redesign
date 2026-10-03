@@ -42,7 +42,17 @@ what broke. Look at what 2024, 2025 and 2026 do for the pattern.
 Also confirm whether Antares competed in the 2020 INFINITE RECHARGE season.
 It is missing from the list.
 
-## 4. Blog posts that nobody outside the team can read
+## 4. The sample blog post
+
+`/blog/2027-sample-post` is called "A sample post" and says so in its first
+line. It exists so the season page is not empty while the format is new.
+Replace it with the first real post of the season, or delete it in the editor.
+
+The four 2027 Google Doc links that used to sit on the season page have been
+removed: all of them needed a sign-in. They are in the git history if anyone
+wants them back.
+
+## 5. Blog posts that nobody outside the team can read
 
 Every build blog that lives in a Google Doc currently returns a sign-in wall:
 all of 2022, 2023 and 2027, eleven posts in total. They have always been like
@@ -52,7 +62,7 @@ refuses to embed.
 In each document: **Share > General access > Anyone with the link > Viewer**.
 The 2024 and 2025 posts are PDFs in `public/blog-PDFs/` and are fine.
 
-## 5. Sponsor descriptions
+## 6. Sponsor descriptions
 
 > **One of these is placeholder text written to show the design, and has to go
 > before anyone outside the team sees it.** The Gene Haas Foundation entry has
@@ -70,18 +80,18 @@ or through /admin:
 
 Sponsor websites are also empty. Those need checking rather than guessing.
 
-## 6. Team calendar — `content/internal.ts`
+## 7. Team calendar — `content/internal.ts`
 
 Paste the Google Calendar embed URL into `calendarEmbedUrl`. Instructions are
 in the comment at the top of that file.
 
-## 7. Sponsor list — `content/sponsors.ts`
+## 8. Sponsor list — `content/sponsors.ts`
 
 The sponsor deck lists Google among past supporters, and the website does not.
 Confirm whether Google belongs on the sponsors page and, if so, which tier and
 whether we have permission to use the logo.
 
-## 8. A longer hero video
+## 9. A longer hero video
 
 `public/video/hero.mp4` is a 16-second cut from the 2026 competition reel,
 starting at 0:10 of the original. If there is better footage, or a cut the team

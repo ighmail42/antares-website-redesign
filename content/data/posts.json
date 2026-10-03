@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "slug": "2027-sample-post",
+      "title": "A sample post",
+      "season": "2027",
+      "date": "2026-10-03",
+      "authors": "Antares marketing",
+      "summary": "An example of the new blog format, sitting where a real post will. Replace it with the first week of the season, or delete it.",
+      "sections": [
+        {
+          "heading": "This is a sample",
+          "body": "Nothing here describes a real week. It is in place so the team can see what a post looks like on the season page and on the blog, and so there is something to copy the shape of.\n\nReplace it with the first real post of the season, or delete it from the editor."
+        },
+        {
+          "heading": "What a real one would say",
+          "body": "A post is usually three or four sections. The ones that earn their place are:\n\n- what we set out to do\n- what we actually built\n- what broke, and what changed because of it\n- what is next"
+        },
+        {
+          "heading": "Where to write it",
+          "body": "Open /admin, pick Build blog posts, and press Add post. A blank line starts a new paragraph and a line beginning with a dash becomes a bullet, which is the whole format.\n\nThere is a longer guide in the draft post called “How to write a build blog”."
+        }
+      ]
+    },
+    {
       "slug": "how-to-write-a-build-blog",
       "title": "How to write a build blog",
       "season": "2027",
