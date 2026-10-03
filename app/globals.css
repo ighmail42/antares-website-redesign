@@ -107,6 +107,10 @@
   --shadow-lift: 0 30px 70px rgba(0, 0, 0, 0.5);
 
   color-scheme: dark;
+  /* `color` is resolved once on <body> and then inherited as a concrete value,
+     so redefining --text above is not enough on its own: the panel has to set
+     colour again for anything inside it that does not set its own. */
+  color: var(--text);
 }
 
 * {

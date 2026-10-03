@@ -16,7 +16,7 @@
 }
 
 .cell:hover {
-  background: rgba(24, 32, 56, 0.95);
+  background: var(--card-sunken);
 }
 
 .value {
