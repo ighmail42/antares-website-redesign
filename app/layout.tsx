@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, Libre_Franklin } from "next/font/google";
 
-import { SiteFooter } from "@/components/site-footer/site-footer";
-import { SiteHeader } from "@/components/site-header/site-header";
 import { site } from "@/content/site";
+import { assertContentValid } from "@/content/validate";
 
 import "./globals.css";
+
+/* Checked once while the site builds, so a malformed content file fails CI
+   instead of reaching the live site. */
+assertContentValid();
 import { asset } from "@/lib/asset";
 
 /* Brand fonts. Josefin Sans is the title face from the brand reference guide.
@@ -67,11 +70,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script dangerouslySetInnerHTML={{ __html: enableMotionStyles }} />
       </head>
-      <body>
-        <SiteHeader />
-        <div id="main">{children}</div>
-        <SiteFooter />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

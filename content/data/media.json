@@ -1,0 +1,12 @@
+{
+  "heroMedia": {
+    "src": "/video/hero.mp4",
+    "poster": "/video/hero-poster.jpg",
+    "alt": "Robots on the field at an FRC competition"
+  },
+  "seasonMedia": {
+    "src": null,
+    "poster": "/video/season-poster.jpg",
+    "alt": "A wide view of an FRC field mid-match"
+  }
+}

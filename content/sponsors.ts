@@ -1,10 +1,15 @@
 /**
  * Sponsor logos, tiers and the 2026-27 partnership levels.
  *
- * To add a sponsor: drop the logo in `public/sponsor-logos/`, then add an entry
- * to the matching tier below. Width and height only set the aspect ratio, so
- * the real pixel size of the file does not have to match.
+ * The values live in `content/data/sponsors.json` and can be edited at /admin.
+ *
+ * To add a sponsor: drop the logo in `public/sponsor-logos/`, then add an
+ * entry to the matching tier. Width and height only set the aspect ratio, so
+ * the real pixel size of the file does not have to match. A sponsor with no
+ * logo renders as a name card instead.
  */
+
+import data from "./data/sponsors.json";
 
 export type Sponsor = {
   name: string;
@@ -22,60 +27,6 @@ export type SponsorTier = {
   sponsors: Sponsor[];
 };
 
-export const sponsorTiers: SponsorTier[] = [
-  {
-    id: "platinum",
-    name: "Platinum",
-    blurb: "Partners whose support underwrites an entire season of building.",
-    sponsors: [
-      { name: "PowerTec", logo: "/sponsor-logos/PowerTec-logo.svg", width: 1252, height: 144 },
-      { name: "SmugMug", logo: "/sponsor-logos/SmugMug-logo.svg", width: 550, height: 119 },
-    ],
-  },
-  {
-    id: "gold",
-    name: "Gold",
-    blurb: "Partners who keep the robot, the tools and the travel funded.",
-    sponsors: [
-      { name: "GlobalLogic", logo: "/sponsor-logos/GlobalLogic-logo.svg", width: 800, height: 182 },
-      { name: "Legion Technologies", logo: "/sponsor-logos/Legion_Technologies-logo.svg", width: 800, height: 143 },
-    ],
-  },
-  {
-    id: "silver",
-    name: "Silver",
-    blurb: "Companies and foundations backing students across the program.",
-    sponsors: [
-      { name: "Abbott Laboratories", logo: "/sponsor-logos/Abbott_Laboratories-logo.webp", width: 1000, height: 250 },
-      { name: "CMS", logo: "/sponsor-logos/CMS-logo.webp", width: 998, height: 366 },
-      { name: "Altair Engineering", logo: "/sponsor-logos/Altair_Engineering-logo.svg", width: 263, height: 54 },
-      { name: "Apple", logo: "/sponsor-logos/Apple-logo.svg", width: 44, height: 54 },
-      { name: "General Catalyst", logo: "/sponsor-logos/General_Catalyst-logo.svg", width: 400, height: 54 },
-      { name: "Gene Haas Foundation", logo: "/sponsor-logos/haas-logo.svg", width: 181, height: 72 },
-      { name: "HalloApp", logo: "/sponsor-logos/HalloApp-logo.svg", width: 259, height: 54 },
-      { name: "Saints Capital", logo: "/sponsor-logos/Saints_Capital-logo.svg", width: 170, height: 42 },
-    ],
-  },
-  {
-    id: "bronze",
-    name: "Bronze",
-    blurb: "Supporters who help cover registration, materials and outreach.",
-    sponsors: [
-      { name: "Lockheed Martin" },
-      { name: "PG&E" },
-      { name: "Intuitive Foundation" },
-      { name: "FIRST NorCal" },
-    ],
-  },
-];
-
-/** Logos shown in the home page marquee, in order. */
-export const featuredSponsors: Sponsor[] = [
-  ...sponsorTiers[0].sponsors,
-  ...sponsorTiers[1].sponsors,
-  ...sponsorTiers[2].sponsors,
-];
-
 export type PartnershipLevel = {
   amount: string;
   name: string;
@@ -84,89 +35,27 @@ export type PartnershipLevel = {
   highlight?: boolean;
 };
 
+export type ValueProp = { title: string; body: string };
+
+export type BudgetLine = { label: string; percent: number; note: string };
+
+export const sponsorTiers: SponsorTier[] = data.sponsorTiers;
+
+/** Logos shown in the home page marquee, in order: everything but bronze. */
+export const featuredSponsors: Sponsor[] = sponsorTiers
+  .filter((tier) => tier.id !== "bronze")
+  .flatMap((tier) => tier.sponsors);
+
 /** 2026-27 partnership levels. Each level adds to the one before it. */
-export const partnershipLevels: PartnershipLevel[] = [
-  {
-    amount: "$1,000+",
-    name: "Community Partner",
-    summary: "Get your name in front of the FRC community.",
-    benefits: ["Sponsor listing on team6962.com", "A season thank-you from the team"],
-  },
-  {
-    amount: "$2,500+",
-    name: "Program Partner",
-    summary: "Everything in Community Partner, plus recognition during the season.",
-    benefits: [
-      "Everything in Community Partner",
-      "Recognition on team social media",
-      "A concise season impact update",
-    ],
-  },
-  {
-    amount: "$7,500+",
-    name: "Build Partner",
-    summary: "Your logo travels with the team to every event.",
-    benefits: [
-      "Everything in Program Partner",
-      "Logo on team apparel or pit materials",
-      "A student-led robot demo",
-    ],
-    highlight: true,
-  },
-  {
-    amount: "$15,000+",
-    name: "Mission Partner",
-    summary: "Top-line recognition and a hands-on experience for your employees.",
-    benefits: [
-      "Everything in Build Partner",
-      "Prominent recognition on the robot, apparel and website",
-      "A proposed hands-on employee robot experience",
-    ],
-  },
-];
+export const partnershipLevels: PartnershipLevel[] = data.partnershipLevels;
 
 /** Why a company sponsors a high school robotics team. */
-export const sponsorValue = [
-  {
-    title: "Future builders",
-    body: "Brand presence with STEM-focused students at Antares activities, competitions and outreach events.",
-  },
-  {
-    title: "A connected tech community",
-    body: "Reach parents, mentors and supporters across established companies, startups and the wider Silicon Valley community.",
-  },
-  {
-    title: "Competition visibility",
-    body: "Branding travels across Bay Area and California events, and sponsor-supplied products can reach other teams.",
-  },
-  {
-    title: "Recruitment brand",
-    body: "A credible story about supporting hands-on engineering before students reach college and the workforce.",
-  },
-];
+export const sponsorValue: ValueProp[] = data.sponsorValue;
 
 /** Share of the planned 2025-26 expense budget. Rounded, totals 100%. */
-export const budgetBreakdown = [
-  { label: "Robot parts", percent: 34, note: "Motors, gearboxes, wheels, electronics" },
-  { label: "Program & operations", percent: 19, note: "Insurance, software, shop supplies" },
-  { label: "Meals", percent: 15, note: "Build nights and competition weekends" },
-  { label: "FIRST registration", percent: 11, note: "Season and event entry fees" },
-  { label: "Stock materials", percent: 11, note: "Aluminum, polycarbonate, hardware" },
-  { label: "Equipment", percent: 10, note: "Shop tools and machines" },
-];
+export const budgetBreakdown: BudgetLine[] = data.budgetBreakdown;
 
 /** National outcomes for FIRST alumni. Source: FIRST. */
-export const firstImpactStats = [
-  { value: "83%", numeric: 83, suffix: "%", label: "of alumni pursued a STEM major by year four" },
-  { value: "63%", numeric: 63, suffix: "%", label: "of alumni were employed in a STEM field" },
-  { value: "93K+", numeric: 93, suffix: "K+", label: "students competed in FRC in 2025" },
-  { value: "200+", numeric: 200, suffix: "+", label: "Fortune 500 companies sponsor FIRST" },
-];
+export const firstImpactStats = data.firstImpactStats;
 
-export const waysToGive = [
-  "Credit card or ACH",
-  "Check payable to Khan Lab School",
-  "Employer or volunteer-hour matching",
-  "Donor-advised fund or appreciated stock",
-  "In-kind tools, machining, fabrication or expertise",
-];
+export const waysToGive: string[] = data.waysToGive;

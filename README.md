@@ -30,20 +30,41 @@ desktop and phone widths.
 
 ## Changing Words and Numbers
 
-**Most edits do not need a developer.** Everything the site says lives in
-`content/`, as plain TypeScript objects with comments explaining each field.
+**Most edits do not need a developer, and do not need this repository cloned.**
+Everything the site says lives in `content/data/` as JSON, and there is a
+form-based editor at **`/admin`** that reads and writes those files.
+
+See [`docs/editing-content.md`](docs/editing-content.md) for the editor's
+workflow. The short version: edit the forms, copy the file, paste it into
+GitHub, open a pull request.
 
 | File | What it holds |
 | --- | --- |
-| `content/site.ts` | Team facts, email addresses, postal address, tax details, outbound links |
-| `content/team.ts` | Headline stats, awards, the "who we are" blocks, leadership ladder, subteams, student quotes |
-| `content/seasons.ts` | One entry per season: robot, summary, highlights, awards, blog links |
-| `content/sponsors.ts` | Sponsor logos by tier, partnership levels, budget split, FIRST statistics |
-| `content/training.ts` | Training curriculum, grouped into the collapsible sections on `/training` |
-| `content/media.ts` | Background photo or video for the home and season headers |
-| `content/internal.ts` | Announcements doc, calendar embed, internal quick links |
+| `content/data/site.json` | Team facts, email addresses, postal address, tax details, outbound links |
+| `content/data/team.json` | Awards, the "who we are" blocks, leadership ladder, subteams, student quotes |
+| `content/data/seasons.json` | One entry per season: robot, summary, highlights, awards, blog links |
+| `content/data/sponsors.json` | Sponsor logos by tier, partnership levels, budget split, FIRST statistics |
+| `content/data/training.json` | Training curriculum, grouped into the collapsible sections on `/training` |
+| `content/data/media.json` | Background photo or video for the home and season headers |
+| `content/data/internal.json` | Announcements doc, calendar embed, internal quick links |
+
+The matching `content/*.ts` file holds the type for each one, plus anything
+computed rather than stored — the home page's "FIRST awards" figure, for
+instance, is the length of the awards list, so it never drifts.
 
 `docs/content-todo.md` lists what still needs a human decision.
+
+### How content is checked
+
+`content/schema.ts` describes every field: its label, its help text, whether it
+is required, and what kind of value it holds. One schema drives three things —
+the forms at `/admin`, the inline help an editor reads, and the checks in
+`content/validate.ts`.
+
+Those checks run once while the site builds, from `app/layout.tsx`. **A
+malformed content file fails the build and the live site keeps serving the last
+good version**, with an error naming the exact field. Adding a field means
+adding it to the type in `content/*.ts` and to the schema.
 
 ### Add a sponsor
 
@@ -66,10 +87,13 @@ link.
 
 ## Where Things Live
 
-- `app/layout.tsx` sets metadata, loads the fonts, and wraps every page in the
-  header and footer.
-- `app/page.tsx` is the home page. Each folder under `app/` is a route, so
-  `app/history/page.tsx` becomes `/history`.
+- `app/layout.tsx` sets metadata, loads the fonts and runs the content checks.
+- `app/(site)/` holds the public pages and the layout that wraps them in the
+  site header and footer. The brackets are a Next.js route group: they organise
+  files without appearing in the URL, so `app/(site)/history/page.tsx` is still
+  `/history`.
+- `app/admin/` is the content editor. It sits outside the site group, so it
+  does not get the site's header and footer.
 - `components/` holds the shared pieces. Each has its own folder with a
   `.module.css` beside it.
 - `lib/site-navigation.ts` is the single list of header links.

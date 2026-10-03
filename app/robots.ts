@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
   }
 
   return {
-    rules: { userAgent: "*", allow: "/", disallow: "/internal" },
+    rules: { userAgent: "*", allow: "/", disallow: ["/internal", "/admin"] },
     sitemap: `${site.url}/sitemap.xml`,
   };
 }

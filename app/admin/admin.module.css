@@ -1,0 +1,474 @@
+/*
+  The editor is a tool, not a page of the site: a dense three-column working
+  surface rather than something with a hero. It still uses the brand tokens so
+  it does not feel like a different product.
+*/
+
+.banner {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 14px var(--gutter);
+  background: var(--brand-blue);
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 0.9rem;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr) 320px;
+  gap: 1px;
+  min-height: calc(100svh - 52px);
+  background: var(--line);
+}
+
+.sidebar,
+.main,
+.save {
+  padding: 24px 20px 48px;
+  background: var(--space-800);
+}
+
+.sidebar,
+.save {
+  position: sticky;
+  top: 52px;
+  align-self: start;
+  max-height: calc(100svh - 52px);
+  overflow-y: auto;
+}
+
+.sidebarTitle {
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.sidebarTitle:not(:first-child) {
+  margin-top: 32px;
+}
+
+/* ---- Navigation ---------------------------------------------------- */
+
+.navGroup {
+  margin-bottom: 2px;
+}
+
+.navFile,
+.navCollection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-soft);
+  font-family: inherit;
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.navFile:hover,
+.navCollection:hover {
+  background: rgba(242, 222, 139, 0.07);
+  color: var(--text);
+}
+
+.navFile[data-active] {
+  background: rgba(242, 222, 139, 0.12);
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.navCollections {
+  display: grid;
+  margin: 2px 0 10px 10px;
+  padding-left: 10px;
+  border-left: 1px solid var(--line);
+}
+
+.navCollection {
+  padding: 7px 10px;
+  font-size: 0.86rem;
+}
+
+.navCollection[data-active] {
+  color: var(--gold);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* ---- Main form ----------------------------------------------------- */
+
+.mainHead {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mainTitle {
+  margin-bottom: 0.3em;
+  font-size: var(--step-2);
+}
+
+.mainDescription {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.shownOn {
+  margin: 10px 0 0;
+  color: var(--text-faint);
+  font-size: 0.86rem;
+}
+
+/* ---- Fields -------------------------------------------------------- */
+
+.field {
+  margin-bottom: 18px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.required {
+  margin-left: 6px;
+  color: var(--text-faint);
+  font-size: 0.74rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.help {
+  margin: 0 0 6px;
+  max-width: 68ch;
+  color: var(--text-faint);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(5, 7, 15, 0.6);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+
+.input:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.checkboxRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+/* ---- Groups and lists ---------------------------------------------- */
+
+.group {
+  margin: 0 0 20px;
+  padding: 16px 16px 6px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(14, 20, 38, 0.45);
+}
+
+.groupLegend {
+  padding: 0 8px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.count {
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(242, 222, 139, 0.14);
+  color: var(--gold);
+  font-size: 0.74rem;
+}
+
+.row {
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(5, 7, 15, 0.45);
+  overflow: clip;
+}
+
+.rowSummary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.rowSummary::-webkit-details-marker {
+  display: none;
+}
+
+.rowTitle {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.92rem;
+}
+
+.rowBody {
+  padding: 4px 14px 14px;
+  border-top: 1px solid var(--line);
+}
+
+.rowControls {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.rowControls button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rowControls button:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.rowControls button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.deleteButton:hover:not(:disabled) {
+  border-color: #ff8a8a !important;
+  color: #ff8a8a !important;
+}
+
+.lineRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.addButton {
+  margin: 4px 0 12px;
+  padding: 8px 14px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--gold);
+  font-family: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background: rgba(242, 222, 139, 0.08);
+}
+
+/* ---- Checks and saving --------------------------------------------- */
+
+.ok {
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 0.86rem;
+}
+
+.problems {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.problems li {
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  border-left: 2px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  background: rgba(242, 222, 139, 0.07);
+  color: var(--text-soft);
+}
+
+.problems li[data-severity="error"] {
+  border-left-color: #ff8a8a;
+  background: rgba(255, 138, 138, 0.08);
+}
+
+.problems li strong {
+  display: block;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.steps {
+  margin: 0 0 14px;
+  padding-left: 1.2em;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.steps li::marker {
+  color: var(--gold);
+}
+
+.saveButtons {
+  display: grid;
+  gap: 8px;
+}
+
+.primary,
+.secondary {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  font-family: inherit;
+  font-size: 0.88rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--space-900);
+  font-weight: 600;
+}
+
+.primary:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text-soft);
+}
+
+.secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.secondary:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.blocked {
+  margin: 14px 0 0;
+  color: #ff8a8a;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.status {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(242, 222, 139, 0.1);
+  color: var(--gold);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.preview {
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.preview summary {
+  cursor: pointer;
+  color: var(--text-faint);
+}
+
+.preview summary:hover {
+  color: var(--gold);
+}
+
+.preview pre {
+  max-height: 340px;
+  margin: 10px 0 0;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(5, 7, 15, 0.7);
+  color: var(--text-soft);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .shell {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .save {
+    grid-column: 1 / -1;
+    position: static;
+    max-height: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: static;
+    max-height: none;
+  }
+}

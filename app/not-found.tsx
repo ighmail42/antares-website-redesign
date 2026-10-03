@@ -1,11 +1,15 @@
 import Link from "next/link";
 
 import { Constellation } from "@/components/constellation/constellation";
+import { SiteFooter } from "@/components/site-footer/site-footer";
+import { SiteHeader } from "@/components/site-header/site-header";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {
   return (
-    <main className={styles.wrap}>
+    <>
+      <SiteHeader />
+      <main className={styles.wrap}>
       <Constellation className={styles.backdrop} animated={false} />
       <div className="shell">
         <div className={styles.inner}>
@@ -24,6 +28,8 @@ export default function NotFound() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

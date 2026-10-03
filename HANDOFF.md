@@ -76,16 +76,23 @@ placeholder, so the site never shows a sponsor a made-up number.
 
 ## For whoever maintains the site
 
-Nearly all edits are data, not code. Every word and number lives in
-[`content/`](content/), one commented file per area:
+Nearly all edits are data, not code, and most do not need the repository
+cloned at all. There is a form-based editor at **`/admin`** — see
+[`docs/editing-content.md`](docs/editing-content.md).
 
-- `content/site.ts` — team facts, emails, address, tax details
-- `content/team.ts` — stats, awards, the who-we-are blocks, subteams, quotes
-- `content/seasons.ts` — one entry per season
-- `content/sponsors.ts` — sponsors by tier, partnership levels, budget split
-- `content/training.ts` — the training curriculum
-- `content/media.ts` — hero video and header images
-- `content/internal.ts` — announcements, calendar, internal links
+Every word and number lives in [`content/data/`](content/data/) as JSON, with
+the matching type and anything computed in `content/`:
+
+- `site.json` — team facts, emails, address, tax details
+- `team.json` — awards, the who-we-are blocks, subteams, quotes
+- `seasons.json` — one entry per season
+- `sponsors.json` — sponsors by tier, partnership levels, budget split
+- `training.json` — the training curriculum
+- `media.json` — hero video and header images
+- `internal.json` — announcements, calendar, internal links
+
+A bad edit cannot take the site down: the content is checked while the site
+builds, and a problem fails the build rather than reaching the live site.
 
 Adding a sponsor, a season or a lesson means adding an object to an array. The
 [README](README.md) has the details, along with the design system, the brand

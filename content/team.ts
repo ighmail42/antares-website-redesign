@@ -1,11 +1,13 @@
 /**
- * Who Antares is: the numbers, the awards, and the story blocks reused
- * across the home and about pages.
+ * Who Antares is: the numbers, the awards, and the story blocks reused across
+ * the home and about pages.
  *
- * NEEDS REVIEW markers flag values the team still has to confirm. A value of
- * `undefined` is skipped by the components that render it, so the site never
- * shows a placeholder number to a sponsor.
+ * The values live in `content/data/team.json` and can be edited at /admin.
+ * A number left out is skipped by the components that render it, so the site
+ * never shows a placeholder figure to a sponsor.
  */
+
+import data from "./data/team.json";
 
 export type Stat = {
   value: string;
@@ -16,15 +18,12 @@ export type Stat = {
   detail?: string;
 };
 
-/** NEEDS REVIEW: confirm before the 2027 season opens. */
-export const teamNumbers = {
-  activeStudents: undefined as number | undefined,
-  weeklyHours: 16,
-  competitionsThisSeason: undefined as number | undefined,
-  peopleReachedByOutreach: undefined as number | undefined,
+export type TeamNumbers = {
+  activeStudents?: number;
+  weeklyHours: number;
+  competitionsThisSeason?: number;
+  peopleReachedByOutreach?: number;
 };
-
-/* Defined after `awards` so the award count stays in sync with the list. */
 
 export type Award = {
   year: string;
@@ -33,20 +32,33 @@ export type Award = {
   note?: string;
 };
 
-/** Source: FIRST award records and Khan Lab School. */
-export const awards: Award[] = [
-  { year: "2026", name: "Autonomous Award" },
-  { year: "2026", name: "Imagery Award" },
-  { year: "2025", name: "Team Spirit Award" },
-  { year: "2024", name: "Regional Finalist", event: "Monterey Bay Regional" },
-  { year: "2024", name: "Excellence in Engineering", event: "Monterey Bay Regional" },
-  { year: "2024", name: "Innovation in Control", event: "Sunset Showdown" },
-  { year: "2024", name: "Dean's List Finalist", note: "Individual student recognition" },
-  { year: "2021", name: "Imagery Award", note: "In honor of Jack Kamen" },
-  { year: "2019", name: "Team Spirit Award" },
-  { year: "2018", name: "Highest Rookie Seed" },
-];
+export type Community = {
+  id: string;
+  kicker: string;
+  title: string;
+  body: string;
+  href: string;
+  linkLabel: string;
+  external?: boolean;
+};
 
+export type Step = { step: string; title: string; body: string };
+
+export type TimelineEntry = { marker: string; body: string };
+
+export type Subteam = { name: string; body: string };
+
+export type StudentQuote = { quote: string; name: string; role: string; photo?: string };
+
+export const teamNumbers: TeamNumbers = data.teamNumbers;
+
+/** Source: FIRST award records and Khan Lab School. */
+export const awards: Award[] = data.awards;
+
+/**
+ * The four big numbers on the home page. Derived rather than stored, so the
+ * award count stays in step with the list above instead of drifting from it.
+ */
 export const headlineStats: Stat[] = [
   { value: "2018", label: "Founded", detail: "Rookie season at Khan Lab School" },
   { value: "6-12", label: "Grades", detail: "Middle school through senior year" },
@@ -66,102 +78,28 @@ export const headlineStats: Stat[] = [
 ];
 
 /**
- * The three communities a first-time visitor needs explained, in the order
- * the website feedback asked for them.
+ * The three communities a first-time visitor needs explained, in the order the
+ * website feedback asked for them.
  */
-export const communities = [
-  {
-    id: "antares",
-    kicker: "The team",
-    title: "Antares",
-    body: "FIRST Robotics Competition Team 6962. Founded in 2018, we design, build, program and drive a new competition robot every year. Students run the team: they make the engineering calls, manage the budget, find the sponsors and teach the next group.",
-    href: "/about",
-    linkLabel: "How the team works",
-  },
-  {
-    id: "kls",
-    kicker: "The school",
-    title: "Khan Lab School",
-    body: "A nonprofit TK-12 school founded in 2014 by Sal Khan to put mastery-based, student-directed learning into practice. Around 310 students across two Silicon Valley campuses. Antares is the school's engineering program with real deadlines and a public scoreboard.",
-    href: "https://khanlabschool.org/",
-    linkLabel: "Visit Khan Lab School",
-    external: true,
-  },
-  {
-    id: "frc",
-    kicker: "The competition",
-    title: "FIRST Robotics Competition",
-    body: "Every January, FIRST reveals a new game. Teams get six weeks to build a 120-pound robot, then compete in alliances of three against three. Over 93,000 students competed in FRC in 2025, and more than 200 Fortune 500 companies sponsor the program.",
-    href: "https://www.firstinspires.org/robotics/frc",
-    linkLabel: "What is FRC?",
-    external: true,
-  },
-];
+export const communities: Community[] = data.communities;
 
 /** How a match actually runs, for sponsors who have never watched one. */
-export const matchPhases = [
-  {
-    step: "01",
-    title: "Autonomous",
-    body: "For the first 15 seconds the robot runs student-written code with no driver input.",
-  },
-  {
-    step: "02",
-    title: "Driver control",
-    body: "Students take the controls, maneuver the field and coordinate with two alliance partners.",
-  },
-  {
-    step: "03",
-    title: "Endgame",
-    body: "Robots score points on that season's tasks and race for an endgame position. The higher alliance score wins.",
-  },
-];
+export const matchPhases: Step[] = data.matchPhases;
 
 /** The student-ownership argument, used on the about and sponsors pages. */
-export const leadershipLadder = [
-  { step: "01", title: "Join in middle school", body: "Sixth graders start alongside experienced teammates instead of waiting for high school." },
-  { step: "02", title: "Learn the craft", body: "Structured training in design, build, code, fabrication, marketing and business." },
-  { step: "03", title: "Lead a direction", body: "Students own a subsystem, a budget line or an outreach program, with mentors as coaches." },
-  { step: "04", title: "Teach it forward", body: "Leads train the students behind them, so expertise stays on the team when they graduate." },
-];
+export const leadershipLadder: Step[] = data.leadershipLadder;
 
 /**
- * NEEDS REVIEW: replace with approved student quotes, names, grades and photos
- * before this goes in front of sponsors. See `docs/content-todo.md`.
+ * Student stories. The sponsors page only renders this section when there is
+ * at least one entry, so nothing looks broken while it is empty.
  */
-export const studentQuotes: { quote: string; name: string; role: string; photo?: string }[] = [];
+export const studentQuotes: StudentQuote[] = data.studentQuotes;
 
 /** How Khan Lab School came to exist, for visitors who only know Khan Academy. */
-export const schoolTimeline = [
-  {
-    marker: "Khan Academy",
-    body: "Sal Khan founded the nonprofit learning platform known for free online lessons and mastery learning.",
-  },
-  {
-    marker: "2012",
-    body: "His book The One World Schoolhouse proposed a student-centered, mastery-based model for K-12 education.",
-  },
-  {
-    marker: "2014",
-    body: "He founded Khan Lab School in Mountain View to test and refine those ideas in an actual school.",
-  },
-  {
-    marker: "Today",
-    body: "KLS serves around 310 TK-12 students on two Silicon Valley campuses, with an emphasis on student agency and real-world application.",
-  },
-];
+export const schoolTimeline: TimelineEntry[] = data.schoolTimeline;
 
 /**
  * The disciplines students can lead. These mirror the training curriculum in
  * `content/training.ts`, which is where the lessons for each one live.
  */
-export const subteams = [
-  { name: "Design", body: "CAD the robot in Onshape, argue the tradeoffs, and own the geometry that everything else depends on." },
-  { name: "Build", body: "Cut, drill, tap and assemble. Turn a model into a machine that survives a competition weekend." },
-  { name: "Electrical", body: "Power distribution, motor controllers, sensors and the wiring discipline that keeps a robot alive." },
-  { name: "Code", body: "Java on the roboRIO: autonomous routines, driver controls, vision and the control loops between them." },
-  { name: "Fabrication", body: "CAM in Fusion 360 and the Shopbot CNC router that cuts our custom parts." },
-  { name: "Marketing", body: "Social media, merchandise, photography and the team's public voice." },
-  { name: "Business", body: "Budgeting, sponsor research, pitching and the partnerships that fund the season." },
-  { name: "Outreach", body: "Events that bring robotics to younger students and the wider community." },
-];
+export const subteams: Subteam[] = data.subteams;
