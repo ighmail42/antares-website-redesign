@@ -11,7 +11,7 @@ which rebuilds the site automatically.
 
 ## The editor at /admin
 
-Open **[/admin](https://ighmail42.github.io/antares-website-redesign/admin)**.
+Open **[/admin](https://team6962.github.io/antares-website-redesign/admin)**.
 
 It is a set of forms, one per thing you might want to change. Pick a section on
 the left, edit on the right, and watch the **Checks** panel: it tells you

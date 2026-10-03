@@ -5,7 +5,7 @@
  * Change these if the repository moves.
  */
 export const contentRepo = {
-  owner: "ighmail42",
+  owner: "team6962",
   name: "antares-website-redesign",
   branch: "main",
   /** Folder holding the JSON files, relative to the repository root. */
