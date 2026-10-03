@@ -44,27 +44,36 @@ img.media {
   the footage is actually visible behind the constellation. The bottom still
   fades into the page background so the section joins the one below it.
 */
+/*
+  The scrim is what a reader actually sees over the footage, so it carries the
+  same light-to-dark run as the plain brand band on pages without video: Light
+  Blue at the top, Dark Blue Accent at the bottom. It is tinted with the brand
+  colours rather than near-black for the same reason.
+
+  Vertically it opens up through the middle so the clip shows; horizontally it
+  stays heavy on the left, where the headline sits.
+*/
 .scrim {
   position: absolute;
   inset: 0;
   background:
     /* A short band under the header, so the navigation stays legible even when
        the frame behind it is a brightly lit gym. */
-    linear-gradient(180deg, rgba(5, 7, 15, 0.72) 0, rgba(5, 7, 15, 0) 132px),
+    linear-gradient(180deg, rgba(29, 35, 53, 0.66) 0, rgba(29, 35, 53, 0) 128px),
     linear-gradient(
       180deg,
-      rgba(5, 7, 15, 0.45) 0%,
-      rgba(5, 7, 15, 0.1) 32%,
-      rgba(5, 7, 15, 0.3) 72%,
-      var(--brand-blue) 100%
+      rgba(57, 69, 106, 0.52) 0%,
+      rgba(57, 69, 106, 0.12) 30%,
+      rgba(29, 35, 53, 0.42) 72%,
+      var(--brand-dark-blue) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(5, 7, 15, 0.92) 0%,
-      rgba(5, 7, 15, 0.78) 26%,
-      rgba(5, 7, 15, 0.3) 55%,
-      rgba(5, 7, 15, 0.04) 78%,
-      rgba(5, 7, 15, 0.22) 100%
+      rgba(29, 35, 53, 0.9) 0%,
+      rgba(29, 35, 53, 0.74) 26%,
+      rgba(29, 35, 53, 0.28) 55%,
+      rgba(29, 35, 53, 0.04) 78%,
+      rgba(29, 35, 53, 0.2) 100%
     );
 }
 
@@ -76,13 +85,13 @@ img.media {
 @media (max-width: 860px) {
   .scrim {
     background:
-      linear-gradient(180deg, rgba(5, 7, 15, 0.72) 0, rgba(5, 7, 15, 0) 132px),
+      linear-gradient(180deg, rgba(29, 35, 53, 0.66) 0, rgba(29, 35, 53, 0) 128px),
       linear-gradient(
         180deg,
-        rgba(5, 7, 15, 0.42) 0%,
-        rgba(5, 7, 15, 0.46) 42%,
-        rgba(5, 7, 15, 0.62) 82%,
-        var(--brand-blue) 100%
+        rgba(57, 69, 106, 0.46) 0%,
+        rgba(37, 46, 69, 0.5) 42%,
+        rgba(29, 35, 53, 0.64) 82%,
+        var(--brand-dark-blue) 100%
       );
   }
 }
