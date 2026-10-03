@@ -78,9 +78,13 @@ export function ContentEditor() {
   const collection =
     file.collections.find((entry) => entry.name === collectionName) ?? file.collections[0];
 
-  const original = useMemo(() => JSON.stringify(contentData[fileId], null, 2), [fileId]);
+  /* Compare like with like: serialising orders the keys by the schema and
+     drops optional fields that are blank, so the draft has to be measured
+     against the original put through the same mill. Comparing it with the raw
+     file reported unsaved changes the moment the page opened. */
+  const original = useMemo(() => serialiseFile(fileId, contentData[fileId]), [fileId]);
   const serialised = useMemo(() => serialiseFile(fileId, draft[fileId]), [draft, fileId]);
-  const changed = serialised.trim() !== original.trim();
+  const changed = serialised !== original;
 
   const problems: Problem[] = useMemo(
     () => validateFile(fileId, draft[fileId]),
@@ -92,7 +96,7 @@ export function ContentEditor() {
   useEffect(() => {
     const anyChanged = contentFiles.some(
       (entry) =>
-        JSON.stringify(draft[entry.id]) !== JSON.stringify(contentData[entry.id]),
+        serialiseFile(entry.id, draft[entry.id]) !== serialiseFile(entry.id, contentData[entry.id]),
     );
     if (!anyChanged) return;
 
@@ -173,7 +177,7 @@ export function ContentEditor() {
         <h2 className={styles.sidebarTitle}>Content</h2>
         {contentFiles.map((entry) => {
           const entryChanged =
-            JSON.stringify(draft[entry.id]) !== JSON.stringify(contentData[entry.id]);
+            serialiseFile(entry.id, draft[entry.id]) !== serialiseFile(entry.id, contentData[entry.id]);
           const active = entry.id === fileId;
           return (
             <div key={entry.id} className={styles.navGroup}>
