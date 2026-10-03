@@ -7,6 +7,7 @@ import { StatGrid } from "@/components/stat-grid/stat-grid";
 import { awards, headlineStats } from "@/content/team";
 import { pastSeasons } from "@/content/seasons";
 import { SeasonCard } from "./season-card";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -16,12 +17,14 @@ export const metadata: Metadata = {
 };
 
 export default function HistoryPage() {
+  const copy = page("history");
+
   return (
     <main>
       <PageHero
-        eyebrow="History"
-        title="Every season since 2018"
-        lede="One new robot a year, built in six weeks by students. These are the machines, the awards, and the lessons that shaped the program."
+        eyebrow={copy.hero.eyebrow}
+        title={copy.hero.title ?? ""}
+        lede={copy.hero.lede}
       />
 
       <section className="section" data-tight>
@@ -43,8 +46,8 @@ export default function HistoryPage() {
       <section className="section" data-tone="deep" data-scheme="dark">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">The full list</p>
-            <h2 className={styles.awardsTitle}>FIRST awards, 2018 to today</h2>
+            <p className="eyebrow">{copy.awards.eyebrow}</p>
+            <h2 className={styles.awardsTitle}>{copy.awards.title}</h2>
           </Reveal>
           <ul className={styles.awardList}>
             {awards.map((award, index) => (
@@ -61,11 +64,11 @@ export default function HistoryPage() {
       </section>
 
       <CtaBand
-        eyebrow="What comes next"
-        title="Help fund the next robot"
-        body="Every season on this page was paid for by sponsors, families and in-kind support. The next one needs the same."
-        primary={{ href: "/sponsors", label: "Partnership levels" }}
-        secondary={{ href: "/season", label: "This season" }}
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
+        primary={{ href: "/sponsors", label: copy.cta.primaryCta ?? "" }}
+        secondary={{ href: "/season", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

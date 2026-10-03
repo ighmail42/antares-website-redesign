@@ -5,6 +5,7 @@ import { CtaBand } from "@/components/cta-band/cta-band";
 import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { blogPosts, blogSeasons } from "@/lib/blog";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -14,11 +15,13 @@ export const metadata: Metadata = {
 };
 
 export default function BlogIndexPage() {
+  const copy = page("blog");
+
   return (
     <main>
       <PageHero
-        eyebrow="Build blog"
-        title="Written by students, during the season"
+        eyebrow={copy.hero.eyebrow}
+        title={copy.hero.title ?? ""}
         lede={`${blogPosts.length} posts covering what the team designed each week, what broke, and what changed as a result.`}
       />
 
@@ -53,11 +56,11 @@ export default function BlogIndexPage() {
       </section>
 
       <CtaBand
-        eyebrow="Follow the season"
-        title="The next one starts in January"
-        body="Kickoff is the first Saturday of January, and the blog picks up the week after. Sponsors get the same updates by email."
-        primary={{ href: "/season", label: "This season" }}
-        secondary={{ href: "/sponsors", label: "Partner with us" }}
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
+        primary={{ href: "/season", label: copy.cta.primaryCta ?? "" }}
+        secondary={{ href: "/sponsors", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

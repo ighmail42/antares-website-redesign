@@ -14,6 +14,7 @@ import {
   schoolTimeline,
   subteams,
 } from "@/content/team";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 import { asset } from "@/lib/asset";
 
@@ -24,12 +25,14 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const copy = page("about");
+
   return (
     <main>
       <PageHero
-        eyebrow="About Antares"
-        title="Students make the decisions"
-        lede="Mentors bring safety, technical context and coaching. Students do the rest: they make the engineering calls, run the budget, find the sponsors, and teach the group coming up behind them."
+        eyebrow={copy.hero.eyebrow}
+        title={copy.hero.title ?? ""}
+        lede={copy.hero.lede}
       />
 
       <section className="section" data-tight>
@@ -44,13 +47,9 @@ export default function AboutPage() {
       <section className="section" data-tone="raised">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">Leadership development</p>
-            <h2 className={styles.title}>Knowledge that carries forward</h2>
-            <p className="lede">
-              FRC mostly serves grades 9 through 12. Because Antares starts in grade 6, a student
-              can spend seven years on the team: long enough to learn a discipline properly, lead
-              it, and train a replacement before they leave.
-            </p>
+            <p className="eyebrow">{copy.ladder.eyebrow}</p>
+            <h2 className={styles.title}>{copy.ladder.title}</h2>
+            <p className="lede">{copy.ladder.lede}</p>
           </Reveal>
 
           <ol className={styles.ladder}>
@@ -71,12 +70,9 @@ export default function AboutPage() {
       <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">What students lead</p>
-            <h2 className={styles.title}>Eight disciplines, all student run</h2>
-            <p className="lede">
-              Every one of these has a student lead, a training curriculum and a job to do before
-              the robot ships.
-            </p>
+            <p className="eyebrow">{copy.subteams.eyebrow}</p>
+            <h2 className={styles.title}>{copy.subteams.title}</h2>
+            <p className="lede">{copy.subteams.lede}</p>
           </Reveal>
 
           <div className={styles.subteamGrid}>
@@ -97,17 +93,12 @@ export default function AboutPage() {
         <div className="shell">
           <div className={styles.schoolLayout}>
             <Reveal>
-              <p className="eyebrow">Our school</p>
-              <h2 className={styles.title}>Khan Lab School</h2>
-              <p className="lede">
-                Antares is based at Khan Lab School, a nonprofit school built to test what
-                mastery-based, student-directed learning looks like in practice. The team extends
-                that model into an engineering program with real deadlines, public performance and
-                student ownership.
-              </p>
+              <p className="eyebrow">{copy.school.eyebrow}</p>
+              <h2 className={styles.title}>{copy.school.title}</h2>
+              <p className="lede">{copy.school.lede}</p>
               <div className="button-row">
                 <a className="button button-ghost" href={site.links.school} target="_blank" rel="noopener noreferrer">
-                  Visit Khan Lab School
+                  {copy.school.primaryCta}
                 </a>
               </div>
             </Reveal>
@@ -130,13 +121,9 @@ export default function AboutPage() {
       <section className="section" data-tone="raised">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">The competition</p>
-            <h2 className={styles.title}>What FIRST Robotics Competition is</h2>
-            <p className="lede">
-              Every January, FIRST reveals a brand-new game. Teams get six weeks to build a robot
-              for it, then compete at district events and regionals. Matches last two minutes and
-              thirty seconds and pair three teams against three.
-            </p>
+            <p className="eyebrow">{copy.frc.eyebrow}</p>
+            <h2 className={styles.title}>{copy.frc.title}</h2>
+            <p className="lede">{copy.frc.lede}</p>
           </Reveal>
 
           <ol className={styles.phaseList}>
@@ -168,12 +155,9 @@ export default function AboutPage() {
       <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">Recognition</p>
-            <h2 className={styles.title}>A growing record</h2>
-            <p className="lede">
-              Antares awards span technical performance, imagery, team culture and individual
-              student leadership.
-            </p>
+            <p className="eyebrow">{copy.awards.eyebrow}</p>
+            <h2 className={styles.title}>{copy.awards.title}</h2>
+            <p className="lede">{copy.awards.lede}</p>
           </Reveal>
 
           <ul className={styles.awards}>
@@ -202,11 +186,11 @@ export default function AboutPage() {
       </section>
 
       <CtaBand
-        eyebrow="Get involved"
-        title="Support the next seven years of students"
-        body="Sponsorship and donations pay for the parts, the registration fees and the shop time that make this program possible."
-        primary={{ href: "/sponsors", label: "Partner with us" }}
-        secondary={{ href: "/donate", label: "Donate" }}
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
+        primary={{ href: "/sponsors", label: copy.cta.primaryCta ?? "" }}
+        secondary={{ href: "/donate", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

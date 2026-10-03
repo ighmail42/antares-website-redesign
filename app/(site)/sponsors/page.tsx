@@ -9,6 +9,7 @@ import { SponsorWall } from "./sponsor-wall";
 import { site } from "@/content/site";
 import { firstImpactStats, partnershipLevels, sponsorTiers, sponsorValue } from "@/content/sponsors";
 import { studentQuotes } from "@/content/team";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -18,19 +19,21 @@ export const metadata: Metadata = {
 };
 
 export default function SponsorsPage() {
+  const copy = page("sponsors");
+
   return (
     <main>
       <PageHero
-        eyebrow="Sponsors"
-        title="Thank you to the people who fund this"
-        lede="Sponsorship buys the aluminium, the motors, the registration fees and the shop time. It is the reason a sixth grader at Khan Lab School can learn to build a competition robot."
+        eyebrow={copy.hero.eyebrow}
+        title={copy.hero.title ?? ""}
+        lede={copy.hero.lede}
       >
         <div className="button-row">
           <Link className="button button-primary" href="/sponsors/impact">
-            Where the money goes
+            {copy.hero.primaryCta}
           </Link>
           <a className="button button-ghost" href={`mailto:${site.email.general}`}>
-            Talk to the team
+            {copy.hero.secondaryCta}
           </a>
         </div>
       </PageHero>
@@ -41,8 +44,8 @@ export default function SponsorsPage() {
       <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">Our partners</p>
-            <h2 className={styles.title}>Every sponsor, by tier</h2>
+            <p className="eyebrow">{copy.wall.eyebrow}</p>
+            <h2 className={styles.title}>{copy.wall.title}</h2>
           </Reveal>
 
           <SponsorWall tiers={sponsorTiers} />
@@ -55,12 +58,9 @@ export default function SponsorsPage() {
       <section className="section" data-tone="raised">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">Why sponsor Antares</p>
-            <h2 className={styles.title}>Repeated visibility with future technical talent</h2>
-            <p className="lede">
-              Sponsorship reaches STEM-focused students, their families, and the wider technology
-              community around the team.
-            </p>
+            <p className="eyebrow">{copy.value.eyebrow}</p>
+            <h2 className={styles.title}>{copy.value.title}</h2>
+            <p className="lede">{copy.value.lede}</p>
           </Reveal>
 
           <div className={styles.valueGrid}>
@@ -73,10 +73,7 @@ export default function SponsorsPage() {
           </div>
 
           <Reveal className={styles.footnote}>
-            <p>
-              Recognition varies by tier and by event policy. A recent example: sponsor-supplied
-              cutting mats and gloves went into gift bags for other teams at regional competitions.
-            </p>
+            <p>{copy.value.note}</p>
           </Reveal>
         </div>
       </section>
@@ -87,18 +84,15 @@ export default function SponsorsPage() {
       <section className="section" data-tight>
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">The wider program</p>
-            <h2 className={styles.title}>FIRST builds technical talent at scale</h2>
-            <p className="lede">
-              Antares turns a national program into a local team your employees can meet, follow and
-              support during the season.
-            </p>
+            <p className="eyebrow">{copy.first.eyebrow}</p>
+            <h2 className={styles.title}>{copy.first.title}</h2>
+            <p className="lede">{copy.first.lede}</p>
           </Reveal>
           <div className={styles.statsWrap}>
             <StatGrid items={firstImpactStats} tone="quiet" />
           </div>
           <Reveal className={styles.footnote}>
-            <p>Source: FIRST.</p>
+            <p>{copy.first.note}</p>
           </Reveal>
         </div>
       </section>
@@ -109,12 +103,9 @@ export default function SponsorsPage() {
       <section className="section" data-tone="deep" data-scheme="dark" id="levels">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">2026-27 partnership levels</p>
-            <h2 className={styles.title}>Pick a level, or design one with us</h2>
-            <p className="lede">
-              Each level adds to the one before it. Multi-year, in-kind, matching and
-              employee-expertise partnerships are all welcome.
-            </p>
+            <p className="eyebrow">{copy.levels.eyebrow}</p>
+            <h2 className={styles.title}>{copy.levels.title}</h2>
+            <p className="lede">{copy.levels.lede}</p>
           </Reveal>
 
           <div className={styles.levelGrid}>
@@ -141,7 +132,7 @@ export default function SponsorsPage() {
           </div>
 
           <Reveal className={styles.footnote}>
-            <p>Final benefits follow sponsor, team, school and event requirements.</p>
+            <p>{copy.levels.note}</p>
           </Reveal>
         </div>
       </section>
@@ -153,8 +144,8 @@ export default function SponsorsPage() {
         <section className="section">
           <div className="shell">
             <Reveal>
-              <p className="eyebrow">In their words</p>
-              <h2 className={styles.title}>What students say</h2>
+              <p className="eyebrow">{copy.quotes.eyebrow}</p>
+              <h2 className={styles.title}>{copy.quotes.title}</h2>
             </Reveal>
             <div className={styles.quoteGrid}>
               {studentQuotes.map((quote, index) => (
@@ -178,8 +169,8 @@ export default function SponsorsPage() {
         <div className="shell">
           <div className={styles.howLayout}>
             <Reveal>
-              <p className="eyebrow">How to sponsor</p>
-              <h2 className={styles.title}>Two steps</h2>
+              <p className="eyebrow">{copy.how.eyebrow}</p>
+              <h2 className={styles.title}>{copy.how.title}</h2>
               <ol className={styles.steps}>
                 <li>
                   <strong>Choose a level with the team.</strong> Email{" "}
@@ -217,7 +208,7 @@ export default function SponsorsPage() {
                 <a href={`mailto:${site.email.schoolGiving}`}>{site.email.schoolGiving}</a>
               </p>
               <Link className={`button button-ghost ${styles.legalLink}`} href="/donate">
-                All the ways to give
+                {copy.how.primaryCta}
               </Link>
             </Reveal>
           </div>
@@ -225,11 +216,11 @@ export default function SponsorsPage() {
       </section>
 
       <CtaBand
-        eyebrow="Start a conversation"
-        title="A student will answer your email"
-        body="Tell us what your company cares about and we will come back with a proposal that fits. In-kind tools, machining and mentorship count too."
-        primary={{ href: `mailto:${site.email.general}`, label: "Email the team" }}
-        secondary={{ href: "/sponsors/impact", label: "See the impact" }}
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
+        primary={{ href: `mailto:${site.email.general}`, label: copy.cta.primaryCta ?? "" }}
+        secondary={{ href: "/sponsors/impact", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

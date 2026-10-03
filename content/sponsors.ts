@@ -64,4 +64,3 @@ export const budgetBreakdown: BudgetLine[] = data.budgetBreakdown;
 /** National outcomes for FIRST alumni. Source: FIRST. */
 export const firstImpactStats = data.firstImpactStats;
 
-export const waysToGive: string[] = data.waysToGive;

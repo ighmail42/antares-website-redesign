@@ -7,6 +7,7 @@ import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { seasonMedia } from "@/content/media";
 import { currentSeason, pastSeasons } from "@/content/seasons";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 import { asset } from "@/lib/asset";
 import { slugFor } from "@/lib/blog";
@@ -46,6 +47,7 @@ const seasonRhythm = [
 ];
 
 export default function SeasonPage() {
+  const copy = page("season");
   const previous = pastSeasons[0];
 
   return (
@@ -78,11 +80,9 @@ export default function SeasonPage() {
         <section className="section" data-tone="raised">
           <div className="shell">
             <Reveal>
-              <p className="eyebrow">Build blog</p>
-              <h2 className={styles.title}>Written by students, every week</h2>
-              <p className="lede">
-                Each entry covers what the team designed, what broke, and what changed as a result.
-              </p>
+              <p className="eyebrow">{copy.blogs.eyebrow}</p>
+              <h2 className={styles.title}>{copy.blogs.title}</h2>
+              <p className="lede">{copy.blogs.lede}</p>
             </Reveal>
 
             <ul className={styles.blogGrid}>
@@ -110,8 +110,8 @@ export default function SeasonPage() {
       <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">How a season runs</p>
-            <h2 className={styles.title}>One year, five phases</h2>
+            <p className="eyebrow">{copy.rhythm.eyebrow}</p>
+            <h2 className={styles.title}>{copy.rhythm.title}</h2>
           </Reveal>
 
           <ol className={styles.rhythm}>
@@ -136,7 +136,7 @@ export default function SeasonPage() {
           <div className="shell">
             <div className={styles.previousLayout}>
               <Reveal>
-                <p className="eyebrow">Last season</p>
+                <p className="eyebrow">{copy.previous.eyebrow}</p>
                 <h2 className={styles.title}>
                   {previous.year} {previous.game}
                   {previous.robot ? ` — ${previous.robot}` : ""}
@@ -151,7 +151,7 @@ export default function SeasonPage() {
                 )}
                 <div className="button-row">
                   <Link className="button button-ghost" href="/history">
-                    Every season since 2018
+                    {copy.previous.primaryCta}
                   </Link>
                   {previous.techBinder && (
                     <a
@@ -183,11 +183,11 @@ export default function SeasonPage() {
       )}
 
       <CtaBand
-        eyebrow="Follow along"
-        title="Come and watch a competition"
-        body="Bay Area events are free to attend and run all weekend. Email the team and we will tell you where we will be and where to find our pit."
-        primary={{ href: "/sponsors", label: "Partner with us" }}
-        secondary={{ href: "/history", label: "Past seasons" }}
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
+        primary={{ href: "/sponsors", label: copy.cta.primaryCta ?? "" }}
+        secondary={{ href: "/history", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

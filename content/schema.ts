@@ -147,6 +147,560 @@ export const contentFiles: ContentFile[] = [
 
   /* ------------------------------------------------------------------ */
   {
+    id: "pages",
+    label: "Page text",
+    description: "Every heading, intro and button label on the site. This is where the site's voice lives.",
+    collections: [
+      {
+        name: "home",
+        label: "Home page",
+        description: "The words on the home page, from the headline over the video down to the closing call to action.",
+        shownOn: "/",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Headline, first line", kind: "text", help: "The home page headline is two lines. This is the white one." },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "note", label: "Headline, second line", kind: "text", help: "Shown underneath in the brand yellow." },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+          {
+            name: "communities", label: "Who we are", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "sponsors", label: "Sponsor strip", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+            ],
+          },
+          {
+            name: "photo", label: "Photo caption", kind: "object",
+            fields: [
+              { name: "body", label: "Body", kind: "textarea" },
+            ],
+          },
+          {
+            name: "match", label: "How a match works", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "studentLed", label: "Student led", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+            ],
+          },
+          {
+            name: "season", label: "This season", kind: "object",
+            fields: [
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "about",
+        label: "About page",
+        description: "How the team describes itself.",
+        shownOn: "/about",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "ladder", label: "Leadership ladder", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "subteams", label: "Subteams", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "school", label: "Khan Lab School", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+            ],
+          },
+          {
+            name: "frc", label: "What FRC is", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "awards", label: "Awards", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "season",
+        label: "Season page",
+        description: "Headings on the current season page. The season's own name and summary live under Seasons.",
+        shownOn: "/season",
+        kind: "object",
+        fields: [
+          {
+            name: "blogs", label: "Build blog", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "rhythm", label: "How a season runs", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "previous", label: "Last season", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "history",
+        label: "History page",
+        description: "Headings on the history page. The seasons themselves live under Seasons.",
+        shownOn: "/history",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "awards", label: "Awards", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "training",
+        label: "Training page",
+        description: "Headings on the training page. The lessons live under Training.",
+        shownOn: "/training",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "sponsors",
+        label: "Sponsors page",
+        description: "Headings on the sponsors page. Sponsors, levels and statistics live under Sponsors.",
+        shownOn: "/sponsors",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+          {
+            name: "wall", label: "Sponsor wall", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "value", label: "Why sponsor us", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "note", label: "Small print", kind: "textarea", help: "Shown smaller and quieter, under the block." },
+            ],
+          },
+          {
+            name: "first", label: "FIRST statistics", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "note", label: "Small print", kind: "textarea", help: "Shown smaller and quieter, under the block." },
+            ],
+          },
+          {
+            name: "levels", label: "Partnership levels", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "note", label: "Small print", kind: "textarea", help: "Shown smaller and quieter, under the block." },
+            ],
+          },
+          {
+            name: "quotes", label: "Student quotes", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "how", label: "How to sponsor", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "impact",
+        label: "Sponsor impact page",
+        description: "Headings on the sponsor impact page.",
+        shownOn: "/sponsors/impact",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "chart", label: "Budget chart", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "note", label: "Small print", kind: "textarea", help: "Shown smaller and quieter, under the block." },
+            ],
+          },
+          {
+            name: "buys", label: "What it buys", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "offsite", label: "Employee experience", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+              { name: "note", label: "Small print", kind: "textarea", help: "Shown smaller and quieter, under the block." },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "donate",
+        label: "Donate page",
+        description: "Headings on the donate page. The ways to give are written in the page itself.",
+        shownOn: "/donate",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+          {
+            name: "family", label: "Parents and families", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "note", label: "Small print", kind: "textarea", help: "Shown smaller and quieter, under the block." },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+            ],
+          },
+          {
+            name: "checklist", label: "Before you give", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "ways", label: "Ways to give", kind: "object",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+          {
+            name: "methodOnline", label: "Way to give: online", kind: "object",
+            help: "The instructions inside this one are built from the team details above, so they stay correct on their own. Only the heading and the line beside it are edited here.",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "note", label: "Line beside the heading", kind: "text" },
+            ],
+          },
+          {
+            name: "methodCheck", label: "Way to give: check", kind: "object",
+            help: "The instructions inside this one are built from the team details above, so they stay correct on their own. Only the heading and the line beside it are edited here.",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "note", label: "Line beside the heading", kind: "text" },
+            ],
+          },
+          {
+            name: "methodMatching", label: "Way to give: employer matching", kind: "object",
+            help: "The instructions inside this one are built from the team details above, so they stay correct on their own. Only the heading and the line beside it are edited here.",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "note", label: "Line beside the heading", kind: "text" },
+            ],
+          },
+          {
+            name: "methodStock", label: "Way to give: appreciated stock", kind: "object",
+            help: "The instructions inside this one are built from the team details above, so they stay correct on their own. Only the heading and the line beside it are edited here.",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "note", label: "Line beside the heading", kind: "text" },
+            ],
+          },
+          {
+            name: "methodInKind", label: "Way to give: in-kind", kind: "object",
+            help: "The instructions inside this one are built from the team details above, so they stay correct on their own. Only the heading and the line beside it are edited here.",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "note", label: "Line beside the heading", kind: "text" },
+            ],
+          },
+          {
+            name: "methodSponsorship", label: "Way to give: company sponsorship", kind: "object",
+            help: "The instructions inside this one are built from the team details above, so they stay correct on their own. Only the heading and the line beside it are edited here.",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "note", label: "Line beside the heading", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "internal",
+        label: "Team internal page",
+        description: "Headings on the members-only page.",
+        shownOn: "/internal",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "links", label: "Quick links", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "blog",
+        label: "Build blog page",
+        description: "Headings on the blog index.",
+        shownOn: "/blog",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+            ],
+          },
+          {
+            name: "cta", label: "Closing call to action", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "notFound",
+        label: "Page-not-found page",
+        description: "What someone sees at an address that does not exist.",
+        shownOn: "404",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Body", kind: "textarea" },
+              { name: "primaryCta", label: "Main button", kind: "text" },
+              { name: "secondaryCta", label: "Second button", kind: "text" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
     id: "seasons",
     label: "Seasons",
     description: "One entry per competition season, newest first. Drives the history page and the season page.",
@@ -271,13 +825,6 @@ export const contentFiles: ContentFile[] = [
           { name: "suffix", label: "Suffix", kind: "text", placeholder: "%" },
           { name: "label", label: "Label", kind: "text", required: true },
         ],
-      },
-      {
-        name: "waysToGive",
-        label: "Ways to give",
-        description: "The short list used on the sponsors page.",
-        kind: "stringList",
-        entryNoun: "method",
       },
     ],
   },

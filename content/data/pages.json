@@ -1,0 +1,305 @@
+{
+  "home": {
+    "hero": {
+      "eyebrow": "FRC Team 6962 · Khan Lab School · Mountain View, CA",
+      "title": "Students build the robot.",
+      "lede": "Antares is a FIRST Robotics Competition team of sixth through twelfth graders. Every January we get six weeks to design, build, wire and program a 120-pound robot, then take it to the field.",
+      "note": "Students run the team.",
+      "primaryCta": "Partner with us",
+      "secondaryCta": "See this season"
+    },
+    "communities": {
+      "eyebrow": "Who we are",
+      "title": "Three communities, one team",
+      "lede": "If you are meeting Antares for the first time, these are the pieces worth knowing."
+    },
+    "sponsors": {
+      "eyebrow": "Our partners",
+      "title": "Companies and foundations that make the season possible",
+      "primaryCta": "All sponsors"
+    },
+    "photo": {
+      "body": "Sponsor logos travel with us. They are on the shirts in the stands, on the pit display, and on the robot itself at every event we attend."
+    },
+    "match": {
+      "eyebrow": "How a match works",
+      "title": "Three robots against three robots",
+      "lede": "Each team brings one student-built robot. Every match pairs three red-alliance teams against three blue-alliance teams, and lasts two minutes and thirty seconds."
+    },
+    "studentLed": {
+      "eyebrow": "Student led",
+      "title": "Seven years to become the person who teaches it",
+      "lede": "FRC mostly serves grades 9 through 12. Antares starts in grade 6, so students have enough seasons to learn a discipline, lead it, and hand it on before they graduate. Mentors provide safety, technical context and coaching. Students make the decisions.",
+      "primaryCta": "How the team works"
+    },
+    "season": {
+      "primaryCta": "Follow the season",
+      "secondaryCta": "Every robot since 2018"
+    },
+    "cta": {
+      "eyebrow": "Support the team",
+      "title": "Back a team that hands the tools to students",
+      "body": "Sponsorship funds robot parts, registration, travel and the shop where sixth graders learn to build. Partnership levels start at $1,000, and in-kind support and employer matching are welcome.",
+      "primaryCta": "Partnership levels",
+      "secondaryCta": "Ways to donate"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About Antares",
+      "title": "Students make the decisions",
+      "lede": "Mentors bring safety, technical context and coaching. Students do the rest: they make the engineering calls, run the budget, find the sponsors, and teach the group coming up behind them."
+    },
+    "ladder": {
+      "eyebrow": "Leadership development",
+      "title": "Knowledge that carries forward",
+      "lede": "FRC mostly serves grades 9 through 12. Because Antares starts in grade 6, a student can spend seven years on the team: long enough to learn a discipline properly, lead it, and train a replacement before they leave."
+    },
+    "subteams": {
+      "eyebrow": "What students lead",
+      "title": "Eight disciplines, all student run",
+      "lede": "Every one of these has a student lead, a training curriculum and a job to do before the robot ships."
+    },
+    "school": {
+      "eyebrow": "Our school",
+      "title": "Khan Lab School",
+      "lede": "Antares is based at Khan Lab School, a nonprofit school built to test what mastery-based, student-directed learning looks like in practice. The team extends that model into an engineering program with real deadlines, public performance and student ownership.",
+      "primaryCta": "Visit Khan Lab School"
+    },
+    "frc": {
+      "eyebrow": "The competition",
+      "title": "What FIRST Robotics Competition is",
+      "lede": "Every January, FIRST reveals a brand-new game. Teams get six weeks to build a robot for it, then compete at district events and regionals. Matches last two minutes and thirty seconds and pair three teams against three."
+    },
+    "awards": {
+      "eyebrow": "Recognition",
+      "title": "A growing record",
+      "lede": "Antares awards span technical performance, imagery, team culture and individual student leadership."
+    },
+    "cta": {
+      "eyebrow": "Get involved",
+      "title": "Support the next seven years of students",
+      "body": "Sponsorship and donations pay for the parts, the registration fees and the shop time that make this program possible.",
+      "primaryCta": "Partner with us",
+      "secondaryCta": "Donate"
+    }
+  },
+  "season": {
+    "blogs": {
+      "eyebrow": "Build blog",
+      "title": "Written by students, every week",
+      "lede": "Each entry covers what the team designed, what broke, and what changed as a result."
+    },
+    "rhythm": {
+      "eyebrow": "How a season runs",
+      "title": "One year, five phases"
+    },
+    "previous": {
+      "eyebrow": "Last season",
+      "primaryCta": "Every season since 2018"
+    },
+    "cta": {
+      "eyebrow": "Follow along",
+      "title": "Come and watch a competition",
+      "body": "Bay Area events are free to attend and run all weekend. Email the team and we will tell you where we will be and where to find our pit.",
+      "primaryCta": "Partner with us",
+      "secondaryCta": "Past seasons"
+    }
+  },
+  "history": {
+    "hero": {
+      "eyebrow": "History",
+      "title": "Every season since 2018",
+      "lede": "One new robot a year, built in six weeks by students. These are the machines, the awards, and the lessons that shaped the program."
+    },
+    "awards": {
+      "eyebrow": "The full list",
+      "title": "FIRST awards, 2018 to today"
+    },
+    "cta": {
+      "eyebrow": "What comes next",
+      "title": "Help fund the next robot",
+      "body": "Every season on this page was paid for by sponsors, families and in-kind support. The next one needs the same.",
+      "primaryCta": "Partnership levels",
+      "secondaryCta": "This season"
+    }
+  },
+  "training": {
+    "hero": {
+      "eyebrow": "Training",
+      "title": "How we teach a sixth grader to build a robot",
+      "lede": "Antares publishes its training curriculum so other teams can use it. These materials were written for our own students, so some of it is specific to how we work."
+    },
+    "cta": {
+      "eyebrow": "Other teams",
+      "title": "Use anything here",
+      "body": "These materials are published for the FRC community. If something is unclear or you want the editable version, email the team and we will send it over.",
+      "primaryCta": "About Antares",
+      "secondaryCta": "Our robots"
+    }
+  },
+  "sponsors": {
+    "hero": {
+      "eyebrow": "Sponsors",
+      "title": "Thank you to the people who fund this",
+      "lede": "Sponsorship buys the aluminium, the motors, the registration fees and the shop time. It is the reason a sixth grader at Khan Lab School can learn to build a competition robot.",
+      "primaryCta": "Where the money goes",
+      "secondaryCta": "Talk to the team"
+    },
+    "wall": {
+      "eyebrow": "Our partners",
+      "title": "Every sponsor, by tier"
+    },
+    "value": {
+      "eyebrow": "Why sponsor Antares",
+      "title": "Repeated visibility with future technical talent",
+      "lede": "Sponsorship reaches STEM-focused students, their families, and the wider technology community around the team.",
+      "note": "Recognition varies by tier and by event policy. A recent example: sponsor-supplied cutting mats and gloves went into gift bags for other teams at regional competitions."
+    },
+    "first": {
+      "eyebrow": "The wider program",
+      "title": "FIRST builds technical talent at scale",
+      "lede": "Antares turns a national program into a local team your employees can meet, follow and support during the season.",
+      "note": "Source: FIRST."
+    },
+    "levels": {
+      "eyebrow": "2026-27 partnership levels",
+      "title": "Pick a level, or design one with us",
+      "lede": "Each level adds to the one before it. Multi-year, in-kind, matching and employee-expertise partnerships are all welcome.",
+      "note": "Final benefits follow sponsor, team, school and event requirements."
+    },
+    "quotes": {
+      "eyebrow": "In their words",
+      "title": "What students say"
+    },
+    "how": {
+      "eyebrow": "How to sponsor",
+      "title": "Two steps",
+      "primaryCta": "All the ways to give"
+    },
+    "cta": {
+      "eyebrow": "Start a conversation",
+      "title": "A student will answer your email",
+      "body": "Tell us what your company cares about and we will come back with a proposal that fits. In-kind tools, machining and mentorship count too.",
+      "primaryCta": "Email the team",
+      "secondaryCta": "See the impact"
+    }
+  },
+  "impact": {
+    "hero": {
+      "eyebrow": "Sponsor impact",
+      "title": "Where the money goes",
+      "lede": "Antares publishes its budget split so sponsors can see exactly what their contribution funds. These are the planned shares of the 2025-26 expense budget."
+    },
+    "chart": {
+      "eyebrow": "2025-26 expense budget",
+      "title": "Fifty-five percent of it is the robot",
+      "lede": "Robot parts, stock materials and equipment together account for 55% of planned spending. The rest keeps students registered, fed, travelling, practising and reaching the community.",
+      "note": "Rounded percentages, totalling 100%. Gifts are unrestricted unless Khan Lab School approves a written designation."
+    },
+    "buys": {
+      "eyebrow": "In practice",
+      "title": "What a contribution buys"
+    },
+    "offsite": {
+      "eyebrow": "Proposed for Mission Partners",
+      "title": "A hands-on employee robot experience",
+      "lede": "A Mission Partner could host a supervised team offsite built around the Antares robot: a student briefing on how it works and what failed, a safety orientation and supervised driving practice, then short driving and scoring challenges for employees.",
+      "note": "This is a proposed concept. Final scope depends on venue, robot availability, a partner team for any second robot, adult supervision and school safety approval.",
+      "primaryCta": "Partnership levels",
+      "secondaryCta": "Ask about an offsite"
+    },
+    "cta": {
+      "eyebrow": "Support the team",
+      "title": "Fund a season",
+      "body": "Partnership levels start at $1,000, and in-kind tools, machining, fabrication and expertise are just as useful as cash.",
+      "primaryCta": "See the levels",
+      "secondaryCta": "Ways to donate"
+    }
+  },
+  "donate": {
+    "hero": {
+      "eyebrow": "Donate",
+      "title": "Every gift buys parts, hours and a place at the event",
+      "primaryCta": "Give online",
+      "secondaryCta": "Email the team"
+    },
+    "family": {
+      "eyebrow": "Parents and families",
+      "title": "Family giving is the base the season stands on",
+      "body": "Corporate sponsorship is what makes an ambitious season possible, but family contributions are what make it dependable. They arrive early, they are not tied to a company's budget cycle, and they cover the unglamorous things: the replacement gearbox in week five, the meal on a competition Saturday, the registration deposit that has to be paid before anyone has seen the game.",
+      "note": "Gifts of any size help, and many employers will match them, which quietly doubles what a family can do. If your workplace has a matching program or a donor-advised fund, ask us and we will send you exactly what their portal needs.",
+      "primaryCta": "Ask about matching"
+    },
+    "checklist": {
+      "eyebrow": "Before you give",
+      "title": "Two things that keep the gift on track"
+    },
+    "ways": {
+      "title": "Ways to give"
+    },
+    "cta": {
+      "eyebrow": "Questions",
+      "title": "Not sure which route fits?",
+      "body": "Email the team and a student will help you work out the simplest way to give, including whether your employer will match it.",
+      "secondaryCta": "See where it goes"
+    },
+    "methodOnline": {
+      "title": "Online",
+      "note": "Card or ACH through the school"
+    },
+    "methodCheck": {
+      "title": "Check",
+      "note": "Payable to Khan Lab School"
+    },
+    "methodMatching": {
+      "title": "Employer matching and donor-advised funds",
+      "note": "Double a gift through your workplace"
+    },
+    "methodStock": {
+      "title": "Appreciated stock",
+      "note": "Often the most tax-efficient option"
+    },
+    "methodInKind": {
+      "title": "In-kind donations",
+      "note": "Tools, machining, materials, expertise"
+    },
+    "methodSponsorship": {
+      "title": "Company sponsorship",
+      "note": "Partnership levels from $1,000"
+    }
+  },
+  "internal": {
+    "hero": {
+      "eyebrow": "Team internal",
+      "title": "Announcements and the calendar",
+      "lede": "Everything current members need in one place. Announcements are the source of truth; if it is not written down, it did not happen."
+    },
+    "links": {
+      "eyebrow": "Tools",
+      "title": "Quick links"
+    }
+  },
+  "blog": {
+    "hero": {
+      "eyebrow": "Build blog",
+      "title": "Written by students, during the season"
+    },
+    "cta": {
+      "eyebrow": "Follow the season",
+      "title": "The next one starts in January",
+      "body": "Kickoff is the first Saturday of January, and the blog picks up the week after. Sponsors get the same updates by email.",
+      "primaryCta": "This season",
+      "secondaryCta": "Partner with us"
+    }
+  },
+  "notFound": {
+    "hero": {
+      "eyebrow": "404",
+      "title": "That page is not in this constellation",
+      "body": "The link may be out of date. Try the home page, or head straight to the season.",
+      "primaryCta": "Back to home",
+      "secondaryCta": "This season"
+    }
+  }
+}

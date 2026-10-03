@@ -40,7 +40,8 @@ GitHub, open a pull request.
 
 | File | What it holds |
 | --- | --- |
-| `content/data/site.json` | Team facts, email addresses, postal address, tax details, outbound links |
+| `content/data/pages.json` | Every heading, intro and button label on the site |
+| `content/data/site.json` | Team facts, email addresses, postal address, social and outbound links |
 | `content/data/team.json` | Awards, the "who we are" blocks, leadership ladder, subteams, student quotes |
 | `content/data/seasons.json` | One entry per season: robot, summary, highlights, awards, blog links |
 | `content/data/sponsors.json` | Sponsor logos by tier, partnership levels, budget split, FIRST statistics |

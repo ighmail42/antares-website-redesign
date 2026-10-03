@@ -12,10 +12,13 @@ import { heroMedia } from "@/content/media";
 import { currentSeason } from "@/content/seasons";
 import { featuredSponsors } from "@/content/sponsors";
 import { communities, headlineStats, leadershipLadder, matchPhases } from "@/content/team";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 import { asset } from "@/lib/asset";
 
 export default function HomePage() {
+  const copy = page("home");
+
   return (
     <main>
       {/* ---------------------------------------------------------------- */}
@@ -28,25 +31,19 @@ export default function HomePage() {
         <div className="shell-wide">
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <p className={`eyebrow ${styles.heroEyebrow}`}>
-                FRC Team 6962 &middot; Khan Lab School &middot; Mountain View, CA
-              </p>
+              <p className={`eyebrow ${styles.heroEyebrow}`}>{copy.hero.eyebrow}</p>
               <h1 className={styles.heroTitle}>
-                Students build the robot.
+                {copy.hero.title}
                 <br />
-                <span className={styles.heroAccent}>Students run the team.</span>
+                <span className={styles.heroAccent}>{copy.hero.note}</span>
               </h1>
-              <p className={styles.heroLede}>
-                Antares is a FIRST Robotics Competition team of sixth through twelfth graders. Every
-                January we get six weeks to design, build, wire and program a 120-pound robot, then
-                take it to the field.
-              </p>
+              <p className={styles.heroLede}>{copy.hero.lede}</p>
               <div className="button-row">
                 <Link className="button button-primary" href="/sponsors">
-                  Partner with us
+                  {copy.hero.primaryCta}
                 </Link>
                 <Link className="button button-ghost" href="/season">
-                  See this season
+                  {copy.hero.secondaryCta}
                 </Link>
               </div>
             </div>
@@ -70,11 +67,9 @@ export default function HomePage() {
       <section className="section" id="who-we-are" data-tone="raised">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow">Who we are</p>
-            <h2 className={styles.sectionTitle}>Three communities, one team</h2>
-            <p className="lede">
-              If you are meeting Antares for the first time, these are the pieces worth knowing.
-            </p>
+            <p className="eyebrow">{copy.communities.eyebrow}</p>
+            <h2 className={styles.sectionTitle}>{copy.communities.title}</h2>
+            <p className="lede">{copy.communities.lede}</p>
           </Reveal>
 
           <div className={styles.communityGrid}>
@@ -114,13 +109,11 @@ export default function HomePage() {
         <div className="shell">
           <Reveal className={styles.sponsorHead}>
             <div>
-              <p className="eyebrow">Our partners</p>
-              <h2 className={styles.sponsorTitle}>
-                Companies and foundations that make the season possible
-              </h2>
+              <p className="eyebrow">{copy.sponsors.eyebrow}</p>
+              <h2 className={styles.sponsorTitle}>{copy.sponsors.title}</h2>
             </div>
             <Link className="button button-ghost" href="/sponsors">
-              All sponsors
+              {copy.sponsors.primaryCta}
             </Link>
           </Reveal>
         </div>
@@ -144,10 +137,7 @@ export default function HomePage() {
         <div className={styles.photoCaption}>
           <div className="shell">
             <Reveal>
-              <p className={styles.photoText}>
-                Sponsor logos travel with us. They are on the shirts in the stands, on the pit
-                display, and on the robot itself at every event we attend.
-              </p>
+              <p className={styles.photoText}>{copy.photo.body}</p>
             </Reveal>
           </div>
         </div>
@@ -160,14 +150,11 @@ export default function HomePage() {
         <div className="shell">
           <div className={styles.splitHead}>
             <Reveal>
-              <p className="eyebrow">How a match works</p>
-              <h2 className={styles.sectionTitle}>Three robots against three robots</h2>
+              <p className="eyebrow">{copy.match.eyebrow}</p>
+              <h2 className={styles.sectionTitle}>{copy.match.title}</h2>
             </Reveal>
             <Reveal delay={120}>
-              <p className="lede">
-                Each team brings one student-built robot. Every match pairs three red-alliance teams
-                against three blue-alliance teams, and lasts two minutes and thirty seconds.
-              </p>
+              <p className="lede">{copy.match.lede}</p>
             </Reveal>
           </div>
 
@@ -190,16 +177,12 @@ export default function HomePage() {
         <div className="shell">
           <div className={styles.ladderLayout}>
             <Reveal className={styles.ladderIntro}>
-              <p className="eyebrow">Student led</p>
-              <h2 className={styles.sectionTitle}>Seven years to become the person who teaches it</h2>
-              <p className="lede">
-                FRC mostly serves grades 9 through 12. Antares starts in grade 6, so students have
-                enough seasons to learn a discipline, lead it, and hand it on before they graduate.
-                Mentors provide safety, technical context and coaching. Students make the decisions.
-              </p>
+              <p className="eyebrow">{copy.studentLed.eyebrow}</p>
+              <h2 className={styles.sectionTitle}>{copy.studentLed.title}</h2>
+              <p className="lede">{copy.studentLed.lede}</p>
               <div className="button-row">
                 <Link className="button button-ghost" href="/about">
-                  How the team works
+                  {copy.studentLed.primaryCta}
                 </Link>
               </div>
             </Reveal>
@@ -231,10 +214,10 @@ export default function HomePage() {
               <p className="lede">{currentSeason.summary}</p>
               <div className="button-row">
                 <Link className="button button-primary" href="/season">
-                  Follow the season
+                  {copy.season.primaryCta}
                 </Link>
                 <Link className="button button-ghost" href="/history">
-                  Every robot since 2018
+                  {copy.season.secondaryCta}
                 </Link>
               </div>
             </Reveal>
@@ -255,11 +238,11 @@ export default function HomePage() {
       </section>
 
       <CtaBand
-        eyebrow="Support the team"
-        title="Back a team that hands the tools to students"
-        body="Sponsorship funds robot parts, registration, travel and the shop where sixth graders learn to build. Partnership levels start at $1,000, and in-kind support and employer matching are welcome."
-        primary={{ href: "/sponsors", label: "Partnership levels" }}
-        secondary={{ href: "/donate", label: "Ways to donate" }}
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
+        primary={{ href: "/sponsors", label: copy.cta.primaryCta ?? "" }}
+        secondary={{ href: "/donate", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

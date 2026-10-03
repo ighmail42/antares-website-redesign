@@ -1,11 +1,14 @@
 import Link from "next/link";
 
 import { Constellation } from "@/components/constellation/constellation";
+import { page } from "@/content/pages";
 import { SiteFooter } from "@/components/site-footer/site-footer";
 import { SiteHeader } from "@/components/site-header/site-header";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {
+  const copy = page("notFound").hero;
+
   return (
     <>
       <SiteHeader />
@@ -13,17 +16,15 @@ export default function NotFound() {
       <Constellation className={styles.backdrop} animated={false} />
       <div className="shell">
         <div className={styles.inner}>
-          <p className="eyebrow">404</p>
-          <h1 className={styles.title}>That page is not in this constellation</h1>
-          <p className={styles.body}>
-            The link may be out of date. Try the home page, or head straight to the season.
-          </p>
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h1 className={styles.title}>{copy.title}</h1>
+          <p className={styles.body}>{copy.body}</p>
           <div className="button-row">
             <Link className="button button-primary" href="/">
-              Back to home
+              {copy.primaryCta}
             </Link>
             <Link className="button button-ghost" href="/season">
-              This season
+              {copy.secondaryCta}
             </Link>
           </div>
         </div>

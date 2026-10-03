@@ -5,6 +5,7 @@ import { CtaBand } from "@/components/cta-band/cta-band";
 import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { site } from "@/content/site";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -14,19 +15,21 @@ export const metadata: Metadata = {
 };
 
 export default function DonatePage() {
+  const copy = page("donate");
+
   return (
     <main>
       <PageHero
-        eyebrow="Donate"
-        title="Every gift buys parts, hours and a place at the event"
+        eyebrow={copy.hero.eyebrow}
+        title={copy.hero.title ?? ""}
         lede={`Donations to Antares go through ${site.legal.recipient}, a ${site.legal.status}, so they are tax-deductible. Tell us it is coming and we will make sure it reaches the team.`}
       >
         <div className="button-row">
           <a className="button button-primary" href={site.links.schoolGiving} target="_blank" rel="noopener noreferrer">
-            Give online
+            {copy.hero.primaryCta}
           </a>
           <a className="button button-ghost" href={`mailto:${site.email.donate}`}>
-            Email {site.email.donate}
+            {copy.hero.secondaryCta} {site.email.donate}
           </a>
         </div>
       </PageHero>
@@ -37,23 +40,13 @@ export default function DonatePage() {
       <section className="section" data-tight>
         <div className="shell">
           <Reveal className={styles.familyCard}>
-            <p className="eyebrow">Parents and families</p>
-            <h2 className={styles.familyTitle}>Family giving is the base the season stands on</h2>
-            <p className={styles.familyBody}>
-              Corporate sponsorship is what makes an ambitious season possible, but family
-              contributions are what make it dependable. They arrive early, they are not tied to a
-              company&apos;s budget cycle, and they cover the unglamorous things: the replacement
-              gearbox in week five, the meal on a competition Saturday, the registration deposit
-              that has to be paid before anyone has seen the game.
-            </p>
-            <p className={styles.familyBody}>
-              Gifts of any size help, and many employers will match them, which quietly doubles
-              what a family can do. If your workplace has a matching program or a donor-advised
-              fund, ask us and we will send you exactly what their portal needs.
-            </p>
+            <p className="eyebrow">{copy.family.eyebrow}</p>
+            <h2 className={styles.familyTitle}>{copy.family.title}</h2>
+            <p className={styles.familyBody}>{copy.family.body}</p>
+            <p className={styles.familyBody}>{copy.family.note}</p>
             <div className="button-row">
               <a className="button button-primary" href={`mailto:${site.email.donate}`}>
-                Ask about matching
+                {copy.family.primaryCta}
               </a>
             </div>
           </Reveal>
@@ -67,8 +60,8 @@ export default function DonatePage() {
         <div className="shell">
           <div className={styles.layout}>
             <Reveal className={styles.intro}>
-              <p className="eyebrow">Before you give</p>
-              <h2 className={styles.title}>Two things that keep the gift on track</h2>
+              <p className="eyebrow">{copy.checklist.eyebrow}</p>
+              <h2 className={styles.title}>{copy.checklist.title}</h2>
               <ol className={styles.checklist}>
                 <li>
                   Write <strong>&ldquo;{site.legal.memo}&rdquo;</strong> in the memo or notes field.
@@ -98,9 +91,9 @@ export default function DonatePage() {
             {/* Ways to give                                                */}
             {/* ---------------------------------------------------------- */}
             <div className={styles.ways}>
-              <h2 className={styles.waysTitle}>Ways to give</h2>
+              <h2 className={styles.waysTitle}>{copy.ways.title}</h2>
 
-              <Accordion title="Online" summary="Card or ACH through the school" defaultOpen>
+              <Accordion title={copy.methodOnline.title ?? ""} summary={copy.methodOnline.note} defaultOpen>
                 <p>
                   Give through{" "}
                   <a href={site.links.schoolGiving} target="_blank" rel="noopener noreferrer">
@@ -110,7 +103,7 @@ export default function DonatePage() {
                 </p>
               </Accordion>
 
-              <Accordion title="Check" summary="Payable to Khan Lab School">
+              <Accordion title={copy.methodCheck.title ?? ""} summary={copy.methodCheck.note}>
                 <ul className={styles.plainList}>
                   <li>
                     Payable to: <strong>{site.legal.recipient}</strong>
@@ -126,8 +119,8 @@ export default function DonatePage() {
               </Accordion>
 
               <Accordion
-                title="Employer matching and donor-advised funds"
-                summary="Double a gift through your workplace"
+                title={copy.methodMatching.title ?? ""}
+                summary={copy.methodMatching.note}
               >
                 <ul className={styles.plainList}>
                   <li>Ask your employer about their donation and matching procedures.</li>
@@ -141,7 +134,7 @@ export default function DonatePage() {
                 </ul>
               </Accordion>
 
-              <Accordion title="Appreciated stock" summary="Often the most tax-efficient option">
+              <Accordion title={copy.methodStock.title ?? ""} summary={copy.methodStock.note}>
                 <p>
                   Email <a href={`mailto:${site.email.donate}`}>{site.email.donate}</a> and{" "}
                   <a href={`mailto:${site.email.schoolGiving}`}>{site.email.schoolGiving}</a> for
@@ -149,7 +142,7 @@ export default function DonatePage() {
                 </p>
               </Accordion>
 
-              <Accordion title="In-kind donations" summary="Tools, machining, materials, expertise">
+              <Accordion title={copy.methodInKind.title ?? ""} summary={copy.methodInKind.note}>
                 <p>
                   Machine time, fabrication, tooling, materials and professional expertise are all
                   genuinely useful. Email{" "}
@@ -158,7 +151,7 @@ export default function DonatePage() {
                 </p>
               </Accordion>
 
-              <Accordion title="Company sponsorship" summary="Partnership levels from $1,000">
+              <Accordion title={copy.methodSponsorship.title ?? ""} summary={copy.methodSponsorship.note}>
                 <p>
                   Companies and foundations usually sponsor rather than donate, which comes with
                   recognition at events, on apparel and on this website. See the{" "}
@@ -171,11 +164,11 @@ export default function DonatePage() {
       </section>
 
       <CtaBand
-        eyebrow="Questions"
-        title="Not sure which route fits?"
-        body="Email the team and a student will help you work out the simplest way to give, including whether your employer will match it."
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
         primary={{ href: `mailto:${site.email.donate}`, label: `Email ${site.email.donate}` }}
-        secondary={{ href: "/sponsors/impact", label: "See where it goes" }}
+        secondary={{ href: "/sponsors/impact", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

@@ -5,6 +5,7 @@ import { CtaBand } from "@/components/cta-band/cta-band";
 import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { trainingSections } from "@/content/training";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -14,12 +15,14 @@ export const metadata: Metadata = {
 };
 
 export default function TrainingPage() {
+  const copy = page("training");
+
   return (
     <main>
       <PageHero
-        eyebrow="Training"
-        title="How we teach a sixth grader to build a robot"
-        lede="Antares publishes its training curriculum so other teams can use it. These materials were written for our own students, so some of it is specific to how we work."
+        eyebrow={copy.hero.eyebrow}
+        title={copy.hero.title ?? ""}
+        lede={copy.hero.lede}
       />
 
       <section className="section">
@@ -105,11 +108,11 @@ export default function TrainingPage() {
       </section>
 
       <CtaBand
-        eyebrow="Other teams"
-        title="Use anything here"
-        body="These materials are published for the FRC community. If something is unclear or you want the editable version, email the team and we will send it over."
-        primary={{ href: "/about", label: "About Antares" }}
-        secondary={{ href: "/history", label: "Our robots" }}
+        eyebrow={copy.cta.eyebrow}
+        title={copy.cta.title ?? ""}
+        body={copy.cta.body ?? ""}
+        primary={{ href: "/about", label: copy.cta.primaryCta ?? "" }}
+        secondary={{ href: "/history", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>
   );

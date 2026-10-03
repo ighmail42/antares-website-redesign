@@ -10,6 +10,7 @@ import { contentFiles, type Collection, type Field } from "./schema";
 
 import internal from "./data/internal.json";
 import media from "./data/media.json";
+import pages from "./data/pages.json";
 import seasons from "./data/seasons.json";
 import site from "./data/site.json";
 import sponsors from "./data/sponsors.json";
@@ -26,6 +27,7 @@ export type Problem = {
 export const contentData: Record<string, Record<string, unknown>> = {
   internal,
   media,
+  pages,
   seasons,
   site,
   sponsors,

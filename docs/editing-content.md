@@ -74,7 +74,8 @@ You cannot take the site down by typing the wrong thing.
 
 | File | What it controls |
 | --- | --- |
-| `site.json` | Team name, address, email, tax details, outbound links |
+| `pages.json` | Every heading, intro and button label on the site |
+| `site.json` | Team name, address, email, tax details, social links, outbound links |
 | `seasons.json` | Every season, its robot, awards and build blogs |
 | `sponsors.json` | Sponsors by tier, partnership levels, budget breakdown |
 | `training.json` | The training subjects and their lessons |
@@ -83,6 +84,21 @@ You cannot take the site down by typing the wrong thing.
 | `internal.json` | The members-only page |
 
 ---
+
+## What is not in the editor
+
+Nearly everything is, but a few things stay in the code on purpose:
+
+- **Instructions that quote the team's own details.** The donate page's "ways
+  to give" spell out the cheque payee, the memo line, the tax ID and the
+  address. Those are assembled from `site.json` as the page renders, so they
+  cannot go stale. Their headings are editable; the instructions underneath
+  are not.
+- **Labels that are not really copy** — "Close" on a dialog, the text a screen
+  reader hears, the title of an embedded document.
+
+If you want to change something and cannot find it, it is a small job for
+whoever maintains the site. Open an issue rather than working around it.
 
 ## Adding a picture, a PDF or a video
 

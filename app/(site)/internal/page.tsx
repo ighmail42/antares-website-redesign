@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { announcementsDoc, calendarEmbedUrl, internalLinks } from "@/content/internal";
 import { site } from "@/content/site";
+import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -13,12 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default function InternalPage() {
+  const copy = page("internal");
+
   return (
     <main>
       <PageHero
-        eyebrow="Team internal"
-        title="Announcements and the calendar"
-        lede="Everything current members need in one place. Announcements are the source of truth; if it is not written down, it did not happen."
+        eyebrow={copy.hero.eyebrow}
+        title={copy.hero.title ?? ""}
+        lede={copy.hero.lede}
       />
 
       <section className="section" data-tight>
@@ -84,8 +87,8 @@ export default function InternalPage() {
       <section className="section" data-tone="raised">
         <div className="shell-wide">
           <Reveal>
-            <p className="eyebrow">Tools</p>
-            <h2 className={styles.sectionTitle}>Quick links</h2>
+            <p className="eyebrow">{copy.links.eyebrow}</p>
+            <h2 className={styles.sectionTitle}>{copy.links.title}</h2>
           </Reveal>
 
           <ul className={styles.linkGrid}>
