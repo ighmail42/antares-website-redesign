@@ -397,12 +397,15 @@
 .dialogInner {
   position: relative;
   padding: clamp(24px, 4vw, 36px);
+  /* Room along the top for the close button, which floats over this box and
+     would otherwise clip the corner of the logo plate. */
+  padding-top: 58px;
 }
 
 .dialogClose {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 12px;
   width: 34px;
   height: 34px;
   border: 1px solid var(--line);
