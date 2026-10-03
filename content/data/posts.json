@@ -14,7 +14,10 @@
         },
         {
           "heading": "What a real one would say",
-          "body": "A post is usually three or four sections. The ones that earn their place are:\n\n- what we set out to do\n- what we actually built\n- what broke, and what changed because of it\n- what is next"
+          "body": "A post is usually three or four sections. The ones that earn their place are:\n\n- what we set out to do\n- what we actually built\n- what broke, and what changed because of it\n- what is next",
+          "image": "/blog-images/sample-stands.jpg",
+          "imageAlt": "Antares students in the stands holding up painted boards spelling ANTARES",
+          "imageCaption": "A photo sits under the text of whichever section it belongs to, with a caption like this one."
         },
         {
           "heading": "Where to write it",
