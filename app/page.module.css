@@ -166,7 +166,7 @@
   padding: clamp(26px, 3vw, 36px);
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(14, 20, 38, 0.9), rgba(9, 13, 26, 0.9));
+  background: var(--card-bg);
   transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
 }
 
@@ -290,12 +290,12 @@
 
 .phase {
   padding: clamp(26px, 3vw, 38px);
-  background: rgba(9, 13, 26, 0.92);
+  background: var(--card-bg);
   transition: background-color 260ms ease;
 }
 
 .phase:hover {
-  background: rgba(20, 27, 48, 0.95);
+  background: var(--card-bg-hover);
 }
 
 .phaseStep {
@@ -350,7 +350,7 @@
   padding: 24px clamp(20px, 2.5vw, 30px);
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(14, 20, 38, 0.6);
+  background: var(--card-bg);
   transition: border-color 260ms ease, transform 260ms ease;
 }
 

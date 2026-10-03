@@ -1,7 +1,7 @@
 .item {
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(20, 27, 48, 0.55);
+  background: var(--card-bg);
   overflow: clip;
   transition: border-color 200ms ease, background-color 200ms ease;
 }
@@ -16,7 +16,7 @@
 
 .item[open] {
   border-color: var(--line-strong);
-  background: rgba(22, 30, 52, 0.85);
+  background: var(--card-bg-strong);
 }
 
 .summary {

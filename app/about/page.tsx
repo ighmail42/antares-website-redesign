@@ -190,7 +190,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.photoSection}>
+      <section className={`band-dark ${styles.photoSection}`}>
         <Image
           className={styles.photo}
           src={asset("/team-photos/team-2026.webp")}

@@ -24,7 +24,7 @@
 }
 
 .awardRow:hover {
-  background: rgba(242, 222, 139, 0.04);
+  background: rgba(242, 222, 139, 0.25);
   padding-left: 16px;
 }
 

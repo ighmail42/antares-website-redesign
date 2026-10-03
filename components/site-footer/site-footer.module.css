@@ -1,6 +1,6 @@
 .footer {
   padding-block: clamp(56px, 7vw, 88px) 36px;
-  background: var(--space-900);
+  background: var(--surface-sunken);
   border-top: 1px solid var(--line);
   color: var(--text-soft);
   font-size: 0.95rem;

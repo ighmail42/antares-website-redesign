@@ -9,7 +9,7 @@
   flex-direction: column;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(9, 13, 26, 0.75);
+  background: var(--card-bg);
   overflow: clip;
 }
 
@@ -75,7 +75,7 @@
 .placeholder code {
   padding: 2px 6px;
   border-radius: 6px;
-  background: rgba(238, 241, 248, 0.08);
+  background: rgba(20, 27, 48, 0.06);
   font-size: 0.9em;
   color: var(--gold);
 }
@@ -102,7 +102,7 @@
   padding: clamp(24px, 3vw, 30px);
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(9, 13, 26, 0.7);
+  background: var(--card-bg);
   color: var(--text);
   text-decoration: none;
   transition: border-color 240ms ease, transform 240ms ease;

@@ -21,7 +21,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* Hero                                                              */}
       {/* ---------------------------------------------------------------- */}
-      <section className={styles.hero}>
+      <section className={`band-dark ${styles.hero}`}>
         <HeroMedia media={heroMedia} intensity={0.62} priority />
         <Starfield density={110} />
 
@@ -132,7 +132,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* Team photo                                                        */}
       {/* ---------------------------------------------------------------- */}
-      <section className={styles.photoSection}>
+      <section className={`band-dark ${styles.photoSection}`}>
         <Image
           className={styles.photo}
           src={asset("/team-photos/antares-stands.jpg")}

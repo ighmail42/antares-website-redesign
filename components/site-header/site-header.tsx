@@ -41,8 +41,14 @@ export function SiteHeader() {
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
+  // Until the reader scrolls, the header floats over a dark band (the hero or a
+  // page header), so it borrows the dark palette's text colours.
   return (
-    <header className={styles.header} data-scrolled={scrolled || undefined} data-open={menuOpen || undefined}>
+    <header
+      className={`${styles.header}${scrolled || menuOpen ? "" : " band-dark"}`}
+      data-scrolled={scrolled || undefined}
+      data-open={menuOpen || undefined}
+    >
       <a className={styles.skip} href="#main">
         Skip to content
       </a>

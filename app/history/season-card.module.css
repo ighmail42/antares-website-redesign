@@ -78,7 +78,7 @@
   padding: 6px 14px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(242, 222, 139, 0.07);
+  background: rgba(242, 222, 139, 0.25);
   color: var(--gold);
   font-family: var(--font-display-stack);
   font-size: 0.78rem;
@@ -106,7 +106,7 @@
 .blogLink:hover,
 .binder:hover {
   border-color: var(--gold);
-  background: rgba(242, 222, 139, 0.08);
+  background: rgba(242, 222, 139, 0.25);
   color: var(--gold);
 }
 
