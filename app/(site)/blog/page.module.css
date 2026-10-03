@@ -72,3 +72,34 @@
 .post:hover .postArrow {
   transform: translateX(4px);
 }
+
+/* A list that contains posts written here needs room for a summary, so those
+   rows go full width instead of sitting in a tight grid of labels. */
+.postList[data-written] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.postMain {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.postSummary {
+  color: var(--text-soft);
+  font-family: var(--font-body-stack);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.postDate {
+  color: var(--text-faint);
+  font-family: var(--font-display-stack);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.post {
+  align-items: flex-start;
+}

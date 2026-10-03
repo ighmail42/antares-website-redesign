@@ -85,6 +85,40 @@ You cannot take the site down by typing the wrong thing.
 
 ---
 
+## Writing a build blog post
+
+Posts are written on the site now. No Google Doc, no PDF.
+
+In the editor, pick **Build blog posts** and press **Add post**. Fill in:
+
+- **Title**, and a **web address** like `2027-week-1` (lowercase, dashes). The
+  post then lives at `/blog/2027-week-1`. Changing it later breaks any link
+  anyone has shared.
+- **Season** — the year, matching one under Seasons. That is what groups it.
+- **Date**, written `2027-01-17`.
+- **Summary** — one or two sentences, shown on the blog list.
+
+Then add a **section** for each part of the story. Three or four is usually
+right: what you set out to do, what you built, what broke, what is next.
+
+Inside a section's text:
+
+- a blank line starts a new paragraph
+- a line starting with `- ` becomes a bullet
+
+That is the entire format. Photos go in `public/blog-images/` and are added to
+a section with a leading slash, like `/blog-images/week-1-drivetrain.jpg`.
+Always fill in the description: it is what a screen reader says, and what shows
+if the photo does not load.
+
+**New posts start as drafts.** A draft has a page you can open and check, but
+it stays off the blog list and out of search engines. Turn the draft switch off
+when it is ready.
+
+There is a post called "How to write a build blog" already in there, kept as a
+draft. It says all of this again and shows what the format looks like. Delete
+it whenever you like.
+
 ## What is not in the editor
 
 Nearly everything is, but a few things stay in the code on purpose:

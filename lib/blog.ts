@@ -1,23 +1,29 @@
 /**
- * The build blog index, derived from the seasons in `content/data/seasons.json`.
+ * The build blog index.
  *
- * Each season lists its posts as a label and a link. Those links point either
- * at a PDF in `public/blog-PDFs/` or at a Google Doc. Rather than sending a
- * reader out of the site to a raw file, every post also gets a page of its own
- * that shows it inside the site, with the season around it and a way to move
- * to the next one.
+ * Two kinds of post sit side by side. Newer ones are written on the site and
+ * live in `content/data/posts.json`. Older ones are a link to a Google Doc or
+ * a PDF, listed against their season in `content/data/seasons.json`, and are
+ * shown embedded rather than sending a reader out to a bare file.
  */
 
+import { posts, type Post } from "@/content/posts";
 import { seasons, type Season, type SeasonLink } from "@/content/seasons";
 
-export type BlogPost = {
+export type BlogEntry = {
   slug: string;
-  label: string;
-  href: string;
-  /** "pdf" renders in the browser's own viewer; "doc" is an embedded Google Doc. */
-  kind: "pdf" | "doc";
+  title: string;
   seasonYear: string;
   seasonGame: string;
+  /** "post" is written here; the others are embedded documents. */
+  kind: "post" | "pdf" | "doc";
+  /** Set for documents. */
+  href?: string;
+  /** Set for posts written here. */
+  date?: string;
+  summary?: string;
+  draft?: boolean;
+  post?: Post;
 };
 
 function slugify(value: string): string {
@@ -28,49 +34,79 @@ function slugify(value: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-function kindOf(href: string): BlogPost["kind"] {
-  return href.toLowerCase().endsWith(".pdf") ? "pdf" : "doc";
+/** The slug a season's document post lives at, for linking from elsewhere. */
+export function slugFor(seasonYear: string, label: string): string {
+  return `${seasonYear}-${slugify(label)}`;
 }
 
 /**
  * A Google Doc link opens in the Docs UI. The `/preview` form is the one that
  * embeds cleanly, so normalise whatever was pasted into the content file.
  */
-export function embedUrl(post: BlogPost): string {
-  if (post.kind === "pdf") return post.href;
-  return post.href.replace(/\/(edit|view|preview)(\?[^#]*)?(#.*)?$/, "/preview");
+export function embedUrl(entry: BlogEntry): string {
+  if (!entry.href) return "";
+  if (entry.kind === "pdf") return entry.href;
+  return entry.href.replace(/\/(edit|view|preview)(\?[^#]*)?(#.*)?$/, "/preview");
 }
 
-function postsForSeason(season: Season): BlogPost[] {
+const seasonByYear = new Map(seasons.map((season) => [season.year, season]));
+
+function gameFor(year: string): string {
+  return seasonByYear.get(year)?.game ?? "";
+}
+
+function documentEntries(season: Season): BlogEntry[] {
   return (season.blogPosts ?? []).map((entry: SeasonLink) => ({
-    slug: `${season.year}-${slugify(entry.label)}`,
-    label: entry.label,
-    href: entry.href,
-    kind: kindOf(entry.href),
+    slug: slugFor(season.year, entry.label),
+    title: entry.label,
     seasonYear: season.year,
     seasonGame: season.game,
+    kind: entry.href.toLowerCase().endsWith(".pdf") ? "pdf" : "doc",
+    href: entry.href,
   }));
 }
 
-/** Every post, newest season first and in the order each season lists them. */
-export const blogPosts: BlogPost[] = seasons.flatMap(postsForSeason);
+const writtenEntries: BlogEntry[] = posts.map((post) => ({
+  slug: post.slug,
+  title: post.title,
+  seasonYear: post.season,
+  seasonGame: gameFor(post.season),
+  kind: "post",
+  date: post.date,
+  summary: post.summary,
+  draft: post.draft,
+  post,
+}));
 
+/** Everything, drafts included. Used to build a page for each. */
+export const allEntries: BlogEntry[] = [
+  ...writtenEntries,
+  ...seasons.flatMap(documentEntries),
+];
+
+/** What a reader sees: no drafts. */
+export const blogEntries: BlogEntry[] = allEntries.filter((entry) => !entry.draft);
+
+/** Grouped by season, newest season first, posts before documents. */
 export const blogSeasons = seasons
-  .map((season) => ({ season, posts: postsForSeason(season) }))
-  .filter((entry) => entry.posts.length > 0);
+  .map((season) => ({
+    season,
+    entries: blogEntries.filter((entry) => entry.seasonYear === season.year),
+  }))
+  .filter((group) => group.entries.length > 0);
 
-/** The slug a season's post lives at, for linking from elsewhere. */
-export function slugFor(seasonYear: string, label: string): string {
-  return `${seasonYear}-${slugify(label)}`;
+export function entriesForSeason(year: string): BlogEntry[] {
+  return blogEntries.filter((entry) => entry.seasonYear === year);
 }
 
-export function postBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
+export function entryBySlug(slug: string): BlogEntry | undefined {
+  return allEntries.find((entry) => entry.slug === slug);
 }
 
-/** The posts either side of this one, within the same season. */
-export function neighbours(post: BlogPost): { previous?: BlogPost; next?: BlogPost } {
-  const within = blogPosts.filter((entry) => entry.seasonYear === post.seasonYear);
-  const index = within.findIndex((entry) => entry.slug === post.slug);
+/** The entries either side of this one, within the same season. */
+export function neighbours(entry: BlogEntry): { previous?: BlogEntry; next?: BlogEntry } {
+  const within = blogEntries.filter((other) => other.seasonYear === entry.seasonYear);
+  const index = within.findIndex((other) => other.slug === entry.slug);
+  if (index === -1) return {};
   return { previous: within[index - 1], next: within[index + 1] };
 }

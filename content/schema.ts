@@ -701,6 +701,46 @@ export const contentFiles: ContentFile[] = [
 
   /* ------------------------------------------------------------------ */
   {
+    id: "posts",
+    label: "Build blog posts",
+    description: "Posts written on the site itself. Older posts that live in a Google Doc or a PDF are listed under their season instead.",
+    collections: [
+      {
+        name: "posts",
+        label: "Posts",
+        description: "Newest first. A new post starts as a draft, which keeps it off the blog list until you are ready.",
+        shownOn: "/blog and /season",
+        kind: "list",
+        titleField: "title",
+        itemNoun: "post",
+        fields: [
+          { name: "title", label: "Title", kind: "text", required: true },
+          { name: "slug", label: "Web address", kind: "text", required: true, help: "The last part of the address, lowercase with dashes: 2027-week-1 becomes /blog/2027-week-1. Changing it breaks any existing links." },
+          { name: "season", label: "Season", kind: "text", required: true, help: "The year, matching a season under Seasons. Groups the post on the blog list." },
+          { name: "date", label: "Date", kind: "text", required: true, placeholder: "2027-01-17", help: "Written as year-month-day." },
+          { name: "authors", label: "Written by", kind: "text" },
+          { name: "summary", label: "Summary", kind: "textarea", required: true, help: "One or two sentences, shown on the blog list." },
+          { name: "draft", label: "Draft", kind: "boolean", help: "Kept off the blog list and out of search engines while this is on." },
+          { name: "image", label: "Header photo", kind: "image", help: "A file in public/blog-images/." },
+          { name: "imageAlt", label: "Header photo description", kind: "text", help: "What a screen reader says. Describe what is in the photo." },
+          {
+            name: "sections", label: "Sections", kind: "list", titleField: "heading", itemNoun: "section",
+            help: "Three or four is usually right. Each one can have a heading, some text, and a photo.",
+            fields: [
+              { name: "heading", label: "Heading", kind: "text" },
+              { name: "body", label: "Text", kind: "textarea", help: "A blank line starts a new paragraph. A line starting with \"- \" becomes a bullet." },
+              { name: "image", label: "Photo", kind: "image", help: "A file in public/blog-images/." },
+              { name: "imageAlt", label: "Photo description", kind: "text" },
+              { name: "imageCaption", label: "Caption", kind: "text" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
     id: "seasons",
     label: "Seasons",
     description: "One entry per competition season, newest first. Drives the history page and the season page.",

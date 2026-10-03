@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "slug": "how-to-write-a-build-blog",
+      "title": "How to write a build blog",
+      "season": "2027",
+      "date": "2026-10-03",
+      "authors": "Antares marketing",
+      "summary": "What a good build blog does, and how to write one on this site. Kept as a draft so it stays off the public list.",
+      "draft": true,
+      "sections": [
+        {
+          "heading": "What a build blog is for",
+          "body": "A build blog is the record of a season. Judges read it, other teams read it, and next year's students read it when they are trying to work out why we did something.\n\nWrite it the week it happens. A post written in April about week two is a summary; a post written in week two is evidence."
+        },
+        {
+          "heading": "What goes in one",
+          "body": "Aim for three or four sections. The useful ones are usually:\n\n- what we set out to do this week\n- what we actually built\n- what broke, and what we changed because of it\n- what we are doing next"
+        },
+        {
+          "heading": "Writing it here",
+          "body": "Open the editor at /admin, pick Build blog posts, and press Add post. Fill in the title, the season, the date and a one-line summary, then add a section for each part of the story.\n\nA blank line starts a new paragraph. A line starting with a dash and a space becomes a bullet, like the list above. That is the whole format.\n\nPhotos go in public/blog-images/ and are referenced with a leading slash, like /blog-images/week-1-drivetrain.jpg. Always write the description field: it is what someone using a screen reader hears, and what shows if the photo fails to load."
+        },
+        {
+          "heading": "Before you publish",
+          "body": "New posts start as drafts, which keeps them off the blog list and out of search engines while you work. Turn the draft switch off when it is ready.\n\nRead it back once. Names spelled right, no half-finished sentences, and nothing that would embarrass us in front of a sponsor."
+        }
+      ]
+    }
+  ]
+}

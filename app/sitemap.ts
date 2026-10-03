@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { site } from "@/content/site";
-import { blogPosts } from "@/lib/blog";
+import { blogEntries } from "@/lib/blog";
 
 /* Same as app/robots.ts: evaluated at build time for the static export. */
 export const dynamic = "force-static";
@@ -17,7 +17,7 @@ const routes = [
   "/sponsors/impact",
   "/donate",
   "/blog",
-  ...blogPosts.map((post) => `/blog/${post.slug}`),
+  ...blogEntries.map((entry) => `/blog/${entry.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

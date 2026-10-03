@@ -84,3 +84,71 @@
     text-align: left;
   }
 }
+
+/* ---- A post written on the site ------------------------------------------ */
+
+.byline {
+  margin: 0 0 1.4rem;
+  color: var(--text-soft);
+  font-family: var(--font-display-stack);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.article {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.cover img,
+.figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.cover {
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.section {
+  margin-bottom: clamp(26px, 3.5vw, 40px);
+}
+
+.sectionHeading {
+  margin-bottom: 0.5em;
+  font-size: var(--step-2);
+}
+
+.article p {
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.list {
+  margin: 0 0 1.1em;
+  padding-left: 1.3em;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.list li {
+  margin-bottom: 0.4em;
+}
+
+.list li::marker {
+  color: var(--accent-mark);
+}
+
+.figure {
+  margin: clamp(20px, 3vw, 30px) 0 0;
+}
+
+.figure figcaption {
+  margin-top: 10px;
+  color: var(--text-faint);
+  font-size: 0.86rem;
+}

@@ -43,6 +43,7 @@ GitHub, open a pull request.
 | `content/data/pages.json` | Every heading, intro and button label on the site |
 | `content/data/site.json` | Team facts, email addresses, postal address, social and outbound links |
 | `content/data/team.json` | Awards, the "who we are" blocks, leadership ladder, subteams, student quotes |
+| `content/data/posts.json` | Build blog posts written on the site |
 | `content/data/seasons.json` | One entry per season: robot, summary, highlights, awards, blog links |
 | `content/data/sponsors.json` | Sponsor logos by tier, partnership levels, budget split, FIRST statistics |
 | `content/data/training.json` | Training curriculum, grouped into the collapsible sections on `/training` |
@@ -79,6 +80,16 @@ Add an object to the top of `seasons` in `content/seasons.ts`. Set `status` to
 `"current"` for the season in progress; the home page and `/season` read from
 whichever entry is current. Robot images go in `public/robot-images/`, local
 blog PDFs in `public/blog-PDFs/`.
+
+### Add a build blog post
+
+Add an entry to `posts` in `content/data/posts.json`, or use `/admin`. A post
+is a title, a season, a date, a summary and a list of sections; each section
+has an optional heading, some text and an optional photo. In the text, a blank
+line starts a paragraph and a line starting with `- ` becomes a bullet.
+
+Posts written here and older posts that live in a Google Doc or a PDF are
+merged by `lib/blog.ts`, so both appear on `/blog` and both get a reader page.
 
 ### Add a training lesson
 

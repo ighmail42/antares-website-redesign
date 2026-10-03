@@ -4,7 +4,8 @@ import Link from "next/link";
 import { CtaBand } from "@/components/cta-band/cta-band";
 import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
-import { blogPosts, blogSeasons } from "@/lib/blog";
+import { blogEntries, blogSeasons } from "@/lib/blog";
+import { formatDate } from "@/content/posts";
 import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
@@ -22,7 +23,7 @@ export default function BlogIndexPage() {
       <PageHero
         eyebrow={copy.hero.eyebrow}
         title={copy.hero.title ?? ""}
-        lede={`${blogPosts.length} posts covering what the team designed each week, what broke, and what changed as a result.`}
+        lede={`${blogEntries.length} posts covering what the team designed each week, what broke, and what changed as a result.`}
       />
 
       <section className="section">
@@ -38,11 +39,15 @@ export default function BlogIndexPage() {
                 </Link>
               </div>
 
-              <ul className={styles.postList}>
-                {entry.posts.map((post) => (
+              <ul className={styles.postList} data-written={entry.entries.some((e) => e.kind === "post") || undefined}>
+                {entry.entries.map((post) => (
                   <li key={post.slug}>
                     <Link className={styles.post} href={`/blog/${post.slug}`}>
-                      <span className={styles.postLabel}>{post.label}</span>
+                      <span className={styles.postMain}>
+                        <span className={styles.postLabel}>{post.title}</span>
+                        {post.summary && <span className={styles.postSummary}>{post.summary}</span>}
+                        {post.date && <span className={styles.postDate}>{formatDate(post.date)}</span>}
+                      </span>
                       <span className={styles.postArrow} aria-hidden="true">
                         &rarr;
                       </span>

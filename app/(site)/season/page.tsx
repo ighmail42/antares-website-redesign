@@ -10,7 +10,7 @@ import { currentSeason, pastSeasons } from "@/content/seasons";
 import { page } from "@/content/pages";
 import styles from "./page.module.css";
 import { asset } from "@/lib/asset";
-import { slugFor } from "@/lib/blog";
+import { entriesForSeason } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: `Season ${currentSeason.year}`,
@@ -49,6 +49,7 @@ const seasonRhythm = [
 export default function SeasonPage() {
   const copy = page("season");
   const previous = pastSeasons[0];
+  const entries = entriesForSeason(currentSeason.year);
 
   return (
     <main>
@@ -76,7 +77,7 @@ export default function SeasonPage() {
       {/* -------------------------------------------------------------- */}
       {/* Build blogs                                                     */}
       {/* -------------------------------------------------------------- */}
-      {currentSeason.blogPosts && currentSeason.blogPosts.length > 0 && (
+      {entries.length > 0 && (
         <section className="section" data-tone="raised">
           <div className="shell">
             <Reveal>
@@ -86,13 +87,10 @@ export default function SeasonPage() {
             </Reveal>
 
             <ul className={styles.blogGrid}>
-              {currentSeason.blogPosts.map((post, index) => (
-                <Reveal as="li" key={post.href} delay={index * 70}>
-                  <Link
-                    className={styles.blogCard}
-                    href={`/blog/${slugFor(currentSeason.year, post.label)}`}
-                  >
-                    <span className={styles.blogLabel}>{post.label}</span>
+              {entries.map((post, index) => (
+                <Reveal as="li" key={post.slug} delay={index * 70}>
+                  <Link className={styles.blogCard} href={`/blog/${post.slug}`}>
+                    <span className={styles.blogLabel}>{post.title}</span>
                     <span className={styles.blogArrow} aria-hidden="true">
                       &rarr;
                     </span>
