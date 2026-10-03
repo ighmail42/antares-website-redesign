@@ -54,6 +54,13 @@ The 2024 and 2025 posts are PDFs in `public/blog-PDFs/` and are fine.
 
 ## 5. Sponsor descriptions
 
+> **One of these is placeholder text written to show the design, and has to go
+> before anyone outside the team sees it.** The Gene Haas Foundation entry has
+> a real website and a description taken from the foundation's own mission
+> statement, but the "With Antares" paragraph was invented to fill the space.
+> Replace it with what the grant actually pays for, or delete it.
+
+
 Clicking a sponsor logo opens a panel. It shows the tier and a link, and will
 show two more things once someone writes them, in `content/data/sponsors.json`
 or through /admin:
