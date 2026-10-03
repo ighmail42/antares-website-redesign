@@ -22,7 +22,7 @@
   font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem);
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--gold);
+  color: var(--accent-mark);
   opacity: 0.85;
   font-variant-numeric: tabular-nums;
 }
@@ -62,7 +62,7 @@
 }
 
 .highlights li::marker {
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .awards {
@@ -78,8 +78,8 @@
   padding: 6px 14px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(242, 222, 139, 0.07);
-  color: var(--gold);
+  background: var(--accent-wash);
+  color: var(--accent-mark);
   font-family: var(--font-display-stack);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
@@ -105,21 +105,21 @@
 
 .blogLink:hover,
 .binder:hover {
-  border-color: var(--gold);
-  background: rgba(242, 222, 139, 0.08);
-  color: var(--gold);
+  border-color: var(--accent-mark);
+  background: var(--accent-wash);
+  color: var(--accent-mark);
 }
 
 .binder {
   border-color: var(--line-strong);
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .media {
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: radial-gradient(130% 130% at 30% 0%, rgba(57, 69, 106, 0.4), rgba(5, 7, 15, 0.85));
+  background: radial-gradient(130% 130% at 30% 0%, var(--brand-light-blue), var(--brand-dark-blue));
   transition: border-color 300ms ease, transform 300ms ease;
 }
 

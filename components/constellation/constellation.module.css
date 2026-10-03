@@ -1,3 +1,9 @@
+/*
+  The constellation inherits `--accent-mark`, so it draws itself in Antares
+  Light Blue on a white section and in the brand yellow inside a dark panel,
+  without the component knowing which it is in.
+*/
+
 .svg {
   width: 100%;
   height: auto;
@@ -5,15 +11,15 @@
 }
 
 .lines line {
-  stroke: var(--gold);
+  stroke: var(--accent-mark);
   stroke-width: 13;
   stroke-linecap: round;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 .stars circle {
-  fill: var(--gold);
-  opacity: 0.9;
+  fill: var(--accent-mark);
+  opacity: 0.85;
   /* Needed so the scale in the spark keyframe grows from the star's centre
      rather than the SVG origin. */
   transform-box: fill-box;
@@ -22,15 +28,20 @@
 
 /* Antares itself: the brand's four-point star, slowly breathing. */
 .antares {
-  fill: var(--gold);
-  filter: drop-shadow(0 0 22px rgba(242, 222, 139, 0.55));
+  fill: var(--accent-mark);
   transform-box: fill-box;
   transform-origin: center;
   animation: antares-pulse 4.5s ease-in-out infinite;
 }
 
+/* The glow only makes sense against a dark ground. */
+[data-scheme="dark"] .antares {
+  fill: var(--brand-yellow);
+  filter: drop-shadow(0 0 22px rgba(242, 222, 139, 0.55));
+}
+
 .label {
-  fill: var(--gold);
+  fill: var(--accent-mark);
   font-family: var(--font-display-stack);
   font-size: 58px;
   letter-spacing: 0.34em;
@@ -70,7 +81,7 @@
     transform: scale(0.2) rotate(-25deg);
   }
   to {
-    opacity: 0.9;
+    opacity: 0.85;
     transform: scale(1) rotate(0deg);
   }
 }
@@ -81,6 +92,6 @@
   .animated .antares {
     animation: none;
     stroke-dashoffset: 0;
-    opacity: 0.9;
+    opacity: 0.85;
   }
 }

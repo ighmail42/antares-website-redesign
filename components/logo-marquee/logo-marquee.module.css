@@ -25,9 +25,9 @@
   list-style: none;
 }
 
-/* Sponsor logos arrive in every colour, and most are drawn dark for a white
-   page. Each one gets its own light plate so every mark reads correctly
-   without touching the original file. */
+/* Most sponsor logos are drawn dark for a white page, so on the light page
+   they sit directly on it. Inside a dark panel they need a light plate to be
+   legible at all, which is what the scheme override below does. */
 .item {
   display: grid;
   place-items: center;
@@ -35,15 +35,21 @@
   min-width: clamp(150px, 16vw, 200px);
   padding: 18px 26px;
   border-radius: 16px;
-  background: #f2f2ef;
-  opacity: 0.82;
+  opacity: 0.78;
   transition: opacity 240ms ease, transform 240ms ease, background-color 240ms ease;
 }
 
 .item:hover {
   opacity: 1;
-  background: #ffffff;
   transform: translateY(-3px);
+}
+
+[data-scheme="dark"] .item {
+  background: #f2f2ef;
+}
+
+[data-scheme="dark"] .item:hover {
+  background: #ffffff;
 }
 
 .logo {

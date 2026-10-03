@@ -9,7 +9,7 @@
   min-height: min(92svh, 900px);
   padding-top: calc(var(--header-height) + 40px);
   padding-bottom: 96px;
-  background: var(--space-900);
+  background: linear-gradient(170deg, var(--brand-light-blue) -20%, var(--brand-blue) 50%, var(--brand-dark-blue));
   overflow: clip;
   isolation: isolate;
 }
@@ -66,7 +66,7 @@
 }
 
 .heroAccent {
-  background: linear-gradient(100deg, var(--gold-bright), var(--gold) 55%, #d9c169);
+  background: linear-gradient(100deg, var(--accent-mark), var(--accent-mark) 55%, #d9c169);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -114,7 +114,7 @@
   content: "";
   width: 1px;
   height: 46px;
-  background: linear-gradient(var(--gold), transparent);
+  background: linear-gradient(var(--accent-mark), transparent);
   animation: scroll-cue 2.4s ease-in-out infinite;
 }
 
@@ -166,14 +166,15 @@
   padding: clamp(26px, 3vw, 36px);
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(14, 20, 38, 0.9), rgba(9, 13, 26, 0.9));
+  background: var(--card);
+  box-shadow: var(--shadow-card);
   transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
 }
 
 .communityCard:hover {
   border-color: var(--line-strong);
   transform: translateY(-6px);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-lift);
 }
 
 .cardKicker {
@@ -188,7 +189,7 @@
 .cardTitle {
   margin-bottom: 0.4em;
   font-size: var(--step-2);
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .cardBody {
@@ -260,7 +261,7 @@
   display: flex;
   align-items: flex-end;
   padding-block: clamp(28px, 4vw, 56px);
-  background: linear-gradient(180deg, rgba(5, 7, 15, 0.55) 0%, rgba(5, 7, 15, 0) 35%, rgba(5, 7, 15, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(29, 35, 53, 0.55) 0%, rgba(29, 35, 53, 0) 30%, rgba(29, 35, 53, 0.92) 100%);
 }
 
 .photoText {
@@ -290,12 +291,12 @@
 
 .phase {
   padding: clamp(26px, 3vw, 38px);
-  background: rgba(9, 13, 26, 0.92);
+  background: var(--card);
   transition: background-color 260ms ease;
 }
 
 .phase:hover {
-  background: rgba(20, 27, 48, 0.95);
+  background: var(--card-raised);
 }
 
 .phaseStep {
@@ -304,7 +305,7 @@
   font-family: var(--font-display-stack);
   font-size: 0.8rem;
   letter-spacing: 0.24em;
-  color: var(--gold);
+  color: var(--accent-mark);
   opacity: 0.65;
 }
 
@@ -350,7 +351,7 @@
   padding: 24px clamp(20px, 2.5vw, 30px);
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(14, 20, 38, 0.6);
+  background: var(--card);
   transition: border-color 260ms ease, transform 260ms ease;
 }
 
@@ -363,7 +364,7 @@
   font-family: var(--font-display-stack);
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--accent-mark);
   opacity: 0.55;
   line-height: 1.2;
 }
@@ -394,7 +395,7 @@
   padding: clamp(18px, 3vw, 34px);
   border: 1px solid var(--line);
   border-radius: 24px;
-  background: radial-gradient(120% 120% at 30% 0%, rgba(57, 69, 106, 0.55), rgba(5, 7, 15, 0.9));
+  background: radial-gradient(120% 120% at 30% 0%, var(--brand-light-blue), var(--brand-dark-blue));
 }
 
 .seasonMedia img {

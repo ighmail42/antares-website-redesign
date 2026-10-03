@@ -132,7 +132,7 @@ export default function SponsorsPage() {
       {/* -------------------------------------------------------------- */}
       {/* Partnership levels                                              */}
       {/* -------------------------------------------------------------- */}
-      <section className="section" data-tone="deep" id="levels">
+      <section className="section" data-tone="deep" data-scheme="dark" id="levels">
         <div className="shell">
           <Reveal>
             <p className="eyebrow">2026-27 partnership levels</p>

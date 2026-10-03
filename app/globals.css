@@ -1,49 +1,57 @@
 /*
   Antares design system
   =====================
-  Everything global lives here: brand tokens, base element styles, the layout
-  primitives that pages compose (`.shell`, `.section`, `.prose`), buttons, and
-  the scroll-reveal animation. Component-specific rules belong in the
-  `.module.css` file next to the component.
+  The site is light: a white page with Antares Light Blue headings, and dark
+  navy panels used deliberately for emphasis.
 
-  The site is dark by default. A section can opt into a lighter panel with
-  `data-tone="raised"`, or into the near-black hero backdrop with
-  `data-tone="deep"`.
+  COLOUR RULE WORTH KNOWING
+  The brand yellow (#F2DE8B) is pale. On white it has about 1.4:1 contrast, so
+  it is never used for text or thin lines in a light area. On white it is a
+  *fill*: button backgrounds, chips, the star. It goes back to being a text and
+  line colour inside dark panels, where it reads properly.
+
+  Anything with `data-scheme="dark"` flips the ink, surface and line tokens, so
+  components do not need to know which kind of section they are sitting in.
 */
 
 :root {
   /* ---- Brand ----------------------------------------------------------- */
-  /* Sourced from the team logo and competition shirts. */
+  /* From the Antares Brand Reference Guide. */
   --brand-blue: #252e45;
   --brand-light-blue: #39456a;
   --brand-dark-blue: #1d2335;
   --brand-yellow: #f2de8b;
-  --brand-white: #ededed;
 
   /* ---- Surfaces -------------------------------------------------------- */
-  --space-900: #05070f; /* deepest backdrop, used behind the hero */
-  --space-800: #090d1a;
-  --space-700: #0e1426;
-  --space-600: #141b30;
-  --surface: var(--space-800);
-  --surface-raised: #161e34;
-  --surface-sunken: var(--space-900);
+  --page: #ffffff;
+  /* Alternating sections: a near-white pulled toward the brand blues. */
+  --tint: #f4f6fa;
+  --card: #ffffff;
+  --card-raised: #ffffff;
+  --card-sunken: #f7f8fb;
 
   /* ---- Ink ------------------------------------------------------------- */
-  --text: #eef1f8;
-  --text-soft: rgba(238, 241, 248, 0.72);
-  --text-faint: rgba(238, 241, 248, 0.5);
+  --heading: var(--brand-light-blue);
+  --text: #2c3448;
+  --text-soft: rgba(44, 52, 72, 0.74);
+  --text-faint: rgba(44, 52, 72, 0.7);
 
-  /* ---- Accents --------------------------------------------------------- */
-  --gold: #f2de8b;
-  --gold-bright: #fff0b8;
-  --gold-dim: rgba(242, 222, 139, 0.16);
+  /* ---- Lines and accents ---------------------------------------------- */
+  --line: rgba(57, 69, 106, 0.14);
+  --line-strong: rgba(57, 69, 106, 0.3);
 
-  --line: rgba(238, 241, 248, 0.1);
-  --line-strong: rgba(242, 222, 139, 0.28);
+  --accent: var(--brand-yellow);
+  /* A wash of the accent, for hover states and highlight blocks. */
+  --accent-wash: rgba(242, 222, 139, 0.26);
+  /* Text that sits on top of an accent fill. */
+  --accent-ink: var(--brand-blue);
+  /* The accent as a line or mark. Light blue on a light page, yellow on dark. */
+  --accent-mark: var(--brand-light-blue);
+  --link: var(--brand-light-blue);
+  --danger: #b3261e;
 
-  --glow-gold: 0 0 24px rgba(242, 222, 139, 0.35);
-  --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 18px 40px rgba(37, 46, 69, 0.1);
+  --shadow-lift: 0 26px 56px rgba(37, 46, 69, 0.16);
 
   /* ---- Layout ---------------------------------------------------------- */
   --shell: 1200px;
@@ -73,12 +81,40 @@
   --step-5: clamp(2.7rem, 1.9rem + 3.2vw, 4.6rem);
 }
 
+/* Dark panels: the hero, emphasis sections, the closing call to action and the
+   footer. Everything inside reads these same token names. */
+[data-scheme="dark"] {
+  --page: var(--brand-blue);
+  --tint: var(--brand-dark-blue);
+  --card: rgba(255, 255, 255, 0.045);
+  --card-raised: rgba(255, 255, 255, 0.07);
+  --card-sunken: rgba(0, 0, 0, 0.22);
+
+  --heading: var(--brand-yellow);
+  --text: #eef1f8;
+  --text-soft: rgba(238, 241, 248, 0.74);
+  --text-faint: rgba(238, 241, 248, 0.55);
+
+  --line: rgba(255, 255, 255, 0.13);
+  --line-strong: rgba(242, 222, 139, 0.36);
+
+  --accent-wash: rgba(242, 222, 139, 0.12);
+  --accent-mark: var(--brand-yellow);
+  --link: var(--brand-yellow);
+  --danger: #ff8a8a;
+
+  --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 30px 70px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 16px);
   -webkit-text-size-adjust: 100%;
@@ -87,7 +123,7 @@ html {
 body {
   margin: 0;
   min-height: 100svh;
-  background: var(--space-800);
+  background: var(--page);
   color: var(--text);
   font-family: var(--font-body-stack);
   font-size: var(--step-0);
@@ -96,24 +132,12 @@ body {
   overflow-x: hidden;
 }
 
-/* A faint star wash behind every page so no section reads as flat navy. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(900px 600px at 12% -10%, rgba(57, 69, 106, 0.55), transparent 65%),
-    radial-gradient(700px 500px at 88% 8%, rgba(242, 222, 139, 0.05), transparent 60%),
-    radial-gradient(1000px 800px at 50% 110%, rgba(37, 46, 69, 0.6), transparent 70%);
-}
-
 h1,
 h2,
 h3,
 h4 {
   margin: 0 0 0.5em;
+  color: var(--heading);
   font-family: var(--font-display-stack);
   font-weight: 600;
   line-height: 1.12;
@@ -140,19 +164,23 @@ p {
 }
 
 a {
-  color: var(--gold);
-  text-decoration-color: rgba(242, 222, 139, 0.4);
+  color: var(--link);
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   text-underline-offset: 3px;
   transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
 a:hover {
-  color: var(--gold-bright);
+  color: color-mix(in srgb, var(--link) 80%, var(--text));
   text-decoration-color: currentColor;
 }
 
+[data-scheme="dark"] a:hover {
+  color: #fff0b8;
+}
+
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--accent-mark);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -171,8 +199,8 @@ hr {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--space-900);
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 
 /* ------------------------------------------------------------------------ */
@@ -199,16 +227,19 @@ hr {
 .section {
   position: relative;
   padding-block: clamp(64px, 9vw, 128px);
+  background: var(--page);
 }
 
+/* A quiet tinted band, for alternating against plain white. */
 .section[data-tone="raised"] {
-  background: linear-gradient(180deg, var(--space-700), var(--space-600));
+  background: var(--tint);
   border-block: 1px solid var(--line);
 }
 
+/* A dark panel. Used sparingly: it is where the yellow and the constellation
+   get to be themselves. */
 .section[data-tone="deep"] {
-  background: var(--space-900);
-  border-block: 1px solid var(--line);
+  background: var(--brand-blue);
 }
 
 .section[data-tight] {
@@ -223,10 +254,10 @@ hr {
   margin: 0 0 1rem;
   font-family: var(--font-display-stack);
   font-size: var(--step--1);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .eyebrow::before {
@@ -262,7 +293,7 @@ hr {
 }
 
 .prose li::marker {
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .prose strong {
@@ -283,7 +314,7 @@ hr {
   border-radius: 999px;
   font-family: var(--font-display-stack);
   font-size: var(--step-0);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
@@ -295,28 +326,34 @@ hr {
   transform: translateY(-2px);
 }
 
+/* The yellow is a fill, with navy on top of it. That works on white and on
+   dark, so the primary button looks the same everywhere. */
 .button-primary {
-  background: var(--gold);
-  color: var(--space-900);
-  box-shadow: 0 10px 30px rgba(242, 222, 139, 0.18);
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 10px 26px rgba(37, 46, 69, 0.16);
 }
 
 .button-primary:hover {
-  background: var(--gold-bright);
-  color: var(--space-900);
-  box-shadow: 0 16px 40px rgba(242, 222, 139, 0.3);
+  background: #fbeeb4;
+  color: var(--accent-ink);
+  box-shadow: 0 16px 34px rgba(37, 46, 69, 0.22);
 }
 
 .button-ghost {
   border-color: var(--line-strong);
-  background: rgba(242, 222, 139, 0.06);
+  background: transparent;
   color: var(--text);
 }
 
 .button-ghost:hover {
-  border-color: var(--gold);
-  background: rgba(242, 222, 139, 0.12);
-  color: var(--gold-bright);
+  border-color: var(--accent-mark);
+  background: var(--accent-wash);
+  color: var(--text);
+}
+
+[data-scheme="dark"] .button-ghost {
+  background: rgba(242, 222, 139, 0.06);
 }
 
 .button-row {
@@ -345,7 +382,7 @@ html[data-js="on"] [data-reveal] {
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-html[data-js="on"] [data-reveal][data-revealed="true"] {
+html[data-js="on"] [data-revealed="true"][data-reveal] {
   opacity: 1;
   transform: none;
 }

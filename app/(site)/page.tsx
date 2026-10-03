@@ -21,7 +21,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* Hero                                                              */}
       {/* ---------------------------------------------------------------- */}
-      <section className={styles.hero}>
+      <section className={styles.hero} data-scheme="dark">
         <HeroMedia media={heroMedia} intensity={0.62} priority />
         <Starfield density={110} />
 
@@ -110,7 +110,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* Sponsors, high on the page where they are visible                 */}
       {/* ---------------------------------------------------------------- */}
-      <section className="section" data-tight data-tone="deep">
+      <section className="section" data-tight data-tone="raised">
         <div className="shell">
           <Reveal className={styles.sponsorHead}>
             <div>
@@ -132,7 +132,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* Team photo                                                        */}
       {/* ---------------------------------------------------------------- */}
-      <section className={styles.photoSection}>
+      <section className={styles.photoSection} data-scheme="dark">
         <Image
           className={styles.photo}
           src={asset("/team-photos/antares-stands.jpg")}
@@ -222,7 +222,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* This season                                                       */}
       {/* ---------------------------------------------------------------- */}
-      <section className="section" data-tone="deep">
+      <section className="section" data-tone="deep" data-scheme="dark">
         <div className="shell">
           <div className={styles.seasonLayout}>
             <Reveal className={styles.seasonCopy}>

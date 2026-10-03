@@ -18,7 +18,7 @@ type PageHeroProps = {
 /** The standard header for every page other than the home page. */
 export function PageHero({ eyebrow, title, lede, media, children }: PageHeroProps) {
   return (
-    <header className={styles.hero}>
+    <header className={styles.hero} data-scheme="dark">
       {media ? <HeroMedia media={media} intensity={0.45} priority /> : <Starfield density={70} />}
       {!media && <Constellation className={styles.constellation} animated={false} />}
 

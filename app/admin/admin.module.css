@@ -11,22 +11,34 @@
   padding: 14px var(--gutter);
   background: var(--brand-blue);
   border-bottom: 1px solid var(--line-strong);
+  color: #eef1f8;
   font-size: 0.9rem;
+}
+
+.banner a {
+  color: var(--brand-yellow);
 }
 
 .shell {
   display: grid;
   grid-template-columns: 230px minmax(0, 1fr) 320px;
-  gap: 1px;
   min-height: calc(100svh - 52px);
-  background: var(--line);
+  background: var(--page);
 }
 
 .sidebar,
 .main,
 .save {
   padding: 24px 20px 48px;
-  background: var(--space-800);
+  background: var(--page);
+}
+
+.sidebar {
+  border-right: 1px solid var(--line);
+}
+
+.save {
+  border-left: 1px solid var(--line);
 }
 
 .sidebar,
@@ -77,13 +89,13 @@
 
 .navFile:hover,
 .navCollection:hover {
-  background: rgba(242, 222, 139, 0.07);
+  background: var(--accent-wash);
   color: var(--text);
 }
 
 .navFile[data-active] {
-  background: rgba(242, 222, 139, 0.12);
-  color: var(--gold);
+  background: var(--accent-wash);
+  color: var(--accent-mark);
   font-weight: 500;
 }
 
@@ -100,7 +112,7 @@
 }
 
 .navCollection[data-active] {
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .dot {
@@ -108,7 +120,7 @@
   height: 7px;
   margin-left: auto;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--accent-mark);
 }
 
 /* ---- Main form ----------------------------------------------------- */
@@ -172,14 +184,14 @@
   padding: 9px 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(5, 7, 15, 0.6);
+  background: var(--card-sunken);
   color: var(--text);
   font-family: inherit;
   font-size: 0.92rem;
 }
 
 .input:focus {
-  border-color: var(--gold);
+  border-color: var(--accent-mark);
   outline: none;
 }
 
@@ -203,12 +215,12 @@
   padding: 16px 16px 6px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(14, 20, 38, 0.45);
+  background: var(--card);
 }
 
 .groupLegend {
   padding: 0 8px;
-  color: var(--gold);
+  color: var(--accent-mark);
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -219,8 +231,8 @@
   margin-left: 6px;
   padding: 1px 7px;
   border-radius: 999px;
-  background: rgba(242, 222, 139, 0.14);
-  color: var(--gold);
+  background: var(--accent-wash);
+  color: var(--accent-mark);
   font-size: 0.74rem;
 }
 
@@ -228,7 +240,7 @@
   margin-bottom: 8px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: rgba(5, 7, 15, 0.45);
+  background: var(--card-sunken);
   overflow: clip;
 }
 
@@ -277,8 +289,8 @@
 }
 
 .rowControls button:hover:not(:disabled) {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--accent-mark);
+  color: var(--accent-mark);
 }
 
 .rowControls button:disabled {
@@ -287,8 +299,8 @@
 }
 
 .deleteButton:hover:not(:disabled) {
-  border-color: #ff8a8a !important;
-  color: #ff8a8a !important;
+  border-color: var(--danger) !important;
+  color: var(--danger) !important;
 }
 
 .lineRow {
@@ -304,14 +316,14 @@
   border: 1px dashed var(--line-strong);
   border-radius: 8px;
   background: transparent;
-  color: var(--gold);
+  color: var(--accent-mark);
   font-family: inherit;
   font-size: 0.86rem;
   cursor: pointer;
 }
 
 .addButton:hover {
-  background: rgba(242, 222, 139, 0.08);
+  background: var(--accent-wash);
 }
 
 /* ---- Checks and saving --------------------------------------------- */
@@ -333,14 +345,14 @@
 .problems li {
   padding: 8px 10px;
   margin-bottom: 6px;
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--accent-mark);
   border-radius: 0 6px 6px 0;
-  background: rgba(242, 222, 139, 0.07);
+  background: var(--accent-wash);
   color: var(--text-soft);
 }
 
 .problems li[data-severity="error"] {
-  border-left-color: #ff8a8a;
+  border-left-color: var(--danger);
   background: rgba(255, 138, 138, 0.08);
 }
 
@@ -359,7 +371,7 @@
 }
 
 .steps li::marker {
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .saveButtons {
@@ -380,14 +392,16 @@
 }
 
 .primary {
-  border-color: var(--gold);
-  background: var(--gold);
-  color: var(--space-900);
+  border-color: var(--accent-mark);
+  background: var(--accent-mark);
+  color: var(--accent-ink);
   font-weight: 600;
 }
 
 .primary:disabled {
-  opacity: 0.4;
+  border-color: var(--line);
+  background: transparent;
+  color: var(--text-faint);
   cursor: default;
 }
 
@@ -397,8 +411,8 @@
 }
 
 .secondary:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--accent-mark);
+  color: var(--accent-mark);
 }
 
 .secondary:disabled {
@@ -408,7 +422,7 @@
 
 .blocked {
   margin: 14px 0 0;
-  color: #ff8a8a;
+  color: var(--danger);
   font-size: 0.82rem;
   line-height: 1.5;
 }
@@ -417,8 +431,8 @@
   margin: 14px 0 0;
   padding: 10px 12px;
   border-radius: 8px;
-  background: rgba(242, 222, 139, 0.1);
-  color: var(--gold);
+  background: var(--accent-wash);
+  color: var(--accent-mark);
   font-size: 0.82rem;
   line-height: 1.5;
 }
@@ -434,7 +448,7 @@
 }
 
 .preview summary:hover {
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .preview pre {
@@ -444,7 +458,7 @@
   overflow: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(5, 7, 15, 0.7);
+  background: var(--card-sunken);
   color: var(--text-soft);
   font-size: 0.74rem;
   line-height: 1.5;

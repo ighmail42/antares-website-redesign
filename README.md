@@ -149,6 +149,23 @@ Titles are Josefin Sans. Copy is Franklin Gothic in the guide; the web uses
 Libre Franklin, its open equivalent, because Franklin Gothic cannot be
 redistributed. Both load through `next/font/google` in `app/layout.tsx`.
 
+**The brand yellow is a fill, not an ink.** At 1.35:1 against white it cannot
+carry text or thin lines on a light background, so on the page it appears as
+button fills, chips and the star. Antares Light Blue does the job of a text
+accent instead, at 9.4:1 on white. Inside a dark panel the yellow goes back to
+being a heading and line colour.
+
+### Light and dark areas
+
+The site is a white page with dark brand bands: the page header on every
+route, the full-bleed photo strip, the season spotlight, the closing call to
+action and the footer.
+
+Any element with `data-scheme="dark"` redefines the ink, surface, line and
+accent tokens for everything inside it, so a component does not need to know
+which kind of section it has been dropped into. A card reads `var(--card)` and
+gets white on the light page and a translucent panel on a dark one.
+
 Official marks live in `public/brand/`: `logo-yellow.png`, `icon-yellow.png`
 and their blue counterparts, plus `constellation-yellow.png`. The constellation
 on the site is an SVG redraw of that emblem so it can animate; its coordinates

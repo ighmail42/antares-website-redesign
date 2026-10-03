@@ -4,16 +4,24 @@
   left: 0;
   right: 0;
   z-index: 50;
-  transition: background-color 280ms ease, border-color 280ms ease, backdrop-filter 280ms ease;
+  transition: background-color 280ms ease, border-color 280ms ease, backdrop-filter 280ms ease,
+    box-shadow 280ms ease;
+  /* Every page opens with a dark brand band, so the header starts transparent
+     with light text and turns into a white bar once you scroll past it. */
   background: transparent;
   border-bottom: 1px solid transparent;
+  --nav-ink: rgba(255, 255, 255, 0.8);
+  --nav-ink-active: var(--brand-yellow);
 }
 
 .header[data-scrolled],
 .header[data-open] {
-  background: rgba(7, 10, 20, 0.82);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(14px) saturate(140%);
   border-bottom-color: var(--line);
+  box-shadow: 0 10px 30px rgba(37, 46, 69, 0.07);
+  --nav-ink: var(--text-soft);
+  --nav-ink-active: var(--brand-light-blue);
 }
 
 .skip {
@@ -22,8 +30,8 @@
   top: 8px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: var(--gold);
-  color: var(--space-900);
+  background: var(--accent);
+  color: var(--accent-ink);
   text-decoration: none;
 }
 
@@ -53,6 +61,29 @@
 /* The plain star, without the 69/62 numerals, which are illegible at this
    size. The star now fills the full height of the mark, so it sits a little
    smaller than the numbered icon did. */
+.logoSwap {
+  display: inline-grid;
+}
+
+.logoSwap .logo {
+  grid-area: 1 / 1;
+  transition: opacity 280ms ease;
+}
+
+.logoOnLight {
+  opacity: 0;
+}
+
+.header[data-scrolled] .logoOnDark,
+.header[data-open] .logoOnDark {
+  opacity: 0;
+}
+
+.header[data-scrolled] .logoOnLight,
+.header[data-open] .logoOnLight {
+  opacity: 1;
+}
+
 .logo {
   width: auto;
   height: 26px;
@@ -60,8 +91,7 @@
 }
 
 .brand:hover .logo {
-  filter: drop-shadow(0 0 12px rgba(242, 222, 139, 0.6));
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.06);
 }
 
 .brandText {
@@ -73,13 +103,15 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--nav-ink-active);
+  transition: color 280ms ease;
 }
 
 .brandNumber {
   font-size: 0.72rem;
   letter-spacing: 0.22em;
-  color: var(--text-faint);
+  color: var(--nav-ink);
+  transition: color 280ms ease;
 }
 
 .desktopNav {
@@ -91,10 +123,10 @@
 .link {
   position: relative;
   padding: 10px 14px;
-  color: var(--text-soft);
+  color: var(--nav-ink);
   font-family: var(--font-display-stack);
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   transition: color 180ms ease;
 }
@@ -108,14 +140,14 @@
   right: 14px;
   bottom: 4px;
   height: 1px;
-  background: var(--gold);
+  background: var(--nav-ink-active);
   transform: scaleX(0);
   transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .link:hover,
 .link[data-active] {
-  color: var(--gold);
+  color: var(--nav-ink-active);
 }
 
 .link:hover::after,
@@ -127,8 +159,8 @@
   margin-left: 12px;
   padding: 0.6em 1.3em;
   border-radius: 999px;
-  background: var(--gold);
-  color: var(--space-900);
+  background: var(--accent);
+  color: var(--accent-ink);
   font-family: var(--font-display-stack);
   font-size: 0.95rem;
   font-weight: 600;
@@ -138,9 +170,9 @@
 
 .cta:hover {
   transform: translateY(-2px);
-  background: var(--gold-bright);
-  color: var(--space-900);
-  box-shadow: 0 12px 30px rgba(242, 222, 139, 0.25);
+  background: #fbeeb4;
+  color: var(--accent-ink);
+  box-shadow: 0 12px 30px rgba(37, 46, 69, 0.2);
 }
 
 .toggle {
@@ -148,10 +180,10 @@
   align-items: center;
   gap: 10px;
   padding: 10px 16px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid currentColor;
   border-radius: 999px;
-  background: rgba(242, 222, 139, 0.06);
-  color: var(--text);
+  background: transparent;
+  color: var(--nav-ink);
   font-family: var(--font-display-stack);
   font-size: 0.85rem;
   letter-spacing: 0.14em;
@@ -165,7 +197,7 @@
   display: block;
   width: 16px;
   height: 1.5px;
-  background: var(--gold);
+  background: currentColor;
   transition: transform 240ms ease, opacity 200ms ease;
 }
 
@@ -204,7 +236,7 @@
   display: grid;
   padding: 8px var(--gutter) 28px;
   border-top: 1px solid var(--line);
-  background: rgba(7, 10, 20, 0.97);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(14px);
 }
 
@@ -223,14 +255,14 @@
   color: var(--text);
   font-family: var(--font-display-stack);
   font-size: 1.35rem;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   animation: drawer-in 380ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
   animation-delay: calc(var(--drawer-index) * 45ms);
 }
 
 .drawerLink[data-active] {
-  color: var(--gold);
+  color: var(--brand-light-blue);
 }
 
 .drawerCta {
@@ -238,8 +270,8 @@
   padding: 16px;
   border: 0;
   border-radius: 999px;
-  background: var(--gold);
-  color: var(--space-900);
+  background: var(--accent);
+  color: var(--accent-ink);
   text-align: center;
   font-weight: 600;
 }

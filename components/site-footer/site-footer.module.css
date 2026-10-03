@@ -1,7 +1,6 @@
 .footer {
   padding-block: clamp(56px, 7vw, 88px) 36px;
-  background: var(--space-900);
-  border-top: 1px solid var(--line);
+  background: var(--brand-dark-blue);
   color: var(--text-soft);
   font-size: 0.95rem;
 }
@@ -56,7 +55,7 @@
 }
 
 .column a:hover {
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .address {
@@ -83,7 +82,7 @@
 }
 
 .built {
-  color: var(--gold);
+  color: var(--accent-mark);
   opacity: 0.7;
 }
 

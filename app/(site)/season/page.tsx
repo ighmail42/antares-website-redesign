@@ -128,7 +128,7 @@ export default function SeasonPage() {
       {/* Last season                                                     */}
       {/* -------------------------------------------------------------- */}
       {previous && (
-        <section className="section" data-tone="deep">
+        <section className="section" data-tone="deep" data-scheme="dark">
           <div className="shell">
             <div className={styles.previousLayout}>
               <Reveal>

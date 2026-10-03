@@ -21,7 +21,7 @@
 .tierName {
   margin: 0;
   font-size: var(--step-2);
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .tierBlurb {
@@ -49,23 +49,32 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-/* Nearly every sponsor logo is drawn dark for a white page, and a few are
-   drawn light for a dark one. Putting each on its own light plate is the only
-   treatment that renders all of them correctly. */
+/* Nearly every sponsor logo is drawn dark for a white page, so on the light
+   page a quiet card is enough. Inside a dark panel they need a light plate. */
 .logoCell {
   display: grid;
   place-items: center;
   min-height: 132px;
   padding: 28px 32px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
   border-radius: 18px;
-  background: #f2f2ef;
+  background: var(--card-sunken);
   transition: transform 260ms ease, background-color 260ms ease, box-shadow 260ms ease;
 }
 
 .logoCell:hover {
-  background: #ffffff;
+  background: var(--card);
   transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+[data-scheme="dark"] .logoCell {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #f2f2ef;
+}
+
+[data-scheme="dark"] .logoCell:hover {
+  background: #ffffff;
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
 }
 
@@ -88,7 +97,7 @@
   font-family: var(--font-display-stack);
   font-size: var(--step-1);
   text-align: center;
-  color: #1d2335;
+  color: var(--text);
 }
 
 /* ---- Why sponsor --------------------------------------------------------- */
@@ -103,15 +112,15 @@
 .valueCard {
   padding: clamp(24px, 3vw, 32px);
   border: 1px solid var(--line);
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--accent-mark);
   border-radius: 4px 18px 18px 4px;
-  background: rgba(9, 13, 26, 0.7);
+  background: var(--card);
   transition: transform 260ms ease, border-color 260ms ease;
 }
 
 .valueCard:hover {
   transform: translateY(-5px);
-  border-left-color: var(--gold-bright);
+  border-left-color: var(--accent-mark);
 }
 
 .valueTitle {
@@ -156,7 +165,7 @@
   padding: clamp(26px, 3vw, 34px);
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: rgba(14, 20, 38, 0.75);
+  background: var(--card);
   transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
 }
 
@@ -167,8 +176,8 @@
 }
 
 .levelInner[data-highlight] {
-  border-color: var(--gold);
-  background: linear-gradient(180deg, rgba(242, 222, 139, 0.1), rgba(14, 20, 38, 0.9));
+  border-color: var(--accent-mark);
+  background: linear-gradient(180deg, var(--accent-wash), var(--card));
 }
 
 .levelFlag {
@@ -177,8 +186,8 @@
   left: clamp(26px, 3vw, 34px);
   padding: 4px 12px;
   border-radius: 999px;
-  background: var(--gold);
-  color: var(--space-900);
+  background: var(--accent-mark);
+  color: var(--accent-ink);
   font-family: var(--font-display-stack);
   font-size: 0.68rem;
   font-weight: 600;
@@ -192,7 +201,7 @@
   font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.3rem);
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .levelName {
@@ -229,7 +238,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--accent-mark);
 }
 
 /* ---- Student quotes ------------------------------------------------------ */
@@ -246,7 +255,7 @@
   padding: clamp(26px, 3vw, 34px);
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: rgba(14, 20, 38, 0.7);
+  background: var(--card);
 }
 
 .quote blockquote {
@@ -258,17 +267,17 @@
 
 .quote blockquote::before {
   content: "\201C";
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .quote blockquote::after {
   content: "\201D";
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .quoteName {
   display: block;
-  color: var(--gold);
+  color: var(--accent-mark);
   font-family: var(--font-display-stack);
 }
 
@@ -299,7 +308,7 @@
 }
 
 .steps li::marker {
-  color: var(--gold);
+  color: var(--accent-mark);
   font-family: var(--font-display-stack);
 }
 
@@ -311,7 +320,7 @@
   padding: clamp(26px, 3vw, 34px);
   border: 1px solid var(--line-strong);
   border-radius: 20px;
-  background: rgba(9, 13, 26, 0.85);
+  background: var(--card);
 }
 
 .legalTitle {
@@ -348,11 +357,15 @@
    empty white plate. */
 .logoCell:has(.textSponsor) {
   border-color: var(--line);
-  background: rgba(14, 20, 38, 0.7);
+  background: var(--card);
   min-height: 104px;
 }
 
+[data-scheme="dark"] .logoCell:has(.textSponsor) {
+  background: var(--card);
+}
+
 .logoCell:has(.textSponsor):hover {
-  background: rgba(22, 30, 52, 0.9);
+  background: var(--card-raised);
   box-shadow: none;
 }

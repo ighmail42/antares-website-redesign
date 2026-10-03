@@ -49,14 +49,25 @@ export function SiteHeader() {
 
       <div className={styles.inner}>
         <Link className={styles.brand} href="/" aria-label="Antares, Team 6962 home">
-          <Image
-            className={styles.logo}
-            src={asset("/brand/star-yellow.png")}
-            alt=""
-            width={1256}
-            height={1618}
-            priority
-          />
+          {/* The yellow star disappears on the white bar, so the blue one
+              takes over as soon as the header turns solid. */}
+          <span className={styles.logoSwap}>
+            <Image
+              className={`${styles.logo} ${styles.logoOnDark}`}
+              src={asset("/brand/star-yellow.png")}
+              alt=""
+              width={1256}
+              height={1618}
+              priority
+            />
+            <Image
+              className={`${styles.logo} ${styles.logoOnLight}`}
+              src={asset("/brand/star-blue.png")}
+              alt=""
+              width={1256}
+              height={1618}
+            />
+          </span>
           <span className={styles.brandText}>
             Antares
             <span className={styles.brandNumber}>6962</span>

@@ -24,13 +24,13 @@
 }
 
 .awardRow:hover {
-  background: rgba(242, 222, 139, 0.04);
+  background: var(--accent-wash);
   padding-left: 16px;
 }
 
 .awardYear {
   font-family: var(--font-display-stack);
-  color: var(--gold);
+  color: var(--accent-mark);
   font-variant-numeric: tabular-nums;
 }
 

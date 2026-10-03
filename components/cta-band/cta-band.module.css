@@ -1,8 +1,7 @@
 .band {
   position: relative;
   padding-block: clamp(72px, 10vw, 132px);
-  background: linear-gradient(180deg, var(--space-900), #0a1120 60%, var(--space-900));
-  border-top: 1px solid var(--line);
+  background: linear-gradient(200deg, var(--brand-light-blue) -30%, var(--brand-blue) 40%, var(--brand-dark-blue));
   overflow: clip;
 }
 

@@ -9,7 +9,7 @@ export default function NotFound() {
   return (
     <>
       <SiteHeader />
-      <main className={styles.wrap}>
+      <main className={styles.wrap} data-scheme="dark">
       <Constellation className={styles.backdrop} animated={false} />
       <div className="shell">
         <div className={styles.inner}>

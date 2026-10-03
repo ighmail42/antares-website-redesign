@@ -16,7 +16,7 @@ type CtaBandProps = {
 /** The full-bleed closing panel used at the bottom of most pages. */
 export function CtaBand({ eyebrow, title, body, primary, secondary }: CtaBandProps) {
   return (
-    <section className={styles.band}>
+    <section className={styles.band} data-scheme="dark">
       <Constellation className={styles.backdrop} animated={false} />
       <div className="shell">
         <Reveal className={styles.inner}>

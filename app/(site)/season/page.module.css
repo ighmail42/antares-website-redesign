@@ -18,7 +18,7 @@
   padding: 24px 24px 24px 52px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(14, 20, 38, 0.6);
+  background: var(--card);
   color: var(--text-soft);
 }
 
@@ -30,7 +30,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--accent-mark);
   box-shadow: 0 0 12px rgba(242, 222, 139, 0.6);
 }
 
@@ -53,7 +53,7 @@
   padding: 22px 24px;
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: rgba(9, 13, 26, 0.7);
+  background: var(--card);
   color: var(--text);
   font-family: var(--font-display-stack);
   text-decoration: none;
@@ -62,13 +62,13 @@
 
 .blogCard:hover {
   border-color: var(--line-strong);
-  background: rgba(22, 30, 52, 0.9);
+  background: var(--card-raised);
   transform: translateY(-4px);
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .blogArrow {
-  color: var(--gold);
+  color: var(--accent-mark);
   transition: transform 240ms ease;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .phase:hover {
-  background: rgba(242, 222, 139, 0.03);
+  background: var(--accent-wash);
 }
 
 .phaseWhen {
@@ -103,7 +103,7 @@
   font-size: 0.82rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent-mark);
   padding-top: 0.35em;
 }
 
@@ -138,14 +138,14 @@
 }
 
 .previousList li::marker {
-  color: var(--gold);
+  color: var(--accent-mark);
 }
 
 .previousMedia {
   padding: clamp(18px, 3vw, 34px);
   border: 1px solid var(--line);
   border-radius: 24px;
-  background: radial-gradient(120% 120% at 30% 0%, rgba(57, 69, 106, 0.5), rgba(5, 7, 15, 0.9));
+  background: radial-gradient(120% 120% at 30% 0%, var(--brand-light-blue), var(--brand-dark-blue));
 }
 
 .previousMedia img {

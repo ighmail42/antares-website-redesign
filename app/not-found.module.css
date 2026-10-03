@@ -1,8 +1,11 @@
+/* Every page opens with the brand band, which is also what the site header
+   needs behind it while it is still transparent. */
 .wrap {
   position: relative;
   display: grid;
   align-items: center;
   min-height: 70svh;
+  background: linear-gradient(170deg, var(--brand-light-blue) -20%, var(--brand-blue) 50%, var(--brand-dark-blue));
   padding-top: calc(var(--header-height) + 64px);
   padding-bottom: 96px;
   overflow: clip;

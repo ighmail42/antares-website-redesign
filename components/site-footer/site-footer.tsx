@@ -9,7 +9,7 @@ import { asset } from "@/lib/asset";
 
 export function SiteFooter() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-scheme="dark">
       <div className="shell">
         <div className={styles.top}>
           <div className={styles.brandBlock}>

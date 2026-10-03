@@ -40,7 +40,7 @@ export default function HistoryPage() {
         </div>
       </section>
 
-      <section className="section" data-tone="deep">
+      <section className="section" data-tone="deep" data-scheme="dark">
         <div className="shell">
           <Reveal>
             <p className="eyebrow">The full list</p>

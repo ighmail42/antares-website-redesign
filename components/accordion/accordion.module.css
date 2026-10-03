@@ -1,7 +1,7 @@
 .item {
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(20, 27, 48, 0.55);
+  background: var(--card);
   overflow: clip;
   transition: border-color 200ms ease, background-color 200ms ease;
 }
@@ -16,7 +16,7 @@
 
 .item[open] {
   border-color: var(--line-strong);
-  background: rgba(22, 30, 52, 0.85);
+  background: var(--card-raised);
 }
 
 .summary {
@@ -72,8 +72,8 @@
   flex: 0 0 auto;
   width: 11px;
   height: 11px;
-  border-right: 2px solid var(--gold);
-  border-bottom: 2px solid var(--gold);
+  border-right: 2px solid var(--accent-mark);
+  border-bottom: 2px solid var(--accent-mark);
   transform: rotate(45deg) translate(-2px, -2px);
   transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }

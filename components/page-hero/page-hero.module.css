@@ -2,8 +2,7 @@
   position: relative;
   padding-top: clamp(96px, 13vw, 168px);
   padding-bottom: clamp(56px, 8vw, 104px);
-  background: var(--space-900);
-  border-bottom: 1px solid var(--line);
+  background: linear-gradient(170deg, var(--brand-light-blue) -20%, var(--brand-blue) 45%, var(--brand-dark-blue));
   overflow: clip;
   isolation: isolate;
 }

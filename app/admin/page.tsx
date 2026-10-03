@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function AdminPage() {
   return (
     <>
-      <div className={styles.banner}>
+      <div className={styles.banner} data-scheme="dark">
         <div>
           <strong>Content editor.</strong> Changes here are not live until you save the file to
           GitHub. <Link href="/">Back to the site</Link>
