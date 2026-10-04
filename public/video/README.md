@@ -15,3 +15,10 @@ Guidelines that keep the page fast and the text readable:
 
 Until `src` is set, the hero uses the still image in `content/media.ts` and
 nothing breaks.
+
+## Current clip
+
+`hero.mp4` is 20 seconds of Antares' own match footage, cut from the team's
+original 1080p recording and re-encoded to 960x540 H.264 at about 3.5 MB.
+`hero-poster.jpg` is a still from two seconds into that clip. Replace both
+together if you swap in newer footage.
