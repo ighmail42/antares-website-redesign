@@ -166,7 +166,7 @@
       "eyebrow": "2026-27 partnership levels",
       "title": "Pick a level, or design one with us",
       "lede": "Each level adds to the one before it. Multi-year, in-kind, matching and employee-expertise partnerships are all welcome.",
-      "note": "Final benefits follow sponsor, team, school and event requirements."
+      "note": "Final benefits follow sponsor, school, team and event requirements."
     },
     "quotes": {
       "eyebrow": "In their words",
@@ -202,9 +202,9 @@
       "title": "What a contribution buys"
     },
     "offsite": {
-      "eyebrow": "Proposed for Mission Partners",
+      "eyebrow": "Proposed for Antares Mission partners",
       "title": "A hands-on employee robot experience",
-      "lede": "A Mission Partner could host a supervised team offsite built around the Antares robot: a student briefing on how it works and what failed, a safety orientation and supervised driving practice, then short driving and scoring challenges for employees.",
+      "lede": "An Antares Mission partner could host a supervised team offsite built around the Antares robot: a student briefing on how it works and what failed, a safety orientation and supervised driving practice, then short driving and scoring challenges for employees.",
       "note": "This is a proposed concept. Final scope depends on venue, robot availability, a partner team for any second robot, adult supervision and school safety approval.",
       "primaryCta": "Partnership levels",
       "secondaryCta": "Ask about an offsite"
@@ -267,17 +267,6 @@
     "methodSponsorship": {
       "title": "Company sponsorship",
       "note": "Partnership levels from $1,000"
-    }
-  },
-  "internal": {
-    "hero": {
-      "eyebrow": "Team internal",
-      "title": "Announcements and the calendar",
-      "lede": "Everything current members need in one place. Announcements are the source of truth; if it is not written down, it did not happen."
-    },
-    "links": {
-      "eyebrow": "Tools",
-      "title": "Quick links"
     }
   },
   "blog": {

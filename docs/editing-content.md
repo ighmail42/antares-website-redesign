@@ -81,7 +81,6 @@ You cannot take the site down by typing the wrong thing.
 | `training.json` | The training subjects and their lessons |
 | `team.json` | Awards, student quotes, the explainer blocks, subteams |
 | `media.json` | The video and photos behind page headers |
-| `internal.json` | The members-only page |
 
 ---
 

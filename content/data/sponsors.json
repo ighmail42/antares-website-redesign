@@ -119,8 +119,8 @@
   "partnershipLevels": [
     {
       "amount": "$1,000+",
-      "name": "Community Partner",
-      "summary": "Get your name in front of the FRC community.",
+      "name": "Spark",
+      "summary": "Funds registration, parts, or an outreach event.",
       "benefits": [
         "Sponsor listing on team6962.com",
         "A season thank-you from the team"
@@ -128,33 +128,41 @@
     },
     {
       "amount": "$2,500+",
-      "name": "Program Partner",
-      "summary": "Everything in Community Partner, plus recognition during the season.",
+      "name": "Stellar",
+      "summary": "Funds event travel or a major component.",
       "benefits": [
-        "Everything in Community Partner",
+        "Everything in Spark",
         "Recognition on team social media",
         "A concise season impact update"
       ]
     },
     {
-      "amount": "$7,500+",
-      "name": "Build Partner",
-      "summary": "Your logo travels with the team to every event.",
+      "amount": "$5,000+",
+      "name": "Interstellar",
+      "summary": "Funds build-season materials and tooling.",
       "benefits": [
-        "Everything in Program Partner",
+        "Everything in Stellar",
         "Logo on team apparel or pit materials",
         "A student-led robot demo"
-      ],
-      "highlight": true
+      ]
     },
     {
-      "amount": "$15,000+",
-      "name": "Mission Partner",
-      "summary": "Top-line recognition and a hands-on experience for your employees.",
+      "amount": "$10,000+",
+      "name": "Supergiant",
+      "summary": "Major support across the competition season.",
       "benefits": [
-        "Everything in Build Partner",
-        "Prominent recognition on the robot, apparel and website",
-        "A proposed hands-on employee robot experience"
+        "Everything in Interstellar",
+        "Prominent recognition on the robot, apparel and website"
+      ]
+    },
+    {
+      "amount": "$20,000+",
+      "name": "Antares Mission",
+      "summary": "A cornerstone partnership for the whole season.",
+      "benefits": [
+        "Everything in Supergiant",
+        "Premier placement across the team's materials",
+        "A custom employee robot experience"
       ]
     }
   ],

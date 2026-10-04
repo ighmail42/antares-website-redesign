@@ -37,7 +37,6 @@ branch so GitHub can build a preview link.
 | Sponsors | A plain logo grid | Every sponsor by tier, why sponsor us, FIRST outcomes, partnership levels with amounts, how to give |
 | Sponsor impact | Did not exist | Where the money goes, what a contribution buys |
 | Donate | Read like a Google Doc | Sectioned, collapsible, and leads with family giving |
-| Internal | A narrow column | Announcements beside the calendar, full width |
 
 Contact details moved from the body of the home page into the site footer, as
 the feedback asked.
@@ -66,7 +65,6 @@ version:
 - Two or three lines about the 2022 and 2023 seasons from someone who was there.
 - Three numbers we could not confirm: active students, competitions this
   season, and people reached through outreach.
-- The Google Calendar embed link for the internal page.
 - Whether Google belongs on the sponsors page.
 
 Anything unconfirmed is deliberately left blank rather than filled with a
@@ -89,7 +87,6 @@ the matching type and anything computed in `content/`:
 - `sponsors.json` — sponsors by tier, partnership levels, budget split
 - `training.json` — the training curriculum
 - `media.json` — hero video and header images
-- `internal.json` — announcements, calendar, internal links
 
 A bad edit cannot take the site down: the content is checked while the site
 builds, and a problem fails the build rather than reaching the live site.

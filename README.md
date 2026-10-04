@@ -48,7 +48,6 @@ GitHub, open a pull request.
 | `content/data/sponsors.json` | Sponsor logos by tier, partnership levels, budget split, FIRST statistics |
 | `content/data/training.json` | Training curriculum, grouped into the collapsible sections on `/training` |
 | `content/data/media.json` | Background photo or video for the home and season headers |
-| `content/data/internal.json` | Announcements doc, calendar embed, internal quick links |
 
 The matching `content/*.ts` file holds the type for each one, plus anything
 computed rather than stored — the home page's "FIRST awards" figure, for

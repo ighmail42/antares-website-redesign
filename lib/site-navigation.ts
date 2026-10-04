@@ -15,7 +15,3 @@ export const siteNavigation: { href: Route; label: string }[] = [
 /** The header's call to action, kept separate so it can be styled as a button. */
 export const primaryAction = { href: "/donate" as Route, label: "Donate" };
 
-/** Links that only make sense to team members. Not in the main navigation. */
-export const internalNavigation: { href: Route; label: string }[] = [
-  { href: "/internal" as Route, label: "Team internal" },
-];

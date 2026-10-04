@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Route } from "next";
 
 import { site } from "@/content/site";
-import { internalNavigation, primaryAction, siteNavigation } from "@/lib/site-navigation";
+import { primaryAction, siteNavigation } from "@/lib/site-navigation";
 import { socialIcons, socialLabels, socialOrder } from "./social-icons";
 import styles from "./site-footer.module.css";
 import { asset } from "@/lib/asset";
@@ -78,11 +77,6 @@ export function SiteFooter() {
             <a href={site.links.blueAlliance} target="_blank" rel="noopener noreferrer">
               Team 6962 on The Blue Alliance
             </a>
-            {internalNavigation.map((item) => (
-              <Link key={item.href} href={item.href as Route}>
-                {item.label}
-              </Link>
-            ))}
           </div>
         </div>
 

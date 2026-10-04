@@ -628,30 +628,6 @@ export const contentFiles: ContentFile[] = [
         ],
       },
       {
-        name: "internal",
-        label: "Team internal page",
-        description: "Headings on the members-only page.",
-        shownOn: "/internal",
-        kind: "object",
-        fields: [
-          {
-            name: "hero", label: "Header", kind: "object",
-            fields: [
-              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
-              { name: "title", label: "Heading", kind: "text" },
-              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
-            ],
-          },
-          {
-            name: "links", label: "Quick links", kind: "object",
-            fields: [
-              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
-              { name: "title", label: "Heading", kind: "text" },
-            ],
-          },
-        ],
-      },
-      {
         name: "blog",
         label: "Build blog page",
         description: "Headings on the blog index.",
@@ -1060,52 +1036,6 @@ export const contentFiles: ContentFile[] = [
     ],
   },
 
-  /* ------------------------------------------------------------------ */
-  {
-    id: "internal",
-    label: "Team internal page",
-    description: "Announcements, the calendar and the quick links on the members-only page.",
-    collections: [
-      {
-        name: "announcementsDoc",
-        label: "Announcements document",
-        description: "The Google Doc embedded on the internal page.",
-        shownOn: "/internal",
-        kind: "object",
-        fields: [
-          { name: "embedUrl", label: "Embed address", kind: "url", required: true, help: "From File > Share > Publish to web in Google Docs." },
-          { name: "editUrl", label: "Edit address", kind: "url", required: true, help: "The normal document link, for the Edit button." },
-        ],
-      },
-      {
-        name: "calendarEmbedUrl",
-        label: "Team calendar",
-        description: "Paste the embed address from Google Calendar. While it is empty the page shows a short note instead.",
-        shownOn: "/internal",
-        kind: "value",
-        field: {
-          name: "calendarEmbedUrl",
-          label: "Calendar embed address",
-          kind: "url",
-          help: "Google Calendar > Settings > the team calendar > Integrate calendar > Embed code. Copy the src address only.",
-        },
-      },
-      {
-        name: "internalLinks",
-        label: "Quick links",
-        description: "The cards at the bottom of the internal page.",
-        shownOn: "/internal",
-        kind: "list",
-        titleField: "title",
-        itemNoun: "link",
-        fields: [
-          { name: "title", label: "Title", kind: "text", required: true },
-          { name: "description", label: "Description", kind: "text", required: true },
-          { name: "href", label: "Link", kind: "url", required: true },
-        ],
-      },
-    ],
-  },
 ];
 
 export function fileById(id: string): ContentFile {

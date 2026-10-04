@@ -80,18 +80,13 @@ or through /admin:
 
 Sponsor websites are also empty. Those need checking rather than guessing.
 
-## 7. Team calendar — `content/internal.ts`
-
-Paste the Google Calendar embed URL into `calendarEmbedUrl`. Instructions are
-in the comment at the top of that file.
-
-## 8. Sponsor list — `content/sponsors.ts`
+## 7. Sponsor list — `content/sponsors.ts`
 
 The sponsor deck lists Google among past supporters, and the website does not.
 Confirm whether Google belongs on the sponsors page and, if so, which tier and
 whether we have permission to use the logo.
 
-## 9. A longer hero video
+## 8. A longer hero video
 
 `public/video/hero.mp4` is a 16-second cut from the 2026 competition reel,
 starting at 0:10 of the original. If there is better footage, or a cut the team
