@@ -644,11 +644,9 @@ export const contentFiles: ContentFile[] = [
           },
           {
             name: "access", label: "Note about access", kind: "object",
-            help: "Shown above the document to everyone. The panel underneath is Google's, and it shows the document, a sign-in card, or a bare \"400. That's an error\" when the reader is signed in to an account the document was not shared with. That error is the reason this block exists: without it the page looks broken rather than closed. Keep it pointing at the Google Docs button, which is the only way out of both failures.",
+            help: "Shown above the document to everyone, because nothing here can tell who has access. Signed out, Google puts a sign-in card in the panel; signed in to an account the document was not shared with, a bare \"400. That's an error\", which looks like a broken page. Keep this short and keep it pointing at the Google Docs button, which is the only way to request access or switch accounts.",
             fields: [
-              { name: "title", label: "Heading", kind: "text" },
-              { name: "body", label: "Explanation", kind: "textarea" },
-              { name: "note", label: "What to do about it", kind: "textarea", help: "The line after the explanation, just before the button." },
+              { name: "body", label: "Note", kind: "textarea" },
               { name: "primaryCta", label: "Button label", kind: "text" },
             ],
           },

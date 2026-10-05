@@ -132,11 +132,16 @@ no password on this site and no member list to maintain.
 
 Everyone else gets one of two things from Google in that same spot. Signed out,
 a sign-in card. Signed in to an account the document was not shared with, a
-bare `400. That's an error` — which looks like a broken website rather than a
-closed door, and is the reason the page carries a note about it above the frame
-and again underneath. Both notes are editable; if you reword them, keep them
-pointing at the Google Docs button, because requesting access and switching
-accounts only work once the reader leaves this site.
+bare `400. That's an error`, which looks like a broken website rather than a
+closed door.
+
+The page cannot tell which of those a reader is looking at, so it carries a
+short note above the frame for everyone. Nothing can be done about that: an
+embedded page from another site is opaque to the page holding it, and Google
+sends no `Timing-Allow-Origin` header, so even the frame's response status
+reads as zero here. If you reword the note, keep it pointing at the Google Docs
+button — requesting access and switching accounts only work once the reader
+leaves this site.
 
 To swap in a different document, open **Team internal document** in the editor.
 It takes the same link twice:

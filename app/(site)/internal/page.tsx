@@ -4,7 +4,6 @@ import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { internalDoc } from "@/content/internal";
 import { page } from "@/content/pages";
-import { site } from "@/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -29,24 +28,16 @@ export default function InternalPage() {
           {/* ----------------------------------------------------------- */}
           {/* Access note                                                  */}
           {/* ----------------------------------------------------------- */}
-          {/* This sits above the frame rather than inside it, because the
-              frame cannot be trusted to explain itself. Signed out, Google
-              fills it with a sign-in card, which is clear enough. Signed in
-              to an account the document was not shared with, Google serves a
-              bare "400. That's an error" instead, which reads as a broken
-              site rather than a closed door. Naming that error here is the
-              point of this block. The way out of both is the same, and it is
-              not inside the frame: Google's full sign-in and request-access
-              pages send X-Frame-Options: DENY, so they only work once you
-              leave for Google Docs. */}
+          {/* The frame below cannot explain itself. Signed out, Google
+              fills it with a sign-in card; signed in to an account the
+              document was not shared with, with a bare "400. That's an
+              error", which reads as a broken site rather than a closed
+              door. Nothing on this side can tell those apart: Google sends
+              no Timing-Allow-Origin, so the frame's response status reads
+              as 0, and a cross-origin document is otherwise opaque. So the
+              frame always renders and this note always shows. */}
           <Reveal className={styles.access}>
-            <h2 className={styles.accessTitle}>{copy.access.title}</h2>
             <p className={styles.accessBody}>{copy.access.body}</p>
-            <p className={styles.accessBody}>{copy.access.note}</p>
-            <p className={styles.accessBody}>
-              Not sure which account the document was shared with? Email{" "}
-              <a href={`mailto:${site.email.general}`}>{site.email.general}</a>.
-            </p>
             <div className={styles.accessActions}>
               <a
                 className="button button-primary"
@@ -85,11 +76,11 @@ export default function InternalPage() {
             {/* The frame is 680px tall, so anyone who scrolls to it has
                 already passed the note above. Repeat the way out here. */}
             <p className={styles.panelFoot}>
-              Seeing a Google error or a sign-in card above instead of the document?{" "}
+              Not showing?{" "}
               <a href={internalDoc.openUrl} target="_blank" rel="noopener noreferrer">
                 Open it in Google Docs
-              </a>{" "}
-              to request access or switch accounts.
+              </a>
+              .
             </p>
           </Reveal>
         </div>

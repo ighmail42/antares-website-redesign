@@ -273,12 +273,10 @@
     "hero": {
       "eyebrow": "Team internal",
       "title": "For team members",
-      "lede": "The team's internal document, embedded below. It is shared with team members only, so you need to be signed in to a Google account that has access. Everything else on this site is public."
+      "lede": "The team's internal document, shared with team members only. Everything else on this site is public."
     },
     "access": {
-      "title": "If you cannot see the document",
-      "body": "The panel below belongs to Google, and it shows one of three things. The document itself, if it was shared with the account you are signed in to. A Google sign-in card, if this browser is not signed in at all. Or a Google error page, usually a blunt “400. That’s an error”, if you are signed in to an account the document was not shared with. That error means you do not have access. It does not mean this site is broken.",
-      "note": "In the last two cases, open the document in Google Docs. That page lets you request access or switch to another account, which the panel here cannot do.",
+      "body": "Sign in with your Google account to see the document. If you see an error instead, that account does not have access — open it in Google Docs to request access or switch accounts.",
       "primaryCta": "Open in Google Docs"
     }
   },
