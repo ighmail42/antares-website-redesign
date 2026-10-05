@@ -29,16 +29,20 @@ export default function InternalPage() {
           {/* ----------------------------------------------------------- */}
           {/* Access note                                                  */}
           {/* ----------------------------------------------------------- */}
-          {/* This sits above the frame rather than inside it. Signed out,
-              Google fills the frame with its own "Sign in to your Google
-              Account" card, so that case explains itself. Signed in to the
-              wrong account it does not, and signing in from inside a frame
-              often fails anyway, because Google's full sign-in pages send
-              X-Frame-Options: DENY and cannot load here. So the way out of
-              every case is the same: leave for Google Docs. */}
+          {/* This sits above the frame rather than inside it, because the
+              frame cannot be trusted to explain itself. Signed out, Google
+              fills it with a sign-in card, which is clear enough. Signed in
+              to an account the document was not shared with, Google serves a
+              bare "400. That's an error" instead, which reads as a broken
+              site rather than a closed door. Naming that error here is the
+              point of this block. The way out of both is the same, and it is
+              not inside the frame: Google's full sign-in and request-access
+              pages send X-Frame-Options: DENY, so they only work once you
+              leave for Google Docs. */}
           <Reveal className={styles.access}>
             <h2 className={styles.accessTitle}>{copy.access.title}</h2>
             <p className={styles.accessBody}>{copy.access.body}</p>
+            <p className={styles.accessBody}>{copy.access.note}</p>
             <p className={styles.accessBody}>
               Not sure which account the document was shared with? Email{" "}
               <a href={`mailto:${site.email.general}`}>{site.email.general}</a>.
@@ -78,6 +82,15 @@ export default function InternalPage() {
                 loading="lazy"
               />
             </div>
+            {/* The frame is 680px tall, so anyone who scrolls to it has
+                already passed the note above. Repeat the way out here. */}
+            <p className={styles.panelFoot}>
+              Seeing a Google error or a sign-in card above instead of the document?{" "}
+              <a href={internalDoc.openUrl} target="_blank" rel="noopener noreferrer">
+                Open it in Google Docs
+              </a>{" "}
+              to request access or switch accounts.
+            </p>
           </Reveal>
         </div>
       </section>

@@ -127,11 +127,16 @@ shows whatever the document says at the moment someone opens it, so editing the
 document is the whole job and nothing needs republishing here.
 
 **Who can read it is decided in Google, not on this site.** Share the document
-with the people who should see it and they will see it in the frame. Everyone
-else gets Google's own sign-in card in the same spot, and the note above the
-frame points them at the document in Google Docs, where they can sign in,
-switch accounts or ask for access. There is no password on this site and no
-member list to maintain.
+with the people who should see it and they will see it in the frame. There is
+no password on this site and no member list to maintain.
+
+Everyone else gets one of two things from Google in that same spot. Signed out,
+a sign-in card. Signed in to an account the document was not shared with, a
+bare `400. That's an error` — which looks like a broken website rather than a
+closed door, and is the reason the page carries a note about it above the frame
+and again underneath. Both notes are editable; if you reword them, keep them
+pointing at the Google Docs button, because requesting access and switching
+accounts only work once the reader leaves this site.
 
 To swap in a different document, open **Team internal document** in the editor.
 It takes the same link twice:
