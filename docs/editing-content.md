@@ -81,6 +81,7 @@ You cannot take the site down by typing the wrong thing.
 | `training.json` | The training subjects and their lessons |
 | `team.json` | Awards, student quotes, the explainer blocks, subteams |
 | `media.json` | The video and photos behind page headers |
+| `internal.json` | The Google Doc embedded on the members-only page |
 
 ---
 
@@ -117,6 +118,31 @@ when it is ready.
 There is a post called "How to write a build blog" already in there, kept as a
 draft. It says all of this again and shows what the format looks like. Delete
 it whenever you like.
+
+## The members-only page
+
+`/internal` is a single Google Doc in a frame, linked from the footer and kept
+out of search engines and the sitemap. It holds no copy of its own: the page
+shows whatever the document says at the moment someone opens it, so editing the
+document is the whole job and nothing needs republishing here.
+
+**Who can read it is decided in Google, not on this site.** Share the document
+with the people who should see it and they will see it in the frame. Everyone
+else gets Google's own sign-in card in the same spot, and the note above the
+frame points them at the document in Google Docs, where they can sign in,
+switch accounts or ask for access. There is no password on this site and no
+member list to maintain.
+
+To swap in a different document, open **Team internal document** in the editor.
+It takes the same link twice:
+
+- **Open address** — the link straight from Share > Copy link.
+- **Embed address** — that same link with everything after the long ID replaced
+  by `/preview`. Only `/preview` is allowed to load inside another site; paste
+  an `/edit` link here and the frame shows nothing at all.
+
+Treat the page as public plumbing around a private document. Anyone can reach
+the URL; only people the document is shared with can read anything.
 
 ## What is not in the editor
 

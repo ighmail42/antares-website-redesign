@@ -87,6 +87,7 @@ the matching type and anything computed in `content/`:
 - `sponsors.json` — sponsors by tier, partnership levels, budget split
 - `training.json` — the training curriculum
 - `media.json` — hero video and header images
+- `internal.json` — the Google Doc embedded on `/internal`
 
 A bad edit cannot take the site down: the content is checked while the site
 builds, and a problem fails the build rather than reaching the live site.

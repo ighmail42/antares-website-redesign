@@ -628,6 +628,32 @@ export const contentFiles: ContentFile[] = [
         ],
       },
       {
+        name: "internal",
+        label: "Team internal page",
+        description: "The wording on the members-only page.",
+        shownOn: "/internal",
+        kind: "object",
+        fields: [
+          {
+            name: "hero", label: "Header", kind: "object",
+            fields: [
+              { name: "eyebrow", label: "Label above the heading", kind: "text", help: "The small uppercase line. Keep it to three or four words." },
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
+            ],
+          },
+          {
+            name: "access", label: "Note about access", kind: "object",
+            help: "Shown above the document to everyone. Signed out, Google fills the panel with its own sign-in card; signed in to an account the document was not shared with, it shows nothing useful, and signing in from inside the panel often fails. Whatever this says, keep it pointing at the Google Docs button, which is the way out of every case.",
+            fields: [
+              { name: "title", label: "Heading", kind: "text" },
+              { name: "body", label: "Explanation", kind: "textarea" },
+              { name: "primaryCta", label: "Button label", kind: "text" },
+            ],
+          },
+        ],
+      },
+      {
         name: "blog",
         label: "Build blog page",
         description: "Headings on the blog index.",
@@ -998,6 +1024,28 @@ export const contentFiles: ContentFile[] = [
         fields: [
           { name: "name", label: "Name", kind: "text", required: true },
           { name: "body", label: "Body", kind: "textarea", required: true },
+        ],
+      },
+    ],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    id: "internal",
+    label: "Team internal document",
+    description: "The Google Doc embedded on the members-only page.",
+    collections: [
+      {
+        name: "doc",
+        label: "Document",
+        description:
+          "Who can read this is decided in Google Docs, not here. Share the document with the people who should see it and they will see it on the page; everyone else gets an empty panel and the note above it.",
+        shownOn: "/internal",
+        kind: "object",
+        fields: [
+          { name: "label", label: "Panel heading", kind: "text", required: true, help: "The heading above the document on the page." },
+          { name: "embedUrl", label: "Embed address", kind: "url", required: true, help: "The share link with the ending replaced by /preview. Only /preview is allowed to load inside the page; a normal /edit link shows nothing." },
+          { name: "openUrl", label: "Open address", kind: "url", required: true, help: "The normal share link, straight from Share > Copy link. The buttons use it, and it is where Google shows its own sign-in and request-access screens." },
         ],
       },
     ],

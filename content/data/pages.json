@@ -269,6 +269,18 @@
       "note": "Partnership levels from $1,000"
     }
   },
+  "internal": {
+    "hero": {
+      "eyebrow": "Team internal",
+      "title": "For team members",
+      "lede": "The team's internal document, embedded below. It is shared with team members only, so you need to be signed in to a Google account that has access. Everything else on this site is public."
+    },
+    "access": {
+      "title": "If you cannot see the document",
+      "body": "The panel below belongs to Google. If this browser is not signed in, Google asks you to sign in there. If it is signed in to an account the document was not shared with, the document will not appear. Signing in from inside an embedded panel does not always work, so if you get stuck, open the document in Google Docs instead: that is where you can sign in, switch accounts or ask for access. Who gets in is decided in Google, not here.",
+      "primaryCta": "Open in Google Docs"
+    }
+  },
   "blog": {
     "hero": {
       "eyebrow": "Build blog",
