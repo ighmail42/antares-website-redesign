@@ -24,7 +24,7 @@ export default function InternalPage() {
       />
 
       <section className="section" data-tight>
-        <div className="shell-wide">
+        <div className="shell">
           {/* ----------------------------------------------------------- */}
           {/* Access note                                                  */}
           {/* ----------------------------------------------------------- */}
