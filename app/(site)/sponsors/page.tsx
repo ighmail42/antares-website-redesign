@@ -65,6 +65,26 @@ export default function SponsorsPage() {
           <Reveal className={styles.footnote}>
             <p>{copy.value.note}</p>
           </Reveal>
+
+          <Reveal className="button-row">
+            <Link className="button button-ghost" href="/sponsors/impact">
+              {copy.value.primaryCta}
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------- */}
+      {/* Current sponsors, by tier                                       */}
+      {/* -------------------------------------------------------------- */}
+      <section className="section">
+        <div className="shell">
+          <Reveal>
+            <p className="eyebrow">{copy.wall.eyebrow}</p>
+            <h2 className={styles.title}>{copy.wall.title}</h2>
+          </Reveal>
+
+          <SponsorWall tiers={sponsorTiers} />
         </div>
       </section>
 
@@ -84,20 +104,6 @@ export default function SponsorsPage() {
           <Reveal className={styles.footnote}>
             <p>{copy.first.note}</p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------- */}
-      {/* Current sponsors, by tier                                       */}
-      {/* -------------------------------------------------------------- */}
-      <section className="section">
-        <div className="shell">
-          <Reveal>
-            <p className="eyebrow">{copy.wall.eyebrow}</p>
-            <h2 className={styles.title}>{copy.wall.title}</h2>
-          </Reveal>
-
-          <SponsorWall tiers={sponsorTiers} />
         </div>
       </section>
 

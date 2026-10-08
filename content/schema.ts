@@ -444,6 +444,7 @@ export const contentFiles: ContentFile[] = [
               { name: "title", label: "Heading", kind: "text" },
               { name: "lede", label: "Intro", kind: "textarea", help: "The larger paragraph under the heading." },
               { name: "note", label: "Small print", kind: "textarea", help: "Shown smaller and quieter, under the block." },
+              { name: "primaryCta", label: "Button label", kind: "text", help: "The button at the end of the block, which goes to the budget page." },
             ],
           },
           {
