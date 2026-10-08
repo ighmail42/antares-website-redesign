@@ -12,7 +12,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Donate",
   description:
-    "Ways to donate to Antares, FRC Team 6962, through Khan Lab School: check, employer matching, donor-advised funds, appreciated stock and in-kind gifts. All tax-deductible.",
+    "Ways to donate to Antares, FRC Team 6962, through Khan Lab School: check, employer matching, donor-advised funds, appreciated stock and in-kind gifts.",
 };
 
 export default function DonatePage() {
@@ -23,7 +23,7 @@ export default function DonatePage() {
       <PageHero
         eyebrow={copy.hero.eyebrow}
         title={copy.hero.title ?? ""}
-        lede={`Donations to Antares go through ${site.legal.recipient}, a ${site.legal.status}, so they are tax-deductible. Tell us it is coming and we will make sure it reaches the team.`}
+        lede={`Donations to Antares go through ${site.legal.recipient}, a ${site.legal.status}, which provides the donation acknowledgment. Tell us a gift is coming and we will make sure it reaches the team.`}
       >
         <div className="button-row">
           <a className="button button-primary" href={site.links.schoolGiving} target="_blank" rel="noopener noreferrer">
@@ -101,6 +101,7 @@ export default function DonatePage() {
                   <br />
                   {site.address.line2}, {site.address.line3}
                 </p>
+                <p className={styles.taxNote}>{site.legal.taxNote}</p>
               </div>
             </Reveal>
 
@@ -179,7 +180,8 @@ export default function DonatePage() {
               <Accordion title={copy.methodSponsorship.title ?? ""} summary={copy.methodSponsorship.note}>
                 <p>
                   Companies and foundations usually sponsor rather than donate, which comes with
-                  recognition at events, on apparel and on this website. See the{" "}
+                  recognition at events, on apparel and on this website. Because a sponsorship buys
+                  something in return, it is not treated like a plain gift. See the{" "}
                   <a href="/sponsors#levels">2026-27 partnership tiers</a>.
                 </p>
               </Accordion>

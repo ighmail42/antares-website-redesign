@@ -205,6 +205,7 @@ export default function SponsorsPage() {
                 <br />
                 Federal tax ID {site.legal.ein}
               </p>
+              <p className={styles.taxNote}>{site.legal.taxNote}</p>
               <h3 className={styles.legalTitle}>Designate the gift</h3>
               <p className={styles.legalBody}>
                 Put &ldquo;{site.legal.memo}&rdquo; in the memo or notes so the gift reaches the

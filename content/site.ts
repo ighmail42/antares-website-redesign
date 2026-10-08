@@ -44,6 +44,10 @@ export type Site = {
     status: string;
     ein: string;
     memo: string;
+    /** Shown wherever the site talks about giving. Deliberately not a claim
+        that a gift is deductible: a sponsorship that comes with benefits is
+        not treated the same way as a plain donation. */
+    taxNote: string;
   };
   /** Empty entries are simply not shown in the footer. */
   social: {

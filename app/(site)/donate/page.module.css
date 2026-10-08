@@ -80,6 +80,18 @@
   line-height: 1.7;
 }
 
+/* Quieter than the recipient details above it: this is the caveat, not the
+   instruction. The site never says a gift is tax-deductible, because a
+   sponsorship that buys recognition is not treated like a plain donation. */
+.legalBox p.taxNote {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
 /* ---- Ways to give -------------------------------------------------------- */
 
 .waysTitle {

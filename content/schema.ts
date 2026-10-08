@@ -131,6 +131,7 @@ export const contentFiles: ContentFile[] = [
               { name: "status", label: "Tax status", kind: "text", required: true },
               { name: "ein", label: "Federal tax ID", kind: "text", required: true },
               { name: "memo", label: "Memo line", kind: "text", required: true, help: "What a donor writes so the gift reaches the team." },
+              { name: "taxNote", label: "Tax note", kind: "textarea", required: true, help: "Shown on the donate and sponsors pages. Keep it away from promising that a gift is tax-deductible: a sponsorship that comes with recognition is not treated the same way as a plain donation, and only a donor's own adviser can tell them which applies." },
             ],
           },
           {

@@ -345,6 +345,17 @@
   line-height: 1.7;
 }
 
+/* See the note in donate/page.module.css: the caveat, kept quieter than the
+   details it qualifies. */
+.taxNote {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
 .legalLink {
   margin-top: 26px;
 }
