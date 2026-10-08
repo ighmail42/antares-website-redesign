@@ -141,10 +141,10 @@
   "sponsors": {
     "hero": {
       "eyebrow": "Sponsors",
-      "title": "Thank you to the people who fund this",
-      "lede": "Sponsorship buys the aluminum, the motors, the registration fees and the shop time. It is the reason a 6th grader at Khan Lab School can learn to build a competition robot.",
-      "primaryCta": "Where the money goes",
-      "secondaryCta": "Talk to the team"
+      "title": "Partner with the students building what's next",
+      "lede": "Antares gives companies a credible way to support student-led engineering while building visibility with STEM-focused students, their families, mentors, and the wider Silicon Valley and California robotics communities.",
+      "primaryCta": "Explore partnership tiers",
+      "secondaryCta": "Talk with the student team"
     },
     "wall": {
       "eyebrow": "Our partners",
@@ -153,7 +153,7 @@
     "value": {
       "eyebrow": "Why sponsor Antares",
       "title": "Repeated visibility with future technical talent",
-      "lede": "Sponsorship reaches STEM-focused students, their families, and the wider technology community around the team.",
+      "lede": "The season runs from the January kickoff through April, with events most weekends. Sponsor branding travels the whole way: on the robot, the pit display, the shirts and the build blog.",
       "note": "Recognition varies by tier and by event policy. A recent example: sponsor-supplied cutting mats and gloves went into gift bags for other teams at regional competitions."
     },
     "first": {
@@ -195,7 +195,7 @@
       "eyebrow": "2025-26 expense budget",
       "title": "Fifty-five percent of it is the robot",
       "lede": "Robot parts, stock materials and equipment together account for 55% of planned spending. The rest keeps students registered, fed, traveling, practicing and reaching the community.",
-      "note": "Rounded percentages, totaling 100%. A gift noted \u201cAntares, Team 6962\u201d is a restricted gift: Khan Lab School has to spend it on the Antares program."
+      "note": "Rounded percentages, totaling 100%. A gift noted “Antares, Team 6962” is a restricted gift: Khan Lab School has to spend it on the Antares program."
     },
     "buys": {
       "eyebrow": "In practice",

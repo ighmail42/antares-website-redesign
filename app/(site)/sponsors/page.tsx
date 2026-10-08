@@ -30,9 +30,9 @@ export default function SponsorsPage() {
         lede={copy.hero.lede}
       >
         <div className="button-row">
-          <Link className="button button-primary" href="/sponsors/impact">
+          <a className="button button-primary" href="#levels">
             {copy.hero.primaryCta}
-          </Link>
+          </a>
           <a
             className="button button-ghost"
             href={mailto({ to: site.email.general, subject: site.email.subjects.sponsorship })}
@@ -41,20 +41,6 @@ export default function SponsorsPage() {
           </a>
         </div>
       </PageHero>
-
-      {/* -------------------------------------------------------------- */}
-      {/* Current sponsors, by tier                                       */}
-      {/* -------------------------------------------------------------- */}
-      <section className="section">
-        <div className="shell">
-          <Reveal>
-            <p className="eyebrow">{copy.wall.eyebrow}</p>
-            <h2 className={styles.title}>{copy.wall.title}</h2>
-          </Reveal>
-
-          <SponsorWall tiers={sponsorTiers} />
-        </div>
-      </section>
 
       {/* -------------------------------------------------------------- */}
       {/* Why sponsor                                                     */}
@@ -102,7 +88,21 @@ export default function SponsorsPage() {
       </section>
 
       {/* -------------------------------------------------------------- */}
-      {/* Partnership levels                                              */}
+      {/* Current sponsors, by tier                                       */}
+      {/* -------------------------------------------------------------- */}
+      <section className="section">
+        <div className="shell">
+          <Reveal>
+            <p className="eyebrow">{copy.wall.eyebrow}</p>
+            <h2 className={styles.title}>{copy.wall.title}</h2>
+          </Reveal>
+
+          <SponsorWall tiers={sponsorTiers} />
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------- */}
+      {/* Partnership tiers (anchor stays #levels: /donate links to it)   */}
       {/* -------------------------------------------------------------- */}
       <section className="section" data-tone="deep" data-scheme="dark" id="levels">
         <div className="shell">
