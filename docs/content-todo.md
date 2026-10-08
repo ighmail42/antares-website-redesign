@@ -39,8 +39,8 @@ array has entries, so nothing looks broken while it is empty.
 should add two or three `highlights`: what the team was proud of, what changed,
 what broke. Look at what 2024, 2025 and 2026 do for the pattern.
 
-Also confirm whether Antares competed in the 2020 INFINITE RECHARGE season.
-It is missing from the list.
+2020 is now in the list: the chief mentor confirmed the robot was Pythagorean
+Cannon and the season was cancelled. It still has no highlights.
 
 ## 4. The sample blog post
 
@@ -88,7 +88,49 @@ whether we have permission to use the logo.
 
 ## 8. A longer hero video
 
-`public/video/hero.mp4` is a 16-second cut from the 2026 competition reel,
-starting at 0:10 of the original. If there is better footage, or a cut the team
-prefers, replace that file and its poster frame. `public/video/README.md` has
-the format requirements.
+`public/video/hero.mp4` is a 20-second cut of the team's own match footage,
+starting at 1:01 of the original recording. If there is better footage, or a
+cut the team prefers, replace that file and its poster frame together.
+`public/video/README.md` has the format requirements.
+
+## 9. Which tier each current sponsor belongs to
+
+The sponsor wall still groups companies as Platinum, Gold, Silver and Bronze,
+which are not the tier names we now use anywhere else. The chief mentor asked
+for them to be translated into Spark, Stellar, Interstellar, Supergiant and
+Antares Mission, and said the actual donation amounts have to be checked first
+to work out who lands where. Nobody should guess this: putting a sponsor in the
+wrong tier is worse than leaving the old labels up.
+
+Once the amounts are known it is a data change in `content/data/sponsors.json`
+or at /admin: rename each group under `sponsorTiers` and move companies between
+them. The eighteen companies currently sit like this:
+
+| Current group | Companies |
+| --- | --- |
+| Platinum | PowerTec, SmugMug |
+| Gold | GlobalLogic, Legion Technologies |
+| Silver | Abbott Laboratories, CMS, Altair Engineering, Apple, General Catalyst, Gene Haas Foundation, HalloApp, Saints Capital |
+| Bronze | Lockheed Martin, PG&E, Intuitive Foundation, FIRST NorCal |
+
+Until that happens the sponsors page uses "tier" for both groupings, which is
+the terminology the mentor picked but reads oddly while two systems coexist.
+
+## 10. Google Drive links that need sharing turned on
+
+The chief mentor supplied Drive links for the FIRST Responders video and for
+five robots: M.R. Left, Optimus Climb, Pythagorean Cannon, Arm2D2 and RedEVA.
+All six return 401 to anyone not signed in to an account with access, so none
+of them are on the site; the robot names and the video are mentioned in text
+only.
+
+Either set each file to **Anyone with the link > Viewer**, or give us public
+URLs, such as the video on YouTube. Then the history page can link them. The
+file IDs are in the mentor's review PDF, dated 7 October 2026.
+
+## 11. Is Khan Lab School 310 students or 315?
+
+The mentor's review says 315 in the note about the home page and 310 in the
+note about the About page. The site says 310 in both places, which is what it
+said before, so nothing was changed. One number, confirmed once, should replace
+both: `communities.kls` and `schoolTimeline` in `content/data/team.json`.

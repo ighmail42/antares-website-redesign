@@ -21,6 +21,17 @@ export type Site = {
     general: string;
     donate: string;
     schoolGiving: string;
+    /** Pre-filled subject lines, so the team can tell messages apart. */
+    subjects: {
+      sponsorship: string;
+      donation: string;
+      matching: string;
+      inKind: string;
+      stock: string;
+      giftNotice: string;
+    };
+    /** The template body for the gift notification both donate@ addresses get. */
+    giftNoticeBody: string;
   };
   address: {
     line1: string;

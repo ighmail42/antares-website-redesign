@@ -30,14 +30,14 @@ const seasonRhythm = [
     body: "FIRST reveals the game. The whole team reads the manual, scores the strategy, and picks what the robot has to be good at.",
   },
   {
-    when: "Six weeks",
+    when: "Eight weeks",
     title: "Build season",
     body: "Design reviews, CAD, fabrication, wiring and code, all at once. Sixteen-plus hours a week per student, and a weekly blog documenting it.",
   },
   {
     when: "Feb to April",
     title: "Competition",
-    body: "District events and regionals, then the district championship if we qualify. Three robots against three, all weekend.",
+    body: "District events and regionals, then the district championship if we qualify. 3 vs 3, all weekend.",
   },
   {
     when: "Spring onward",

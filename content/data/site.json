@@ -4,13 +4,22 @@
     "teamName": "Antares",
     "tagline": "Student-led engineering at Khan Lab School",
     "founded": 2018,
-    "grades": "6-12",
+    "grades": "6th through 12th",
     "city": "Mountain View, California",
     "url": "https://team6962.com",
     "email": {
       "general": "contact@team6962.com",
       "donate": "donate@team6962.com",
-      "schoolGiving": "donate@khanlabschool.org"
+      "schoolGiving": "donate@khanlabschool.org",
+      "subjects": {
+        "sponsorship": "Antares 6962: sponsorship inquiry",
+        "donation": "Antares 6962: donation",
+        "matching": "Antares 6962: employer matching",
+        "inKind": "Antares 6962: in-kind donation",
+        "stock": "Antares 6962: stock transfer instructions",
+        "giftNotice": "Antares 6962: gift notification"
+      },
+      "giftNoticeBody": "Donor name:\nAmount:\nExpected employer match:\nMethod (online, check, stock, in-kind):\n"
     },
     "address": {
       "line1": "Khan Lab School",
@@ -19,7 +28,7 @@
     },
     "legal": {
       "recipient": "Khan Lab School",
-      "status": "501(c)(3) nonprofit school",
+      "status": "501(c)(3) nonprofit",
       "ein": "46-5742553",
       "memo": "Antares, Team 6962"
     },

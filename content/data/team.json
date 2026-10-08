@@ -62,7 +62,7 @@
       "id": "kls",
       "kicker": "The school",
       "title": "Khan Lab School",
-      "body": "A nonprofit TK-12 school founded in 2014 by Sal Khan to put mastery-based, student-directed learning into practice. Around 310 students across two Silicon Valley campuses. Antares is the school's engineering program with real deadlines and a public scoreboard.",
+      "body": "A nonprofit TK-12 school founded in 2014 by Sal Khan to put mastery-based, student-directed learning into practice. Approximately 310 students across two Silicon Valley campuses. Antares is the school's engineering program with real deadlines and a public scoreboard.",
       "href": "https://khanlabschool.org/",
       "linkLabel": "Visit Khan Lab School",
       "external": true
@@ -71,7 +71,7 @@
       "id": "frc",
       "kicker": "The competition",
       "title": "FIRST Robotics Competition",
-      "body": "Every January, FIRST reveals a new game. Teams get six weeks to build a 120-pound robot, then compete in alliances of three against three. Over 93,000 students competed in FRC in 2025, and more than 200 Fortune 500 companies sponsor the program.",
+      "body": "Every January, FIRST unveils a new game. Teams get eight weeks to build a 120-pound robot, then compete in alliances of 3 vs 3. Over 93,000 students competed in FRC in 2025, and more than 200 Fortune 500 companies sponsor the program.",
       "href": "https://www.firstinspires.org/robotics/frc",
       "linkLabel": "What is FRC?",
       "external": true
@@ -98,12 +98,12 @@
     {
       "step": "01",
       "title": "Join in middle school",
-      "body": "Sixth graders start alongside experienced teammates instead of waiting for high school."
+      "body": "6th graders start alongside experienced teammates instead of waiting for high school."
     },
     {
       "step": "02",
       "title": "Learn the craft",
-      "body": "Structured training in design, build, code, fabrication, marketing and business."
+      "body": "Structured training in design, build, electrical, code, fabrication, marketing, business and outreach."
     },
     {
       "step": "03",
@@ -132,7 +132,7 @@
     },
     {
       "marker": "Today",
-      "body": "KLS serves around 310 TK-12 students on two Silicon Valley campuses, with an emphasis on student agency and real-world application."
+      "body": "KLS serves approximately 310 TK-12 students on two Silicon Valley campuses, with an emphasis on student agency and real-world application."
     }
   ],
   "subteams": [

@@ -5,6 +5,7 @@ import { CtaBand } from "@/components/cta-band/cta-band";
 import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { site } from "@/content/site";
+import { mailto } from "@/lib/mailto";
 import { page } from "@/content/pages";
 import styles from "./page.module.css";
 
@@ -28,7 +29,10 @@ export default function DonatePage() {
           <a className="button button-primary" href={site.links.schoolGiving} target="_blank" rel="noopener noreferrer">
             {copy.hero.primaryCta}
           </a>
-          <a className="button button-ghost" href={`mailto:${site.email.donate}`}>
+          <a
+            className="button button-ghost"
+            href={mailto({ to: site.email.donate, subject: site.email.subjects.donation })}
+          >
             {copy.hero.secondaryCta} {site.email.donate}
           </a>
         </div>
@@ -45,7 +49,10 @@ export default function DonatePage() {
             <p className={styles.familyBody}>{copy.family.body}</p>
             <p className={styles.familyBody}>{copy.family.note}</p>
             <div className="button-row">
-              <a className="button button-primary" href={`mailto:${site.email.donate}`}>
+              <a
+                className="button button-primary"
+                href={mailto({ to: site.email.donate, subject: site.email.subjects.matching })}
+              >
                 {copy.family.primaryCta}
               </a>
             </div>
@@ -65,13 +72,23 @@ export default function DonatePage() {
               <ol className={styles.checklist}>
                 <li>
                   Write <strong>&ldquo;{site.legal.memo}&rdquo;</strong> in the memo or notes field.
-                  Without it, the gift lands in the school&apos;s general fund.
+                  That makes it a restricted gift, which the school has to spend on Antares. Without
+                  it, the gift goes to the school&apos;s general fund.
                 </li>
                 <li>
-                  Email <a href={`mailto:${site.email.donate}`}>{site.email.donate}</a> and{" "}
-                  <a href={`mailto:${site.email.schoolGiving}`}>{site.email.schoolGiving}</a> with
-                  the donor name, the amount, any expected employer match, and the method. That is
-                  how we account for and allocate it correctly.
+                  <a
+                    href={mailto({
+                      to: [site.email.donate, site.email.schoolGiving],
+                      subject: site.email.subjects.giftNotice,
+                      body: site.email.giftNoticeBody,
+                    })}
+                  >
+                    Send us a note about the gift
+                  </a>
+                  . It has to reach both {site.email.donate} and {site.email.schoolGiving}, so that
+                  link addresses both and fills in the fields we need: donor name, amount, any
+                  expected employer match, and the method. That is how we account for and allocate
+                  it correctly.
                 </li>
               </ol>
 
@@ -136,9 +153,15 @@ export default function DonatePage() {
 
               <Accordion title={copy.methodStock.title ?? ""} summary={copy.methodStock.note}>
                 <p>
-                  Email <a href={`mailto:${site.email.donate}`}>{site.email.donate}</a> and{" "}
-                  <a href={`mailto:${site.email.schoolGiving}`}>{site.email.schoolGiving}</a> for
-                  transfer instructions.
+                  <a
+                    href={mailto({
+                      to: [site.email.donate, site.email.schoolGiving],
+                      subject: site.email.subjects.stock,
+                    })}
+                  >
+                    Ask both donation addresses for transfer instructions
+                  </a>
+                  .
                 </p>
               </Accordion>
 
@@ -146,8 +169,10 @@ export default function DonatePage() {
                 <p>
                   Machine time, fabrication, tooling, materials and professional expertise are all
                   genuinely useful. Email{" "}
-                  <a href={`mailto:${site.email.donate}`}>{site.email.donate}</a> to discuss what
-                  you have in mind.
+                  <a href={mailto({ to: site.email.donate, subject: site.email.subjects.inKind })}>
+                    {site.email.donate}
+                  </a>{" "}
+                  to discuss what you have in mind.
                 </p>
               </Accordion>
 
@@ -155,7 +180,7 @@ export default function DonatePage() {
                 <p>
                   Companies and foundations usually sponsor rather than donate, which comes with
                   recognition at events, on apparel and on this website. See the{" "}
-                  <a href="/sponsors#levels">2026-27 partnership levels</a>.
+                  <a href="/sponsors#levels">2026-27 partnership tiers</a>.
                 </p>
               </Accordion>
             </div>
@@ -167,7 +192,10 @@ export default function DonatePage() {
         eyebrow={copy.cta.eyebrow}
         title={copy.cta.title ?? ""}
         body={copy.cta.body ?? ""}
-        primary={{ href: `mailto:${site.email.donate}`, label: `Email ${site.email.donate}` }}
+        primary={{
+          href: mailto({ to: site.email.donate, subject: site.email.subjects.donation }),
+          label: `Email ${site.email.donate}`,
+        }}
         secondary={{ href: "/sponsors/impact", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>

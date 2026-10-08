@@ -21,7 +21,13 @@ export function SeasonCard({ season, index }: { season: Season; index: number })
       <div className={styles.body}>
         <header className={styles.header}>
           <h2 className={styles.game}>{season.game}</h2>
-          {season.robot && <p className={styles.robot}>Robot: {season.robot}</p>}
+          {(season.robot || season.students) && (
+            <p className={styles.robot}>
+              {season.robot && <span>Robot: {season.robot}</span>}
+              {season.robot && season.students ? <span aria-hidden="true"> · </span> : null}
+              {season.students && <span>{season.students} students</span>}
+            </p>
+          )}
         </header>
 
         <p className={styles.summary}>{season.summary}</p>

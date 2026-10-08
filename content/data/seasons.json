@@ -2,9 +2,9 @@
   "seasons": [
     {
       "year": "2027",
-      "game": "BioCore",
+      "game": "BIOCORE",
       "status": "current",
-      "summary": "Pre-season is underway. Students are training, prototyping and running design reviews ahead of the January kickoff, when FIRST reveals the new game and the six-week build clock starts.",
+      "summary": "Pre-season is underway. Students are training, prototyping and running design reviews ahead of the January kickoff, when FIRST reveals the new game and the eight-week build clock starts.",
       "highlights": [
         "Pre-season training for the newest group of students",
         "Design reviews run by students, with mentors as coaches",
@@ -23,7 +23,8 @@
       "summary": "Orion picked balls off the floor and shot them accurately into a target. Antares competed at the Silicon Valley and East Bay district events and reached deep into the playoffs at both.",
       "highlights": [
         "Won the Imagery Award and the Autonomous Award in district play",
-        "An unreliable intake at the Northern California District Championship sent the team back to the drawing board",
+        "Qualified for the Northern California District Championship and played into the playoffs there",
+        "An unreliable intake at the District Championship sent the team back to the drawing board",
         "The redesigned intake carried the team to semifinals at Sunset Showdown"
       ],
       "awards": [
@@ -44,6 +45,7 @@
       "summary": "Three robot iterations in one season. The final machine collected PVC pipes from the floor, scored them quickly on poles, and could pick up and shoot large balls into the net.",
       "highlights": [
         "Won the Team Spirit Award",
+        "Built a competition robot in five days",
         "Iterated through three full robots rather than defending the first design",
         "Published a weekly build blog for the entire season"
       ],
@@ -94,7 +96,7 @@
       "game": "CRESCENDO",
       "robot": "Scorpius",
       "status": "past",
-      "summary": "Scorpius collected foam rings, shot them into a target and placed them in the amplifier. It competed at the San Francisco and Monterey Bay Regionals.",
+      "summary": "Scorpius collected notes, shot them into the speaker and placed them in the amplifier. It competed at the San Francisco and Monterey Bay Regionals.",
       "highlights": [
         "Reached the finals at Monterey Bay Regional",
         "Earned Excellence in Engineering at Monterey Bay and Innovation in Control at Sunset Showdown",
@@ -143,7 +145,8 @@
           "label": "Weeks 4 to 6",
           "href": "https://docs.google.com/document/d/1oqWgfKmR4ZTY3XF_sQkCs3bJxaYQO6Udv1iyQMez27U/preview"
         }
-      ]
+      ],
+      "robot": "M.R. Left"
     },
     {
       "year": "2022",
@@ -175,7 +178,9 @@
           "label": "Season Recap",
           "href": "https://docs.google.com/document/d/1pdkHilT2aNJox8RFxs8ZII2xJq4QzanjyLT783SvpRA/preview"
         }
-      ]
+      ],
+      "robot": "Optimus Climb",
+      "students": 57
     },
     {
       "year": "2021",
@@ -183,11 +188,21 @@
       "status": "past",
       "summary": "FIRST ran 2021 remotely, with teams judged on submitted material rather than head-to-head matches.",
       "highlights": [
-        "Won the Imagery Award in honor of Jack Kamen"
+        "Won the Imagery Award in honor of Jack Kamen",
+        "Produced the FIRST Responders video for the remote season"
       ],
       "awards": [
         "Imagery Award"
-      ]
+      ],
+      "students": 43
+    },
+    {
+      "year": "2020",
+      "game": "INFINITE RECHARGE",
+      "robot": "Pythagorean Cannon",
+      "status": "past",
+      "summary": "Pythagorean Cannon was built and ready when FIRST cancelled the 2020 competition season because of the COVID-19 pandemic.",
+      "students": 37
     },
     {
       "year": "2019",
@@ -199,7 +214,9 @@
       ],
       "awards": [
         "Team Spirit Award"
-      ]
+      ],
+      "robot": "Arm2D2",
+      "students": 35
     },
     {
       "year": "2018",
@@ -208,11 +225,13 @@
       "summary": "The rookie season. A brand-new team out of Khan Lab School finished as the highest-seeded rookie at its event.",
       "highlights": [
         "Won Highest Rookie Seed",
-        "Started the program that now runs from grade 6 through grade 12"
+        "Started the program that now runs from 6th grade through 12th grade"
       ],
       "awards": [
         "Highest Rookie Seed"
-      ]
+      ],
+      "robot": "RedEVA",
+      "students": 12
     }
   ]
 }

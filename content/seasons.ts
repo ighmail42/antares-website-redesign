@@ -18,6 +18,8 @@ export type Season = {
   game: string;
   /** What the team called the robot. */
   robot?: string;
+  /** How many students were on the team that season. */
+  students?: number;
   status: "upcoming" | "current" | "past";
   summary: string;
   /** Two to four short lines: achievements, changes, what the team is proud of. */

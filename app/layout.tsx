@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: `%s | Antares ${site.teamNumber}`,
   },
   description:
-    `Antares is FIRST Robotics Competition Team ${site.teamNumber}, a student-led team of grade ${site.grades} engineers at Khan Lab School in ${site.city}.`,
+    `Antares is FIRST Robotics Competition Team ${site.teamNumber}, a student-led team of ${site.grades} graders at Khan Lab School in ${site.city}.`,
   openGraph: {
     type: "website",
     siteName: `Antares | FRC Team ${site.teamNumber}`,

@@ -7,6 +7,7 @@ import { Reveal } from "@/components/reveal/reveal";
 import { StatGrid } from "@/components/stat-grid/stat-grid";
 import { SponsorWall } from "./sponsor-wall";
 import { site } from "@/content/site";
+import { mailto } from "@/lib/mailto";
 import { firstImpactStats, partnershipLevels, sponsorTiers, sponsorValue } from "@/content/sponsors";
 import { studentQuotes } from "@/content/team";
 import { page } from "@/content/pages";
@@ -15,7 +16,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Sponsors",
   description:
-    "The companies and foundations behind Antares, what sponsorship pays for, and the 2026-27 partnership levels starting at $1,000.",
+    "The companies and foundations behind Antares, what sponsorship pays for, and the 2026-27 partnership tiers starting at $1,000.",
 };
 
 export default function SponsorsPage() {
@@ -32,7 +33,10 @@ export default function SponsorsPage() {
           <Link className="button button-primary" href="/sponsors/impact">
             {copy.hero.primaryCta}
           </Link>
-          <a className="button button-ghost" href={`mailto:${site.email.general}`}>
+          <a
+            className="button button-ghost"
+            href={mailto({ to: site.email.general, subject: site.email.subjects.sponsorship })}
+          >
             {copy.hero.secondaryCta}
           </a>
         </div>
@@ -173,9 +177,11 @@ export default function SponsorsPage() {
               <h2 className={styles.title}>{copy.how.title}</h2>
               <ol className={styles.steps}>
                 <li>
-                  <strong>Choose a level with the team.</strong> Email{" "}
-                  <a href={`mailto:${site.email.general}`}>{site.email.general}</a> and a student
-                  will walk you through what each level includes.
+                  <strong>Choose a tier with the team.</strong> Email{" "}
+                  <a href={mailto({ to: site.email.general, subject: site.email.subjects.sponsorship })}>
+                    {site.email.general}
+                  </a>{" "}
+                  and a student will walk you through what each tier includes.
                 </li>
                 <li>
                   <strong>Make the contribution through Khan Lab School.</strong> KLS is a{" "}
@@ -200,9 +206,15 @@ export default function SponsorsPage() {
               </p>
               <h3 className={styles.legalTitle}>Contacts</h3>
               <p className={styles.legalBody}>
-                Partnership discussion: <a href={`mailto:${site.email.general}`}>{site.email.general}</a>
+                Partnership discussion:{" "}
+                <a href={mailto({ to: site.email.general, subject: site.email.subjects.sponsorship })}>
+                  {site.email.general}
+                </a>
                 <br />
-                Giving and in-kind: <a href={`mailto:${site.email.donate}`}>{site.email.donate}</a>
+                Giving and in-kind:{" "}
+                <a href={mailto({ to: site.email.donate, subject: site.email.subjects.donation })}>
+                  {site.email.donate}
+                </a>
                 <br />
                 KLS gift administration:{" "}
                 <a href={`mailto:${site.email.schoolGiving}`}>{site.email.schoolGiving}</a>
@@ -219,7 +231,10 @@ export default function SponsorsPage() {
         eyebrow={copy.cta.eyebrow}
         title={copy.cta.title ?? ""}
         body={copy.cta.body ?? ""}
-        primary={{ href: `mailto:${site.email.general}`, label: copy.cta.primaryCta ?? "" }}
+        primary={{
+          href: mailto({ to: site.email.general, subject: site.email.subjects.sponsorship }),
+          label: copy.cta.primaryCta ?? "",
+        }}
         secondary={{ href: "/sponsors/impact", label: copy.cta.secondaryCta ?? "" }}
       />
     </main>

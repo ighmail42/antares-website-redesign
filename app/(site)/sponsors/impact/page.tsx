@@ -6,6 +6,7 @@ import { CtaBand } from "@/components/cta-band/cta-band";
 import { PageHero } from "@/components/page-hero/page-hero";
 import { Reveal } from "@/components/reveal/reveal";
 import { site } from "@/content/site";
+import { mailto } from "@/lib/mailto";
 import { budgetBreakdown } from "@/content/sponsors";
 import { page } from "@/content/pages";
 import styles from "./page.module.css";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 const whatItBuys = [
   {
     title: "The robot",
-    body: "Motors, gearboxes, wheels, belts, pneumatics, control electronics and the aluminium and polycarbonate it is all bolted to. More than half the budget goes here.",
+    body: "Motors, gearboxes, wheels, belts, pneumatics, control electronics and the aluminum and polycarbonate it is all bolted to. More than half the budget goes here.",
   },
   {
     title: "A place at the event",
@@ -33,7 +34,7 @@ const whatItBuys = [
   },
   {
     title: "The shop",
-    body: "The CNC router, the tooling and the stock materials students practise on before they cut a real part.",
+    body: "The CNC router, the tooling and the stock materials students practice on before they cut a real part.",
   },
 ];
 
@@ -128,7 +129,10 @@ export default function SponsorImpactPage() {
                 <Link className="button button-primary" href="/sponsors#levels">
                   {copy.offsite.primaryCta}
                 </Link>
-                <a className="button button-ghost" href={`mailto:${site.email.general}`}>
+                <a
+                  className="button button-ghost"
+                  href={mailto({ to: site.email.general, subject: site.email.subjects.sponsorship })}
+                >
                   {copy.offsite.secondaryCta}
                 </a>
               </div>

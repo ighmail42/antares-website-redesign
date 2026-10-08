@@ -88,7 +88,7 @@ export const contentFiles: ContentFile[] = [
           { name: "teamName", label: "Team name", kind: "text", required: true },
           { name: "tagline", label: "Tagline", kind: "text" },
           { name: "founded", label: "Founded", kind: "number", required: true },
-          { name: "grades", label: "Grades", kind: "text", placeholder: "6-12" },
+          { name: "grades", label: "Grades", kind: "text", placeholder: "6th through 12th", help: "Reads as \"a student-led team of <grades> graders\" in the site description search engines show." },
           { name: "city", label: "City", kind: "text", required: true },
           { name: "url", label: "Website address", kind: "url", required: true, help: "Used for search engines and link previews. Not the preview site." },
           {
@@ -97,6 +97,22 @@ export const contentFiles: ContentFile[] = [
               { name: "general", label: "General", kind: "text", required: true },
               { name: "donate", label: "Donations", kind: "text", required: true },
               { name: "schoolGiving", label: "School giving office", kind: "text", required: true },
+              {
+                name: "subjects", label: "Subject lines", kind: "object",
+                help: "Filled in for the reader when they click an email link, so the team can tell an arriving message apart at a glance.",
+                fields: [
+                  { name: "sponsorship", label: "Sponsorship inquiry", kind: "text", required: true },
+                  { name: "donation", label: "Donation", kind: "text", required: true },
+                  { name: "matching", label: "Employer matching", kind: "text", required: true },
+                  { name: "inKind", label: "In-kind donation", kind: "text", required: true },
+                  { name: "stock", label: "Stock transfer", kind: "text", required: true },
+                  { name: "giftNotice", label: "Gift notification", kind: "text", required: true },
+                ],
+              },
+              {
+                name: "giftNoticeBody", label: "Gift notification template", kind: "textarea", required: true,
+                help: "The message body filled in when a donor tells us a gift is coming. It goes to the team and the school giving office together, because our process needs both. One field per line.",
+              },
             ],
           },
           {
@@ -758,6 +774,7 @@ export const contentFiles: ContentFile[] = [
           { name: "year", label: "Year", kind: "text", required: true, placeholder: "2027" },
           { name: "game", label: "Game name", kind: "text", required: true, help: "The FIRST game, or the project name for an off-season build." },
           { name: "robot", label: "Robot name", kind: "text", help: "What the team called it. Leave empty if it did not have a name." },
+          { name: "students", label: "Students on the team", kind: "number", help: "Roster size for that season. Leave empty if the number is not known." },
           { name: "status", label: "Status", kind: "select", required: true, options: ["current", "past", "upcoming"] },
           { name: "summary", label: "Summary", kind: "textarea", required: true, help: "Two or three sentences. What the robot did and where it competed." },
           { name: "highlights", label: "Highlights", kind: "stringList", entryNoun: "highlight", help: "Two to four short lines: achievements, changes, what the team is proud of." },

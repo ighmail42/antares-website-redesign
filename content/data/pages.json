@@ -3,7 +3,7 @@
     "hero": {
       "eyebrow": "FRC Team 6962 · Khan Lab School · Mountain View, CA",
       "title": "Students build the robot.",
-      "lede": "Antares is a FIRST Robotics Competition team of sixth through twelfth graders. Every January we get six weeks to design, build, wire and program a 120-pound robot, then take it to the field.",
+      "lede": "Antares is a FIRST Robotics Competition team of 6th through 12th graders. Every January we get 8 weeks to design, build, wire and program a 120-pound robot, then take it to the field.",
       "note": "Students run the team.",
       "primaryCta": "Partner with us",
       "secondaryCta": "See this season"
@@ -23,13 +23,13 @@
     },
     "match": {
       "eyebrow": "How a match works",
-      "title": "Three robots against three robots",
-      "lede": "Each team brings one student-built robot. Every match pairs three red-alliance teams against three blue-alliance teams, and lasts two minutes and thirty seconds."
+      "title": "3 vs 3",
+      "lede": "Each team brings one student-built robot. Every match pairs three red-alliance teams against three blue-alliance teams, and lasts approximately two-and-a-half minutes."
     },
     "studentLed": {
       "eyebrow": "Student led",
       "title": "Seven years to become the person who teaches it",
-      "lede": "FRC mostly serves grades 9 through 12. Antares starts in grade 6, so students have enough seasons to learn a discipline, lead it, and hand it on before they graduate. Mentors provide safety, technical context and coaching. Students make the decisions.",
+      "lede": "FRC typically serves 9th through 12th grade. Antares starts in 6th grade, so students have enough seasons to learn a discipline, lead it, and hand it on before they graduate. Mentors provide safety, technical context and coaching. Students make the decisions.",
       "primaryCta": "How the team works"
     },
     "season": {
@@ -39,8 +39,8 @@
     "cta": {
       "eyebrow": "Support the team",
       "title": "Back a team that hands the tools to students",
-      "body": "Sponsorship funds robot parts, registration, travel and the shop where sixth graders learn to build. Partnership levels start at $1,000, and in-kind support and employer matching are welcome.",
-      "primaryCta": "Partnership levels",
+      "body": "Sponsorship funds robot parts, registration, travel and the shop where 6th graders learn to build. Partnership tiers start at $1,000, and in-kind support and employer matching are welcome.",
+      "primaryCta": "Partnership tiers",
       "secondaryCta": "Ways to donate"
     }
   },
@@ -53,7 +53,7 @@
     "ladder": {
       "eyebrow": "Leadership development",
       "title": "Knowledge that carries forward",
-      "lede": "FRC mostly serves grades 9 through 12. Because Antares starts in grade 6, a student can spend seven years on the team: long enough to learn a discipline properly, lead it, and train a replacement before they leave."
+      "lede": "FRC typically serves 9th through 12th grade. Because Antares starts in 6th grade, a student can spend seven years on the team: long enough to learn a discipline properly, lead it, and train a replacement before they leave."
     },
     "subteams": {
       "eyebrow": "What students lead",
@@ -63,13 +63,13 @@
     "school": {
       "eyebrow": "Our school",
       "title": "Khan Lab School",
-      "lede": "Antares is based at Khan Lab School, a nonprofit school built to test what mastery-based, student-directed learning looks like in practice. The team extends that model into an engineering program with real deadlines, public performance and student ownership.",
+      "lede": "Antares is based at Khan Lab School, a nonprofit school built to explore what mastery-based, student-directed learning looks like in practice. The team extends that model into a leadership development and engineering program with real deadlines, public performance and student ownership.",
       "primaryCta": "Visit Khan Lab School"
     },
     "frc": {
       "eyebrow": "The competition",
       "title": "What FIRST Robotics Competition is",
-      "lede": "Every January, FIRST reveals a brand-new game. Teams get six weeks to build a robot for it, then compete at district events and regionals. Matches last two minutes and thirty seconds and pair three teams against three."
+      "lede": "Every January, FIRST reveals a brand-new game. Teams get 8 weeks to build a robot for it, then compete at district events and regionals. Matches last two and a half minutes and pair alliances of three teams against three."
     },
     "awards": {
       "eyebrow": "Recognition",
@@ -78,7 +78,7 @@
     },
     "cta": {
       "eyebrow": "Get involved",
-      "title": "Support the next seven years of students",
+      "title": "Support students from 6th grade through 12th",
       "body": "Sponsorship and donations pay for the parts, the registration fees and the shop time that make this program possible.",
       "primaryCta": "Partner with us",
       "secondaryCta": "Donate"
@@ -110,7 +110,7 @@
     "hero": {
       "eyebrow": "History",
       "title": "Every season since 2018",
-      "lede": "One new robot a year, built in six weeks by students. These are the machines, the awards, and the lessons that shaped the program."
+      "lede": "One new robot a year, built in eight weeks by students. These are the machines, the awards, and the lessons that shaped the program."
     },
     "awards": {
       "eyebrow": "The full list",
@@ -120,14 +120,14 @@
       "eyebrow": "What comes next",
       "title": "Help fund the next robot",
       "body": "Every season on this page was paid for by sponsors, families and in-kind support. The next one needs the same.",
-      "primaryCta": "Partnership levels",
+      "primaryCta": "Partnership tiers",
       "secondaryCta": "This season"
     }
   },
   "training": {
     "hero": {
       "eyebrow": "Training",
-      "title": "How we teach a sixth grader to build a robot",
+      "title": "How we teach a 6th grader to build a robot",
       "lede": "Antares publishes its training curriculum so other teams can use it. These materials were written for our own students, so some of it is specific to how we work."
     },
     "cta": {
@@ -142,7 +142,7 @@
     "hero": {
       "eyebrow": "Sponsors",
       "title": "Thank you to the people who fund this",
-      "lede": "Sponsorship buys the aluminium, the motors, the registration fees and the shop time. It is the reason a sixth grader at Khan Lab School can learn to build a competition robot.",
+      "lede": "Sponsorship buys the aluminum, the motors, the registration fees and the shop time. It is the reason a 6th grader at Khan Lab School can learn to build a competition robot.",
       "primaryCta": "Where the money goes",
       "secondaryCta": "Talk to the team"
     },
@@ -163,9 +163,9 @@
       "note": "Source: FIRST."
     },
     "levels": {
-      "eyebrow": "2026-27 partnership levels",
-      "title": "Pick a level, or design one with us",
-      "lede": "Each level adds to the one before it. Multi-year, in-kind, matching and employee-expertise partnerships are all welcome.",
+      "eyebrow": "2026-27 partnership tiers",
+      "title": "Pick a tier, or design one with us",
+      "lede": "Each tier adds to the one before it. Multi-year, in-kind, matching and employee-expertise partnerships are all welcome.",
       "note": "Final benefits follow sponsor, school, team and event requirements."
     },
     "quotes": {
@@ -194,8 +194,8 @@
     "chart": {
       "eyebrow": "2025-26 expense budget",
       "title": "Fifty-five percent of it is the robot",
-      "lede": "Robot parts, stock materials and equipment together account for 55% of planned spending. The rest keeps students registered, fed, travelling, practising and reaching the community.",
-      "note": "Rounded percentages, totalling 100%. Gifts are unrestricted unless Khan Lab School approves a written designation."
+      "lede": "Robot parts, stock materials and equipment together account for 55% of planned spending. The rest keeps students registered, fed, traveling, practicing and reaching the community.",
+      "note": "Rounded percentages, totaling 100%. A gift noted \u201cAntares, Team 6962\u201d is a restricted gift: Khan Lab School has to spend it on the Antares program."
     },
     "buys": {
       "eyebrow": "In practice",
@@ -206,14 +206,14 @@
       "title": "A hands-on employee robot experience",
       "lede": "An Antares Mission partner could host a supervised team offsite built around the Antares robot: a student briefing on how it works and what failed, a safety orientation and supervised driving practice, then short driving and scoring challenges for employees.",
       "note": "This is a proposed concept. Final scope depends on venue, robot availability, a partner team for any second robot, adult supervision and school safety approval.",
-      "primaryCta": "Partnership levels",
+      "primaryCta": "Partnership tiers",
       "secondaryCta": "Ask about an offsite"
     },
     "cta": {
       "eyebrow": "Support the team",
       "title": "Fund a season",
-      "body": "Partnership levels start at $1,000, and in-kind tools, machining, fabrication and expertise are just as useful as cash.",
-      "primaryCta": "See the levels",
+      "body": "Partnership tiers start at $1,000, and in-kind tools, machining, fabrication and expertise are just as useful as cash.",
+      "primaryCta": "See the tiers",
       "secondaryCta": "Ways to donate"
     }
   },
@@ -241,7 +241,7 @@
     "cta": {
       "eyebrow": "Questions",
       "title": "Not sure which route fits?",
-      "body": "Email the team and a student will help you work out the simplest way to give, including whether your employer will match it.",
+      "body": "Email the team and we will help you work out the simplest way to give, including whether your employer will match it.",
       "secondaryCta": "See where it goes"
     },
     "methodOnline": {
@@ -266,7 +266,7 @@
     },
     "methodSponsorship": {
       "title": "Company sponsorship",
-      "note": "Partnership levels from $1,000"
+      "note": "Partnership tiers from $1,000"
     }
   },
   "internal": {
