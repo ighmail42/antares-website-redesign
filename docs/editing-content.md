@@ -7,6 +7,10 @@ know how to code to change them.
 There are two ways in. Both end with the same thing: a change saved to GitHub,
 which rebuilds the site automatically.
 
+If the words branch, commit and pull request are new to you, read
+[`how-a-change-goes-live.md`](how-a-change-goes-live.md) first. It is short,
+and it explains what happens after you click the buttons below.
+
 ---
 
 ## The editor at /admin

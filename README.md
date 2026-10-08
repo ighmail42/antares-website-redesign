@@ -34,6 +34,10 @@ desktop and phone widths.
 Everything the site says lives in `content/data/` as JSON, and there is a
 form-based editor at **`/admin`** that reads and writes those files.
 
+New to the team, or not sure how a change reaches the website? Start with
+[`docs/how-a-change-goes-live.md`](docs/how-a-change-goes-live.md). It explains
+the process in plain language and assumes nothing.
+
 See [`docs/editing-content.md`](docs/editing-content.md) for the editor's
 workflow. The short version: edit the forms, copy the file, paste it into
 GitHub, open a pull request.
