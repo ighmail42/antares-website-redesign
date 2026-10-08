@@ -277,7 +277,7 @@
       "lede": "The team's internal document, shared with team members only. Everything else on this site is public."
     },
     "access": {
-      "body": "Sign in with your Google account to see the document. If you see an error instead, that account does not have access — open it in Google Docs to request access or switch accounts.",
+      "body": "Sign in with your Google account to see the document. If the panel keeps asking you to sign in, or shows an error, open it in Google Docs instead — that always works, and it is where you can request access or switch accounts.",
       "primaryCta": "Open in Google Docs"
     }
   },

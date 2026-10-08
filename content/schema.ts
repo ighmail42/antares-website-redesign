@@ -662,7 +662,7 @@ export const contentFiles: ContentFile[] = [
           },
           {
             name: "access", label: "Note about access", kind: "object",
-            help: "Shown above the document to everyone, because nothing here can tell who has access. Signed out, Google puts a sign-in card in the panel; signed in to an account the document was not shared with, a bare \"400. That's an error\", which looks like a broken page. Keep this short and keep it pointing at the Google Docs button, which is the only way to request access or switch accounts.",
+            help: "Shown above the document to everyone, because nothing here can tell who has access. The panel often cannot see a reader's Google session at all, since browsers block that cookie inside a frame on another site, so it can keep asking a member to sign in however many times they do. Signed in to an account the document was not shared with, it shows a bare \"400. That's an error\" instead. Keep this short and keep it pointing at the Google Docs button, which is the one thing that works in every case.",
             fields: [
               { name: "body", label: "Note", kind: "textarea" },
               { name: "primaryCta", label: "Button label", kind: "text" },

@@ -130,18 +130,27 @@ document is the whole job and nothing needs republishing here.
 with the people who should see it and they will see it in the frame. There is
 no password on this site and no member list to maintain.
 
-Everyone else gets one of two things from Google in that same spot. Signed out,
-a sign-in card. Signed in to an account the document was not shared with, a
-bare `400. That's an error`, which looks like a broken website rather than a
-closed door.
+**The frame often cannot sign a member in, and this is expected.** Google's
+session cookie counts as third-party inside a frame on another site, and
+browsers increasingly refuse to send it. A member with perfectly good access
+can then be shown the sign-in card over and over: signing in happens in
+another tab, first-party, and the frame never sees it. Signed in to an account
+the document was not shared with, Google shows a bare `400. That's an error`
+instead, which looks like a broken website rather than a closed door.
 
-The page cannot tell which of those a reader is looking at, so it carries a
-short note above the frame for everyone. Nothing can be done about that: an
-embedded page from another site is opaque to the page holding it, and Google
-sends no `Timing-Allow-Origin` header, so even the frame's response status
-reads as zero here. If you reword the note, keep it pointing at the Google Docs
-button — requesting access and switching accounts only work once the reader
-leaves this site.
+The page cannot tell those apart — a cross-origin frame is opaque, and Google
+sends no `Timing-Allow-Origin` header, so even its response status reads as
+zero here — so a short note sits above the frame for everyone, pointing at the
+Google Docs button. That button is the one thing that works in every case. If
+you reword the note, keep it pointing there.
+
+Two things would genuinely fix the frame, and both have a cost the team
+weighed and declined. Embedding the document's **published to web** form
+(File > Share > Publish to web) needs no sign-in and frames cleanly, but it
+makes the contents readable by anyone who opens the page. Removing the frame
+and leaving a link keeps the document private and always works, but members
+read it on Google Docs rather than here. If the sign-in loop becomes a real
+nuisance, those are the two choices to revisit.
 
 To swap in a different document, open **Team internal document** in the editor.
 It takes the same link twice:
