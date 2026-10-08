@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Accordion } from "@/components/accordion/accordion";
 import { CtaBand } from "@/components/cta-band/cta-band";
@@ -85,10 +86,9 @@ export default function DonatePage() {
                   >
                     Send us a note about the gift
                   </a>
-                  . It has to reach both {site.email.donate} and {site.email.schoolGiving}, so that
-                  link addresses both and fills in the fields we need: donor name, amount, any
-                  expected employer match, and the method. That is how we account for and allocate
-                  it correctly.
+                  . The link opens an email, already addressed to the team and the school&apos;s
+                  giving office, with the details we need: donor name, amount, any expected
+                  employer match, and the method. That is how we make sure it reaches Antares.
                 </li>
               </ol>
 
@@ -160,7 +160,7 @@ export default function DonatePage() {
                       subject: site.email.subjects.stock,
                     })}
                   >
-                    Ask both donation addresses for transfer instructions
+                    Email us for transfer instructions
                   </a>
                   .
                 </p>
@@ -182,7 +182,7 @@ export default function DonatePage() {
                   Companies and foundations usually sponsor rather than donate, which comes with
                   recognition at events, on apparel and on this website. Because a sponsorship buys
                   something in return, it is not treated like a plain gift. See the{" "}
-                  <a href="/sponsors#levels">2026-27 partnership tiers</a>.
+                  <Link href="/sponsors#levels">2026-27 partnership tiers</Link>.
                 </p>
               </Accordion>
             </div>
