@@ -7,6 +7,7 @@
       "date": "2026-10-03",
       "authors": "Antares marketing",
       "summary": "An example of the new blog format, sitting where a real post will. Replace it with the first week of the season, or delete it.",
+      "draft": true,
       "sections": [
         {
           "heading": "This is a sample",
@@ -32,7 +33,7 @@
       "date": "2026-10-03",
       "authors": "Antares marketing",
       "summary": "What a good build blog does, and how to write one on this site. Kept as a draft so it stays off the public list.",
-      "draft": false,
+      "draft": true,
       "sections": [
         {
           "heading": "What a build blog is for",

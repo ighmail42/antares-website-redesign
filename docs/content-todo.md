@@ -42,11 +42,17 @@ what broke. Look at what 2024, 2025 and 2026 do for the pattern.
 2020 is now in the list: the chief mentor confirmed the robot was Pythagorean
 Cannon and the season was cancelled. It still has no highlights.
 
-## 4. The sample blog post
+## 4. The 2027 build blog is empty
 
-`/blog/2027-sample-post` is called "A sample post" and says so in its first
-line. It exists so the season page is not empty while the format is new.
-Replace it with the first real post of the season, or delete it in the editor.
+Both posts written in the new format are drafts: "A sample post", which only
+ever existed to show the format, and "How to write a build blog", which is
+instructions. Neither is something a visitor should read, so neither is
+public.
+
+That leaves 2027 with nothing, and the build blog section on the season page
+hides itself when its season has no public post. It comes back on its own the
+moment one is published, so the first real post of the season is the whole
+fix. Both drafts can be deleted in the editor once nobody needs them.
 
 The four 2027 Google Doc links that used to sit on the season page have been
 removed: all of them needed a sign-in. They are in the git history if anyone
