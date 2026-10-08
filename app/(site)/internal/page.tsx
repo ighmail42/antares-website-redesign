@@ -28,27 +28,30 @@ export default function InternalPage() {
           {/* ----------------------------------------------------------- */}
           {/* Access note                                                  */}
           {/* ----------------------------------------------------------- */}
-          {/* The frame below cannot explain itself, and often cannot let a
-              member in at all.
+          {/* The frame cannot explain itself, so this note does it.
 
-              Google's session cookie is third-party inside this frame, and
-              browsers increasingly refuse to send it. When that happens the
-              member sees the sign-in card no matter how many times they
-              sign in, because signing in happens first-party in another tab
-              and the frame never sees the result. Signed in to an account
-              the document was not shared with, Google serves a bare "400.
-              That's an error" instead, which reads as a broken site.
+              Right now the frame does not work at all for this document.
+              `/preview` is the only form of a private Doc allowed to load
+              inside another site, and for this one it does not render even
+              when opened directly, first-party, by a member who can open
+              `/edit` perfectly well. Checked against the document this page
+              showed before, which does render: same account, same browser,
+              both documents "Restricted", both returning an identical
+              sign-in page to anyone signed out. So it is not sharing, not
+              cookies and not the frame. Previews are closed off for this
+              one document, and a Workspace admin has been asked to turn
+              them on.
 
-              Nothing on this side can tell those apart: Google sends no
-              Timing-Allow-Origin, so the frame's response status reads as 0,
-              and a cross-origin document is otherwise opaque. So the frame
-              always renders, this note always shows, and the note sends
-              people to Google Docs, which works in every case.
-
-              The fixes that would actually work both have a cost the team
-              declined: embedding the document's published-to-web form makes
-              its contents public, and dropping the frame means reading it on
-              Google Docs instead of here. */}
+              Once that happens the frame works, and the note still earns
+              its place. Signed out, Google fills the frame with a sign-in
+              card. Signed in to an account the document was not shared
+              with, it serves a bare "400. That's an error", which reads as
+              a broken site rather than a closed door. Nothing on this side
+              can tell those apart: a cross-origin frame is opaque, and
+              Google sends no Timing-Allow-Origin, so even the frame's
+              response status reads as 0. The note therefore always shows,
+              and always points at Google Docs, which works in every
+              case. */}
           <Reveal className={styles.access}>
             <p className={styles.accessBody}>{copy.access.body}</p>
             <div className={styles.accessActions}>

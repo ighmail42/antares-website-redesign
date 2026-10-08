@@ -134,7 +134,21 @@ Either set each file to **Anyone with the link > Viewer**, or give us public
 URLs, such as the video on YouTube. Then the history page can link them. The
 file IDs are in the mentor's review PDF, dated 7 October 2026.
 
-## 11. Is Khan Lab School 310 students or 315?
+## 11. Enable previews on the team internal document
+
+`/internal` embeds the team document, and the frame is blank for everyone
+because that document has previews switched off. `/preview` is the only form
+of a private Google Doc another site may load, and for this one it does not
+render even when a member with access opens it directly. The document this
+page embedded before does render, from the same account and browser, with
+both documents set to "Restricted", so it is specific to this file rather
+than to sharing or to the website.
+
+A Workspace admin needs to turn previews on for it. Nothing in this
+repository can work around it. The fallbacks, if it cannot be done, are in
+`docs/editing-content.md` under "The members-only page".
+
+## 12. Is Khan Lab School 310 students or 315?
 
 The mentor's review says 315 in the note about the home page and 310 in the
 note about the About page. The site says 310 in both places, which is what it

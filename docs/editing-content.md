@@ -130,27 +130,29 @@ document is the whole job and nothing needs republishing here.
 with the people who should see it and they will see it in the frame. There is
 no password on this site and no member list to maintain.
 
-**The frame often cannot sign a member in, and this is expected.** Google's
-session cookie counts as third-party inside a frame on another site, and
-browsers increasingly refuse to send it. A member with perfectly good access
-can then be shown the sign-in card over and over: signing in happens in
-another tab, first-party, and the frame never sees it. Signed in to an account
-the document was not shared with, Google shows a bare `400. That's an error`
-instead, which looks like a broken website rather than a closed door.
+**Known issue: the frame is blank for everyone right now.** The document it
+points at has previews switched off, so `/preview` — the only form of a
+private Doc that another site is allowed to load — does not render it, even
+opened directly by a member who can open the document normally. A Workspace
+admin has been asked to enable previews, which is the fix; nothing in this
+repository can work around it, and swapping in a different address will not
+help, because `/edit` cannot be framed at all.
 
-The page cannot tell those apart — a cross-origin frame is opaque, and Google
-sends no `Timing-Allow-Origin` header, so even its response status reads as
-zero here — so a short note sits above the frame for everyone, pointing at the
-Google Docs button. That button is the one thing that works in every case. If
-you reword the note, keep it pointing there.
+Once previews are on, the note above the frame still matters. Signed out,
+Google fills the frame with its own sign-in card. Signed in to an account the
+document was not shared with, it serves a bare `400. That's an error`, which
+looks like a broken website rather than a closed door. The page cannot tell
+those apart — a cross-origin frame is opaque, and Google sends no
+`Timing-Allow-Origin` header, so even its response status reads as zero here
+— so the note shows for everyone and points at the Google Docs button, which
+works in every case. If you reword it, keep it pointing there.
 
-Two things would genuinely fix the frame, and both have a cost the team
-weighed and declined. Embedding the document's **published to web** form
-(File > Share > Publish to web) needs no sign-in and frames cleanly, but it
-makes the contents readable by anyone who opens the page. Removing the frame
-and leaving a link keeps the document private and always works, but members
-read it on Google Docs rather than here. If the sign-in loop becomes a real
-nuisance, those are the two choices to revisit.
+If previews never get enabled, there are two ways out. Embedding the
+document's **published to web** form (File > Share > Publish to web) needs no
+sign-in and frames cleanly, but it makes the contents readable by anyone who
+opens the page. Removing the frame and leaving a button keeps the document
+private and always works, but members read it on Google Docs rather than
+here.
 
 To swap in a different document, open **Team internal document** in the editor.
 It takes the same link twice:
