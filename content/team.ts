@@ -8,6 +8,7 @@
  */
 
 import data from "./data/team.json";
+import { currentSeason } from "./seasons";
 
 export type Stat = {
   value: string;
@@ -19,7 +20,6 @@ export type Stat = {
 };
 
 export type TeamNumbers = {
-  activeStudents?: number;
   weeklyHours: number;
   competitionsThisSeason?: number;
   peopleReachedByOutreach?: number;
@@ -56,12 +56,27 @@ export const teamNumbers: TeamNumbers = data.teamNumbers;
 export const awards: Award[] = data.awards;
 
 /**
- * The four big numbers on the home page. Derived rather than stored, so the
- * award count stays in step with the list above instead of drifting from it.
+ * The four big numbers on the home page. Derived rather than stored, so they
+ * cannot drift from the facts they summarise: the award count is the length
+ * of the list above, and the roster size is whichever season is marked
+ * current in `content/data/seasons.json`. Rolling the season over updates
+ * the home page on its own.
+ *
+ * The roster tile is skipped entirely if that season has no student count,
+ * rather than rendering an empty number at a sponsor.
  */
 export const headlineStats: Stat[] = [
   { value: "2018", label: "Founded", detail: "Rookie season at Khan Lab School" },
-  { value: "6-12", label: "Grades", detail: "Middle school through senior year" },
+  ...(currentSeason.students
+    ? [
+        {
+          value: String(currentSeason.students),
+          numeric: currentSeason.students,
+          label: "Students",
+          detail: `On the team this season, from 6th grade through 12th`,
+        },
+      ]
+    : []),
   {
     value: String(awards.length),
     numeric: awards.length,

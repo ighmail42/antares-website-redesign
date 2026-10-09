@@ -933,10 +933,9 @@ export const contentFiles: ContentFile[] = [
       {
         name: "teamNumbers",
         label: "Team numbers",
-        description: "Leave a number empty rather than guessing. Anything empty is simply not shown.",
+        description: "Leave a number empty rather than guessing. Anything empty is simply not shown. The student count on the home page is not here: it comes from whichever season is marked current, under Seasons.",
         kind: "object",
         fields: [
-          { name: "activeStudents", label: "Active students", kind: "number" },
           { name: "weeklyHours", label: "Hours a week per member", kind: "number", required: true },
           { name: "competitionsThisSeason", label: "Competitions this season", kind: "number" },
           { name: "peopleReachedByOutreach", label: "People reached by outreach", kind: "number" },

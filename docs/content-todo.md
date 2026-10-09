@@ -10,7 +10,6 @@ Put your name next to an item when you pick it up.
 
 | Field | Where it would appear | Owner |
 | --- | --- | --- |
-| `teamNumbers.activeStudents` | About page, sponsor deck parity | |
 | `teamNumbers.competitionsThisSeason` | Season page | |
 | `teamNumbers.peopleReachedByOutreach` | About and sponsors pages | |
 
@@ -18,6 +17,10 @@ These are `undefined` right now, and every component that renders them skips
 them, so the site never shows a placeholder to a sponsor. Fill them in and they
 appear. `headlineStats` at the top of the same file controls the four big
 numbers on the home page — swap in any of these once they are confirmed.
+
+The student count that used to be listed here is gone, because it is no longer
+a number anyone types: the home page reads it from whichever season is marked
+current in `content/data/seasons.json`.
 
 ## 2. Student stories — `content/team.ts`, `studentQuotes`
 
