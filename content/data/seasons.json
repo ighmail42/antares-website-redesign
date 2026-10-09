@@ -3,6 +3,7 @@
     {
       "year": "2027",
       "game": "BIOCORE",
+      "students": 75,
       "status": "current",
       "summary": "Pre-season is underway. Students are training, prototyping and running design reviews ahead of the January kickoff, when FIRST reveals the new game and the eight-week build clock starts.",
       "highlights": [
@@ -19,6 +20,7 @@
       "year": "2026",
       "game": "REBUILT",
       "robot": "Orion",
+      "students": 62,
       "status": "past",
       "summary": "Orion picked balls off the floor and shot them accurately into a target. Antares competed at the Silicon Valley and East Bay district events and reached deep into the playoffs at both.",
       "highlights": [
@@ -41,6 +43,7 @@
       "year": "2025",
       "game": "REEFSCAPE",
       "robot": "Aquarius, Cygnus and Cassiopeia",
+      "students": 72,
       "status": "past",
       "summary": "Three robot iterations in one season. The final machine collected PVC pipes from the floor, scored them quickly on poles, and could pick up and shoot large balls into the net.",
       "highlights": [
@@ -95,6 +98,7 @@
       "year": "2024",
       "game": "CRESCENDO",
       "robot": "Scorpius",
+      "students": 65,
       "status": "past",
       "summary": "Scorpius collected notes, shot them into the speaker and placed them in the amplifier. It competed at the San Francisco and Monterey Bay Regionals.",
       "highlights": [
@@ -130,6 +134,7 @@
     {
       "year": "2023",
       "game": "CHARGED UP",
+      "students": 66,
       "status": "past",
       "summary": "Antares competed in the 2023 CHARGED UP season and published build blogs through the spring.",
       "image": {
@@ -151,6 +156,7 @@
     {
       "year": "2022",
       "game": "RAPID REACT",
+      "students": 50,
       "status": "past",
       "summary": "Antares competed in the 2022 RAPID REACT season and documented it across five build blogs and a season recap.",
       "image": {
@@ -179,12 +185,12 @@
           "href": "https://docs.google.com/document/d/1pdkHilT2aNJox8RFxs8ZII2xJq4QzanjyLT783SvpRA/preview"
         }
       ],
-      "robot": "Optimus Climb",
-      "students": 57
+      "robot": "Optimus Climb"
     },
     {
       "year": "2021",
       "game": "INFINITE RECHARGE at Home",
+      "students": 38,
       "status": "past",
       "summary": "FIRST ran 2021 remotely, with teams judged on submitted material rather than head-to-head matches.",
       "highlights": [
@@ -193,20 +199,20 @@
       ],
       "awards": [
         "Imagery Award"
-      ],
-      "students": 43
+      ]
     },
     {
       "year": "2020",
       "game": "INFINITE RECHARGE",
       "robot": "Pythagorean Cannon",
+      "students": 29,
       "status": "past",
-      "summary": "Pythagorean Cannon was built and ready when FIRST cancelled the 2020 competition season because of the COVID-19 pandemic.",
-      "students": 37
+      "summary": "Pythagorean Cannon was built and ready when FIRST cancelled the 2020 competition season because of the COVID-19 pandemic."
     },
     {
       "year": "2019",
       "game": "DESTINATION: DEEP SPACE",
+      "students": 26,
       "status": "past",
       "summary": "The team's second competition season.",
       "highlights": [
@@ -215,12 +221,12 @@
       "awards": [
         "Team Spirit Award"
       ],
-      "robot": "Arm2D2",
-      "students": 35
+      "robot": "Arm2D2"
     },
     {
       "year": "2018",
       "game": "POWER UP",
+      "students": 12,
       "status": "past",
       "summary": "The rookie season. A brand-new team out of Khan Lab School finished as the highest-seeded rookie at its event.",
       "highlights": [
@@ -230,8 +236,7 @@
       "awards": [
         "Highest Rookie Seed"
       ],
-      "robot": "RedEVA",
-      "students": 12
+      "robot": "RedEVA"
     }
   ]
 }

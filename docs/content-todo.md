@@ -39,6 +39,24 @@ array has entries, so nothing looks broken while it is empty.
 should add two or three `highlights`: what the team was proud of, what changed,
 what broke. Look at what 2024, 2025 and 2026 do for the pattern.
 
+**Roster sizes disagree with the mentor's review.** Every season's `students`
+now comes from the "# Students" row of the Cumulative Roster. The review PDF
+of 7 October gave different numbers for four of them, and only 2018 agrees:
+
+| Season | Review PDF | Cumulative Roster | On the site |
+| --- | --- | --- | --- |
+| 2018 | 12 | 12 | 12 |
+| 2019 | 35 | 26 | 26 |
+| 2020 | 37 | 29 | 29 |
+| 2021 | 43 | 38 | 38 |
+| 2022 | 57 | 50 | 50 |
+
+The roster is what the site uses, because it is the source the team pointed
+at. The gap is 5 to 9 students a season and looks systematic rather than
+random, so the two may be counting different things — students only, against
+students plus mentors, or a different tab of the same sheet. Worth one person
+confirming which count belongs on a public page.
+
 2020 is now in the list: the chief mentor confirmed the robot was Pythagorean
 Cannon and the season was cancelled. It still has no highlights.
 
