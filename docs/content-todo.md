@@ -165,10 +165,3 @@ than to sharing or to the website.
 A Workspace admin needs to turn previews on for it. Nothing in this
 repository can work around it. The fallbacks, if it cannot be done, are in
 `docs/editing-content.md` under "The members-only page".
-
-## 12. Is Khan Lab School 310 students or 315?
-
-The mentor's review says 315 in the note about the home page and 310 in the
-note about the About page. The site says 310 in both places, which is what it
-said before, so nothing was changed. One number, confirmed once, should replace
-both: `communities.kls` and `schoolTimeline` in `content/data/team.json`.

@@ -62,7 +62,7 @@
       "id": "kls",
       "kicker": "The school",
       "title": "Khan Lab School",
-      "body": "A nonprofit TK-12 school founded in 2014 by Sal Khan to put mastery-based, student-directed learning into practice. Approximately 310 students across two Silicon Valley campuses. Antares is the school's engineering program with real deadlines and a public scoreboard.",
+      "body": "A nonprofit TK-12 school founded in 2014 by Sal Khan to put mastery-based, student-directed learning into practice. Approximately 315 students across two Silicon Valley campuses. Antares is the school's engineering program with real deadlines and a public scoreboard.",
       "href": "https://khanlabschool.org/",
       "linkLabel": "Visit Khan Lab School",
       "external": true
@@ -132,7 +132,7 @@
     },
     {
       "marker": "Today",
-      "body": "KLS serves approximately 310 TK-12 students on two Silicon Valley campuses, with an emphasis on student agency and real-world application."
+      "body": "KLS serves approximately 315 TK-12 students on two Silicon Valley campuses, with an emphasis on student agency and real-world application."
     }
   ],
   "subteams": [
